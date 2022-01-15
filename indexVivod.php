@@ -232,6 +232,7 @@
         }
         echo $speaker.='</div></div>';
     }
+
     function sbornick(){
         include "connect.php";
         $arrayDateAnnouncement=array();
@@ -277,6 +278,7 @@
             }
         echo $el_coll;
     }
+
     function anonsDate (){
         include "connect.php";
         $arrayDateAnnouncement=array();
@@ -356,13 +358,7 @@
         }
         echo $anons;
     }
-    function contaptionAnons(){
-        include "connect.php";
-        $contaption = mysqli_query($connect, "SELECT conf.`an_conception_ru`, conf.`an_conception_en`, yer.`year` FROM `conferences` conf LEFT JOIN `years` yer ON conf.`ID_year` = yer.`ID_year` WHERE `ID_conf` = ".$_SESSION["ID_conf"]);
-        while(($row = mysqli_fetch_assoc($contaption)) != false){
-            
-        }
-    }
+    
     function bread (){
         include "connect.php";
         $cur_url = $_SERVER['REQUEST_URI'];

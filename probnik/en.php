@@ -51,5 +51,6 @@
         'arch' => 'Archive',
         'collect' => 'Collection of electronic materials',
         'no_conf' => 'There are no upcoming conferences',
+        'concept' => 'About the Conference',
     );
 ?>
