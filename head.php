@@ -22,6 +22,7 @@
 	<script src="/vendors/Magnific-Popup/jquery.magnific-popup.min.js"></script>
 	<script src="/js/jquery.ajaxchimp.min.js"></script>
 	<script src="/js/jquery.magnific-popup.min.js"></script>
+	<script src="/js/contaption.js"></script>
 	<script src="/js/main.js"></script>
 	<script src="/js/script.js"></script>
 	<script src="/js/anons.js"></script>

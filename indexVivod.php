@@ -232,7 +232,10 @@
         }
         echo $speaker.='</div></div>';
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> semon
     function sbornick(){
         include "connect.php";
         $arrayDateAnnouncement=array();
@@ -278,7 +281,10 @@
             }
         echo $el_coll;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> semon
     function anonsDate (){
         include "connect.php";
         $arrayDateAnnouncement=array();
@@ -358,7 +364,61 @@
         }
         echo $anons;
     }
-    
+    function contaption__title(){
+        include "connect.php";
+        $contaption = mysqli_query($connect, "SELECT conf.`an_conception_ru`, conf.`an_conception_en`, yer.`year` FROM `conferences` conf LEFT JOIN `years` yer ON conf.`ID_year` = yer.`ID_year` WHERE `ID_conf` = ".$_SESSION["ID_conf"]);
+        while(($row = mysqli_fetch_assoc($contaption)) != false){
+            $contaptionTitle = "<h1>Концепция конференции ". $row["year"]."</h1>".$row['an_conception_'.$_SESSION["lang"]];
+        }
+        echo $contaptionTitle;
+    }
+    function contaption__spaeks(){
+        include "connect.php";
+        $count = 0;
+        $contaption_speak = "<h1>Спикеры</h1><div class='contaption__spaeks__list'>";
+        $contaption_speaks = mysqli_query($connect, "SELECT `ID_speak`, `ID_conf`, `name_ru`, `name_en`, `photo`, `linkSP_ru`, `linkSP_en`, `info_ru`, `info_en` FROM `speakers` WHERE `ID_conf` = ".$_SESSION["ID_conf"]);
+        while(($row = mysqli_fetch_assoc($contaption_speaks)) != false){
+            $count++;
+            if($count < 7){
+                $contaption_speak.= "<div class='contaption__spaek'>
+                <a href='#spic' class = 'spik'>
+                    <img src='adminPanels/" .$row["photo"]."' alt=''>
+                    <h4>".$row["name_".$_SESSION["lang"]]."</h4>
+                    <p>".$row["info_".$_SESSION["lang"]]."</p>
+                </a>
+            </div>";
+            }
+            else{
+                $contaption_speak.= "<div class='contaption__spaek contaption__spaeks__list__full'>
+                <a href='#spic' class = 'spik'>
+                    <img src='adminPanels/" .$row["photo"]."' alt=''>
+                    <h4>".$row["name_".$_SESSION["lang"]]."</h4>
+                    <p>".$row["info_".$_SESSION["lang"]]."</p>
+                </a>
+            </div>";
+            }
+           
+        }
+        $contaption_speak .= "</div>";
+        echo $contaption_speak;
+    }
+
+    function contaption__keyDate(){
+        include "connect.php";
+        $contaption_keyDate = "<h2>Ключевые даты</h2>
+        <div class='keysDate'>";
+        $contaption_Date = mysqli_query($connect, "SELECT * FROM `dates` WHERE `ID_conf` =".$_SESSION["ID_conf"]);
+        while(($row = mysqli_fetch_assoc($contaption_Date)) != false){
+            $contaption_keyDate .= " <div class='keyDate'>
+								<h3>До <span>".$row["date"]."</span></h3>
+								<p>".$row["text"]."</p>
+							</div>";
+        }
+        $contaption_keyDate .= "</div>";
+        echo $contaption_keyDate;
+    }
+
+
     function bread (){
         include "connect.php";
         $cur_url = $_SERVER['REQUEST_URI'];
