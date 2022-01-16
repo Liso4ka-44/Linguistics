@@ -373,7 +373,7 @@
             $count++;
             if($count < 7){
                 $contaption_speak.= "<div class='contaption__spaek'>
-                <a href='#spic' class = 'spik'>
+                <a href='#spic' class = 'spik' id = '".$row["ID_speak"]."'>
                     <img src='adminPanels/" .$row["photo"]."' alt=''>
                     <h4>".$row["name_".$_SESSION["lang"]]."</h4>
                     <p>".$row["info_".$_SESSION["lang"]]."</p>
@@ -381,19 +381,29 @@
             </div>";
             }
             else{
-                $contaption_speak.= "<div class='contaption__spaek contaption__spaeks__list__full'>
+                $contaption_speak.= "<form method = 'post' class='contaption__spaek contaption__spaeks__list__full'>
                 <a href='#spic' class = 'spik'>
                     <img src='adminPanels/" .$row["photo"]."' alt=''>
                     <h4>".$row["name_".$_SESSION["lang"]]."</h4>
                     <p>".$row["info_".$_SESSION["lang"]]."</p>
                 </a>
-            </div>";
+            </form>";
             }
            
         }
         $contaption_speak .= "</div>";
         echo $contaption_speak;
     }
+    // Забираем данные для модального окна спикеров
+    include "connect.php";
+    if(isset($_POST["idSpeak"])){
+        $contaption_speaks = mysqli_query($connect, "SELECT `name_ru`, `name_en`, `linkSP_ru`, `linkSP_en`, `info_ru`, `info_en` FROM `speakers` WHERE `ID_speak` = ".$_POST["idSpeak"]);
+        $contaption_speaks = mysqli_fetch_assoc($contaption_speaks);
+        $arr = array("name" => $contaption_speaks["name_".$_COOKIE["lang"]],"linkSP" => $contaption_speaks["linkSP_".$_COOKIE["lang"]],"info" => $contaption_speaks["info_".$_COOKIE["lang"]]);
+        echo json_encode($arr);
+        //  exit();
+    }
+
 
     function contaption__keyDate(){
         include "connect.php";
