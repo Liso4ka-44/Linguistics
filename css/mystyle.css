@@ -1275,13 +1275,17 @@ label {
     margin: 0 auto;
 }
 
+.contaption__spaeks__list__full {
+    display: none;
+}
+
 .contaption__spaek {
     width: 250px;
     margin: 0 70px 40px 0;
-    /* transition: all 0.5s ease 0.5s; */
+    padding: 5px;
 }
 
-.contaption__spaek:nth-child(n+3) {
+.contaption__spaek:nth-child(3n) {
     margin: 0;
 }
 
@@ -1318,8 +1322,11 @@ label {
     font-weight: normal;
     font-size: 15px;
     line-height: 108.2%;
-    /* or 16px */
     color: #797979;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .contaption__link {
@@ -1331,7 +1338,10 @@ label {
     font-weight: normal;
     font-size: 15px;
     line-height: 108.2%;
-    /* or 16px */
+    display: -moz-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
     text-transform: uppercase;
     color: #000000;
 }
@@ -1397,4 +1407,5 @@ label {
     margin: 0;
     max-width: 600px;
     word-wrap: normal;
+    width: 100%;
 }

@@ -84,7 +84,7 @@ include "probnik/class.php";
 							contaption__spaeks();
 						?>
 						<div class = "contaption__link">
-							<a class="button" href="#">Читать ещё</a>
+							<a class="button" href="#" id = "contaption__link">Читать ещё</a>
 						</div>
 					</div>
 					<div class="contaption__keyDate">
