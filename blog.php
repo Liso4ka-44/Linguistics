@@ -11,7 +11,7 @@ include "probnik/class.php";
   include "connect.php";
   include "indexVivod.php";
   if($_GET["year"]){
-    $_SESSION["year"] = $_GET["year"];
+    $_SESSION["yearr"] = $_GET["year"];
     // echo "<script> alert('".$_SESSION['lang']."')</script>";
   }
   
