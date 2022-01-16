@@ -233,7 +233,10 @@
         echo $speaker.='</div></div>';
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> semon
 =======
 >>>>>>> semon
     function sbornick(){
@@ -282,7 +285,10 @@
         echo $el_coll;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> semon
 =======
 >>>>>>> semon
     function anonsDate (){
