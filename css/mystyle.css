@@ -1273,10 +1273,13 @@ label {
     align-items: flex-start;
     flex-wrap: wrap;
     margin: 0 auto;
+    height: 1000px;
+    overflow: hidden;
+    transition: height 0.5s ease 0.1s;
 }
 
 .contaption__spaeks__list__full {
-    display: none;
+    height: 2000px;
 }
 
 .contaption__spaek {

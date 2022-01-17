@@ -366,30 +366,16 @@
     }
     function contaption__spaeks(){
         include "connect.php";
-        $count = 0;
         $contaption_speak = "<h1>Спикеры</h1><div class='contaption__spaeks__list'>";
         $contaption_speaks = mysqli_query($connect, "SELECT `ID_speak`, `ID_conf`, `name_ru`, `name_en`, `photo`, `linkSP_ru`, `linkSP_en`, `info_ru`, `info_en` FROM `speakers` WHERE `ID_conf` = ".$_SESSION["ID_conf"]);
         while(($row = mysqli_fetch_assoc($contaption_speaks)) != false){
-            $count++;
-            if($count < 7){
-                $contaption_speak.= "<div class='contaption__spaek'>
-                <a href='#spic' class = 'spik' id = '".$row["ID_speak"]."'>
-                    <img src='adminPanels/" .$row["photo"]."' alt=''>
-                    <h4>".$row["name_".$_SESSION["lang"]]."</h4>
-                    <p>".$row["info_".$_SESSION["lang"]]."</p>
-                </a>
+            $contaption_speak.= "<div class='contaption__spaek'>
+            <a href='#spic' class = 'spik' id = '".$row["ID_speak"]."'>
+                <img src='adminPanels/" .$row["photo"]."' alt=''>
+                <h4>".$row["name_".$_SESSION["lang"]]."</h4>
+                <p>".$row["info_".$_SESSION["lang"]]."</p>
+            </a>
             </div>";
-            }
-            else{
-                $contaption_speak.= "<form method = 'post' class='contaption__spaek contaption__spaeks__list__full'>
-                <a href='#spic' class = 'spik'>
-                    <img src='adminPanels/" .$row["photo"]."' alt=''>
-                    <h4>".$row["name_".$_SESSION["lang"]]."</h4>
-                    <p>".$row["info_".$_SESSION["lang"]]."</p>
-                </a>
-            </form>";
-            }
-           
         }
         $contaption_speak .= "</div>";
         echo $contaption_speak;
