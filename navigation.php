@@ -15,7 +15,7 @@
                    
                     <ul>
                         <li class = "lang_link">
-                            <a href="?lang=ru"  class="header__item__burger">RU</a>
+                            <a href="?lang=ru"   class="header__item__burger">RU</a>
                             <a href="?lang=en" class="header__item__burger">EN</a>
                         </li>
                     </ul>
@@ -79,8 +79,8 @@
                             </a>
                         </li>
                         <li class = "lang_link_menu">
-                            <a href="?lang=ru" class="headerr__item">RU</a>
-                            <a href="?lang=en" class="headerr__item">EN</a>
+                            <a href="?lang=ru" id = "ru" class="headerr__item">RU</a>
+                            <a href="?lang=en" id = "en" class="headerr__item">EN</a>
                         </li>
                         <li>
                             <a href="#popup" class = "headerr__item connect c"><?php echo name('contact')?><img src="/img/connect_header/connect.svg"></a>
