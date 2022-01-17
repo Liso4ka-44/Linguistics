@@ -83,7 +83,7 @@
                             <a href="?lang=en" class="headerr__item">EN</a>
                         </li>
                         <li>
-                            <a href="#popup" class = "headerr__item connect c">Cвязаться <img src="/img/connect_header/connect.svg"></a>
+                            <a href="#popup" class = "headerr__item connect c"><?php echo name('contact')?><img src="/img/connect_header/connect.svg"></a>
                         </li>
                     </ul>
                             

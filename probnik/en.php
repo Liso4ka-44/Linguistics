@@ -51,5 +51,10 @@
         'arch' => 'Archive',
         'collect' => 'Collection of electronic materials',
         'no_conf' => 'There are no upcoming conferences',
+        'conception' => 'About the Conference',
+        'speakers' => 'Speakers',
+        'dates' => 'Key dates',
+        'more' => 'more',
+        'contact' => 'Contact us',
     );
 ?>

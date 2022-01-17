@@ -84,7 +84,7 @@ include "probnik/class.php";
 							contaption__spaeks();
 						?>
 						<div class = "contaption__link">
-							<a class="button" href="#" id = "contaption__link">Читать ещё</a>
+							<a class="button" href="#" id = "contaption__link"><?php echo name('more')?></a>
 						</div>
 					</div>
 					<div class="contaption__keyDate">
@@ -100,7 +100,7 @@ include "probnik/class.php";
 							<div class="popup__text__spaek">
 								<h2 class = "popup__text__spaek__h2"></h2>
 								<p class = "popup__text__spaek__p"></p>
-								<p>Подробнее: <a class = "popup__text__spaek__a" href=""></a></p>
+								<p><?php echo name('but_more')?> <a class = "popup__text__spaek__a" href=""></a></p>
 							</div>
 						</div>
 					</div>
