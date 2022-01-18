@@ -52,7 +52,7 @@
                                 ?>
                             </a>
                         </li>
-                        <li>
+                        <li class = "aaa">
 							<div class = "block__title">
 								<a href="#" class="headerr__item item_archive">
                                     <?php
@@ -64,7 +64,9 @@
 							<ul class = "ul_podli">
 								<?php
 									include "connect.php";
-									$year = mysqli_query($connect,"SELECT * FROM `years`");
+                                    $Date = mysqli_query($connect,"SELECT  `ID_year` FROM `conferences` WHERE DATE(`date`) >= CURDATE()");
+                                    $Date = mysqli_fetch_assoc($Date);
+									$year = mysqli_query($connect,"SELECT * FROM `years` WHERE `ID_year` <".$Date["ID_year"]);
 									while(($row = mysqli_fetch_assoc($year)) != false){
 										echo "<li class='nav__item'><a class='headerr__item' href='blog.php?year=".$row["ID_year"]."'>".$row["year"]."</a>";
 									}
@@ -79,20 +81,20 @@
                             </a>
                         </li>
                         <li class = "lang_link_menu">
-                            <a href="?lang=ru" id = "ru" class="headerr__item">RU</a>
-                            <a href="?lang=en" id = "en" class="headerr__item">EN</a>
+                            <!-- <a href="#" id = "ru" class="headerr__item lang">RU</a>
+                            <a href="#" id = "en" class="headerr__item lang">EN</a> -->
+                            <a href="?lang=ru" class="headerr__item">RU</a>
+                            <a href="?lang=en" class="headerr__item">EN</a>
                         </li>
                         <li>
                             <a href="#popup" class = "headerr__item connect c"><?php echo name('contact')?><img src="/img/connect_header/connect.svg"></a>
                         </li>
-                    </ul>
-                            
+                    </ul>              
                 </nav>
                            
             </div>
 			<div class = "crumbs"><?php bread ();?></div>
-        </div>
-        
+        </div>     
     </header>
     <div id="popup" class="popup ob_c">
         <div class="popup__body">

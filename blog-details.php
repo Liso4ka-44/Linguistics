@@ -61,9 +61,12 @@
 							}?>
 						</div>
               		</div>
-									
+					<div class="commit">
+						<?php
+							feedback();
+						?>
+					</div>				
 					<?php
-						feedback();
 						speakers();
 					?>
 					

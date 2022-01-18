@@ -15,6 +15,7 @@ include "probnik/class.php";
 			include "navigation.php";
 		?>
 		<main>
+		
     	<section class="main-banner baner" id = "aboutf">
 			<div class="container text-center">
 				<h1><?php echo name('title_f') ?></h1>

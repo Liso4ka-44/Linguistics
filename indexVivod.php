@@ -129,32 +129,28 @@
     function feedback (){
         include "connect.php";
         $feedBD = mysqli_query($connect,"SELECT * FROM `feedback` WHERE `ID_conf` =  ".$_SESSION["id_konf_blog_detalic"]);
-        if($row['feedback_'.$_SESSION["lang"]]!=''){
-            $feedback="<div class='line-feedback'><h2>".name('feed')."</h2><div class='comment-list'>";
+        if($feedBD!=''){
+            $feedback="<h2>".name('feed')."</h2>";
         }
         
         while(($row = mysqli_fetch_assoc($feedBD)) != false){
             if($row['feedback_'.$_SESSION["lang"]]!=''&&$row['Name_feedback_'.$_SESSION["lang"]]!=''){
-            $feedback.="<div class='single-comment justify-content-between d-flex'><div class='user justify-content-between d-flex'><div class='feedback'><div class='media align-items-center'><div class='media-body'> 
-            <h4>".$row['Name_feedback_'.$_SESSION["lang"]]."</h4>"."<h5>".$row['post_'.$_SESSION["lang"]]."</h5>";
-           
-            $in = $row['feedback_'.$_SESSION["lang"]];
-		    $plak=explode(PHP_EOL,$in);
-                    foreach($plak as $key => $val){
-                        if($val!=''){
+                $feedback.="<div class='feedback'>
+                <h4>".$row['Name_feedback_'.$_SESSION["lang"]]."</h4>"."<h5>".$row['post_'.$_SESSION["lang"]]."</h5>";
+            
+                $in = $row['feedback_'.$_SESSION["lang"]];
+                $plak=explode(PHP_EOL,$in);
+                foreach($plak as $key => $val){
+                    if($val!=''){
                         $feedback.="<br>"."<p class = 'otstyp'>".$val."</p>";
-                        }
-        } };
-        
-        $feedback.="
-        </div></div></div></div></div>";
-        
+                    }
+                } 
+            }
+            $feedback.="</div>";
         }
-        if($feedback!="<div class='line-feedback'><h2>Отзывы</h2><div class='comment-list'>"){
-            echo $feedback.="</div></div>";
-        }
-		
-       
+        if($feedback!=""){
+            echo $feedback.="</div>";
+        }          
     }
 
     function docum($idKonf){
@@ -360,6 +356,7 @@
         include "connect.php";
         $contaption = mysqli_query($connect, "SELECT conf.`an_conception_ru`, conf.`an_conception_en`, yer.`year` FROM `conferences` conf LEFT JOIN `years` yer ON conf.`ID_year` = yer.`ID_year` WHERE `ID_conf` = ".$_SESSION["ID_conf"]);
         while(($row = mysqli_fetch_assoc($contaption)) != false){
+            $_SESSION["contaptionYear"] = $row["year"];
             $contaptionTitle = "<h1>".name('conception')." ".$row["year"]."</h1>".$row['an_conception_'.$_SESSION["lang"]];
             $plak=explode(PHP_EOL,$in);
             foreach($plak as $key => $val){

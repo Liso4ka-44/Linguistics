@@ -18,7 +18,10 @@
 
 
         });
-        $(".block__title").click(function() {
+        $(".block__title").on('click', function() {
             $(".block__title").toggleClass('active_li').next().slideToggle(300);
+        });
+        $('.buttonn').click(function() {
+            $(".item_archive").toggleClass('active_li').next().slideToggle(300);
         });
     });

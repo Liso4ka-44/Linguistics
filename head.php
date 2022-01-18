@@ -26,7 +26,7 @@
 	<script src="/js/main.js"></script>
 	<script src="/js/script.js"></script>
 	<script src="/js/anons.js"></script>
-	<script src="/js/lang.js" defer></script>
+	<script src="/js/lang.js"></script>
 
 
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap" rel="stylesheet"> 
