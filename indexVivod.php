@@ -361,7 +361,14 @@
         $contaption = mysqli_query($connect, "SELECT conf.`an_conception_ru`, conf.`an_conception_en`, yer.`year` FROM `conferences` conf LEFT JOIN `years` yer ON conf.`ID_year` = yer.`ID_year` WHERE `ID_conf` = ".$_SESSION["ID_conf"]);
         while(($row = mysqli_fetch_assoc($contaption)) != false){
             $contaptionTitle = "<h1>".name('conception')." ".$row["year"]."</h1>".$row['an_conception_'.$_SESSION["lang"]];
-        }
+            $plak=explode(PHP_EOL,$in);
+            foreach($plak as $key => $val){
+            if($val!=''){
+                $contaptionTitle.="\n"."<p class = 'otstyp'>".$val."</p>";
+            }
+        };
+    }
+        
         echo $contaptionTitle;
     }
     function contaption__spaeks(){
