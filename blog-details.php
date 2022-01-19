@@ -65,11 +65,12 @@
 						<?php
 							feedback();
 						?>
-					</div>				
+					</div>		
+					<div class="speakers__konf">		
 					<?php
 						speakers();
 					?>
-					
+					</div>
 				</div>
 			</div>
 		</div>
