@@ -25,7 +25,8 @@
     }
     function listLASTconf () {
         include "connect.php";
-        $CONFBD = mysqli_query($connect,"SELECT * FROM `conferences` ORDER BY `ID_conf` DESC LIMIT 3");
+       
+        $CONFBD = mysqli_query($connect,"SELECT * FROM `conferences` WHERE DATE(`date`) <= CURDATE() ORDER BY `ID_conf` DESC LIMIT 3");
         while(($row = mysqli_fetch_assoc($CONFBD)) != false){
         $year = explode("-", $row['date']);
         if($row['main_photo']==''){
