@@ -23,7 +23,7 @@ $(document).ready(function() {
         if (elementClick2[1] != undefined) {
             let destination2 = $("#" + elementClick2[1]).offset().top - 150;
             $('html, body').animate({ scrollTop: destination2 }, 1500);
-        } else if (link == "index.php") {
+        } else if (link == "index.php" && window.location.href == "http://localhost:75/index.php") {
             let destination2 = $('body').offset().top - 150;
             $('html, body').animate({ scrollTop: destination2 }, 1500);
         } else {
