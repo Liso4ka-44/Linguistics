@@ -1289,11 +1289,11 @@ label {
     margin: 0 auto;
     height: 1000px;
     overflow: hidden;
-    transition: height 0.5s ease 0.1s;
+    transition: all 0.5s ease 0.1s;
 }
 
 .contaption__spaeks__list__full {
-    height: 2100px;
+    height: 100%;
 }
 
 .contaption__spaek {
@@ -1440,7 +1440,7 @@ label {
         height: 950px;
     }
     .contaption__spaeks__list__full {
-        height: 1980px;
+        height: 3000px;
     }
     .keyDate p {
         width: 50%;
@@ -1465,5 +1465,3 @@ label {
         width: 40%;
     }
 }
-
-@media (max-width: 520px) {}

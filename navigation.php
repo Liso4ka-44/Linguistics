@@ -25,34 +25,34 @@
                 <nav class="header__menu">
                     <ul class="header__list">
                         <li>
-                            <a href="index.php" class="headerr__item">
+                            <a href="index.php" class="headerr__item a">
                                 <?php
                                     echo name('main');
                                 ?>
                             </a>
                         </li>
                         <li>
-                            <a href="index.php#orgcom" class="headerr__item">
+                            <a href="index.php#orgcom" class="headerr__item a">
                                 <?php
                                     echo name('organizing_committee');
                                 ?>
                             </a>
                         </li>
                         <li>
-                            <a href="index.php#newconf" class="headerr__item">
+                            <a href="index.php#newconf" class="headerr__item a">
                                 <?php
                                     echo name('announcements');
                                 ?>
                             </a>
                         </li>
                         <li>
-                            <a href="el_collection.php" class="headerr__item">
+                            <a href="el_collection.php" class="headerr__item a">
                                 <?php
                                     echo name('collections_materials');
                                 ?>
                             </a>
                         </li>
-                        <li class = "aaa">
+                        <li>
 							<div class = "block__title">
 								<a href="#" class="headerr__item item_archive">
                                     <?php
@@ -74,7 +74,7 @@
 							</ul>
                         </li>
                         <li>
-                            <a href="index.php#contact" class="headerr__item">
+                            <a href="index.php#contact" class="headerr__item a">
 							    <?php
                                     echo name('contacts');
                                 ?>
