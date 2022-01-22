@@ -19,7 +19,7 @@
                             <a href="?lang=en" class="header__item__burger">EN</a>
                         </li>
                     </ul>
-                    <a href="#popup" class = "connect"><img src="/img/connect_header/connect.svg"></a>
+                    <!--<a href="#popup" class = "connect"><img src="/img/connect_header/connect.svg"></a>-->
                 </div>
 				
                 <nav class="header__menu">
@@ -86,9 +86,11 @@
                             <a href="?lang=ru" class="headerr__item">RU</a>
                             <a href="?lang=en" class="headerr__item">EN</a>
                         </li>
-                        <li>
-                            <a href="#popup" class = "headerr__item connect c"><?php echo name('contact')?><img src="/img/connect_header/connect.svg"></a>
-                        </li>
+                         <!--<li>
+                            <a href="#popup" class = "headerr__item connect c">
+                            <?php /*echo name('contact')*/?>
+                                <img src="/img/connect_header/connect.svg"></a>
+                        </li>-->
                     </ul>              
                 </nav>
                            

@@ -8,7 +8,7 @@
         'contacts' => 'Contacts',
         'application_f' => 'Application form',
         'application_s' => 'Submit a paper',
-        'title_f' => 'Annual international practical science conference',
+        'title_f' => 'INTERNATIONAL PRACTICAL SCIENCE CONFERENCE',
         'title_s' => '"LANGUAGE. CULTURE. TRANSLATION"',
         'title_faculty' => 'School of Linguistics and Cross-Cultural Communication, MGIMO University',
         'faculty_inf' => 'School of Linguistics and Cross-Cultural Communication, MGIMO Odintsovo branch, was founded on July 1, 2017, blending traditions of MGIMO language training and innovations of modern linguistic education. The educational programs taught at the department allow you to get a high-quality linguistic education and knowledge of the peculiarities of foreign cultures, gain practical experience of professional translation, become a specialist in cross-cultural communication for specific purposes, and learn how to work in an international team using several foreign languages.',
@@ -56,5 +56,6 @@
         'dates' => 'Key dates',
         'more' => 'more',
         'contact' => 'Contact us',
+        'to' => ' ',
     );
 ?>
