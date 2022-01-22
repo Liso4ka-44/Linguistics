@@ -5,7 +5,7 @@ $(document).ready(function() {
         if ($(".contaption__spaeks__list").hasClass("contaption__spaeks__list__full")) {
             $('#contaption__link').attr("href", "#contaption__link");
             let elementClick = $(this).attr("href");
-            let destination = $(elementClick).offset().top;
+            let destination = $(elementClick).offset().top - 800;
             $('html, body').animate({ scrollTop: destination }, 1500);
             return false;
         } else {

@@ -917,22 +917,23 @@ h4,
     color: #242424;
     border: 1px solid #3b1d82;
     text-transform: uppercase;
-    -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s
+    -webkit-transition: all 0.2s ease 0.2s;
+    -moz-transition: all 0.2s ease 0.2s;
+    -o-transition: all 0.2s ease 0.2s;
+    transition: all 0.2s ease .2s;
 }
 
 @media (max-width: 767px) {
     .button {
         font-size: 13px;
-        padding: 9px 24px
+        padding: 9px 24px;
     }
 }
 
 .button:hover {
     background: #3b1d82;
-    color: #fff
+    color: #fff;
+    border: 1px solid #242424;
 }
 
 .button-link {
