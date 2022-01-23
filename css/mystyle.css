@@ -88,12 +88,12 @@ body {
 
 .section-mgimo-linguistics {
     background: #f7f7f7;
-    padding: 50px 30px;
+    padding: 40px 0;
 }
 
-@media (min-width: 992px) {
+@media (max-width: 992px) {
     .section-mgimo-linguistics {
-        padding: 100px 0;
+        padding: 50px 30px;
     }
 }
 
@@ -1367,6 +1367,10 @@ label {
 
 /* Ключевые даты */
 
+.contaption__keyDate {
+    margin: 0 0 100px 0;
+}
+
 .contaption__keyDate h2 {
     font-family: Oswald;
     font-style: normal;
@@ -1464,6 +1468,36 @@ label {
     }
 }
 
+.next__conference {
+    width: 100%;
+}
+
+.next__conference__body {
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 0 0 32px 0;
+}
+
+.next__conference__content h2 {
+    font-family: "Oswald";
+    font-style: normal;
+    text-align: center;
+}
+
+.next__conference__title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 108.2%;
+    color: #000000;
+}
+
+.next__conference__date {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 111.7%;
+    color: #EA0763;
+}
+
 @media (max-width: 770px) {
     .contaption__spaeks__list {
         justify-content: center;
@@ -1481,4 +1515,42 @@ label {
     .keyDate p {
         width: 40%;
     }
+}
+
+.contaption__conferencePartners h2 {
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 108.2%;
+    text-align: center;
+    color: #411887;
+}
+
+.contaption__conferencePartner__list {
+    max-width: 890px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.contaption__conferencePartner {
+    width: 200px;
+    height: 100px;
+    /* margin: 0 70px 40px 0;
+    padding: 5px; */
+}
+
+
+/* 
+.contaption__conferencePartner:nth-child(3n) {
+    margin: 0;
+} */
+
+.contaption__conferencePartner img {
+    width: 100%;
+    margin: 0 0 10px 0;
+    object-fit: cover;
 }

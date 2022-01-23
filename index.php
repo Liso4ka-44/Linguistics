@@ -23,6 +23,14 @@ include "probnik/class.php";
 			<section class="section-mgimo-linguistics">
 				<div class="container">
 					<div class="row">
+						<div class="next__conference">
+							<div class="next__conference__body">
+								<div class="next__conference__content">
+									<h2 class = "next__conference__title">Ближайшая конференция состоится</h2>
+									<h2 class = "next__conference__date">17-18 февраля 2022 года</h2>
+								</div>
+							</div>
+						</div>
 						<div class="application">
 							<div class="application_body">
 								<div class="application_icon">
@@ -90,6 +98,20 @@ include "probnik/class.php";
 							<?php
 								contaption__keyDate();
 							?>
+						</div>
+						<div class="contaption__conferencePartners">
+							<h2>Информационные партнёры конференции </h2>
+							<div class="contaption__conferencePartner__list">
+								<div class="contaption__conferencePartner">
+									<img src="/img/партнеры конференций/17.02.2022/ЛП_Лого горизонтальный_цветной 1.png">
+								</div>
+								<div class="contaption__conferencePartner">
+									<img src="/img/партнеры конференций/17.02.2022/logo-2 1.png">
+								</div>
+								<div class="contaption__conferencePartner">
+									<img src="/img/партнеры конференций/17.02.2022/logo_3 1.png">
+								</div>
+							</div>
 						</div>
 					</div>
 					<div id="spic" class="popup spic">
