@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    $("body").fadeIn(1000);
+
+
     $('#contaption__link').click(function() {
         // event.preventDefault();
         $('.contaption__spaeks__list').toggleClass("contaption__spaeks__list__full");
@@ -17,14 +20,14 @@ $(document).ready(function() {
         }
     });
 
-    $('.a').click(function() {
+    $('.headerr__item').click(function() {
         let link = $(this).attr("href");
         let elementClick2 = link.split('#');
         if (elementClick2[1] != undefined) {
-            let destination2 = $("#" + elementClick2[1]).offset().top - 150;
+            let destination2 = $("#" + elementClick2[1]).offset().top - 110;
             $('html, body').animate({ scrollTop: destination2 }, 1500);
         } else if (link == "index.php" && window.location.href == "http://localhost:75/index.php") {
-            let destination2 = $('body').offset().top - 150;
+            let destination2 = $('body').offset().top - 110;
             $('html, body').animate({ scrollTop: destination2 }, 1500);
         } else {
             return true;

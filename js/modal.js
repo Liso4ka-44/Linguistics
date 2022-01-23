@@ -6,7 +6,6 @@ $(document).ready(function() {
     });
 
     $('.spik').on('click', function() {
-
         let idSpeak = $(this).attr('id');
         $.ajax({
             type: 'POST',

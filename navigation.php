@@ -46,7 +46,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="el_collection.php" class="headerr__item a">
+                            <a href="el_collection.php" class="headerr__item">
                                 <?php
                                     echo name('collections_materials');
                                 ?>
@@ -83,8 +83,8 @@
                         <li class = "lang_link_menu">
                             <!-- <a href="#" id = "ru" class="headerr__item lang">RU</a>
                             <a href="#" id = "en" class="headerr__item lang">EN</a> -->
-                            <a href="?lang=ru" class="headerr__item">RU</a>
-                            <a href="?lang=en" class="headerr__item">EN</a>
+                            <a href="?lang=ru" class="headerr__item lang">RU</a>
+                            <a href="?lang=en" class="headerr__item lang">EN</a>
                         </li>
                          <!--<li>
                             <a href="#popup" class = "headerr__item connect c">

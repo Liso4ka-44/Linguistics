@@ -5,7 +5,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-size: 15px;
     font-weight: 400;
-    line-height: 1.6
+    line-height: 1.6;
 }
 
 ul {
@@ -15,11 +15,11 @@ ul {
 }
 
 a:hover {
-    text-decoration: none
+    text-decoration: none;
 }
 
 button {
-    cursor: pointer
+    cursor: pointer;
 }
 
 .but {
@@ -28,7 +28,7 @@ button {
 
 button:focus {
     outline: 0;
-    box-shadow: none
+    box-shadow: none;
 }
 
 h1,
@@ -39,7 +39,7 @@ h5,
 h6 {
     font-family: "Oswald", sans-serif;
     color: #242424;
-    line-height: 1.5
+    line-height: 1.5;
 }
 
 .orgcom__position {
@@ -605,27 +605,27 @@ h4,
 .scheduleTab .nav {
     border-bottom: 0;
     justify-content: center;
-    margin-bottom: 40px
+    margin-bottom: 40px;
 }
 
 @media (min-width: 992px) {
     .scheduleTab .nav {
-        margin-bottom: 50px
+        margin-bottom: 50px;
     }
 }
 
 .scheduleTab .nav-item {
-    margin-right: 10px
+    margin-right: 10px;
 }
 
 @media (min-width: 992px) {
     .scheduleTab .nav-item {
-        margin-right: 30px
+        margin-right: 30px;
     }
 }
 
 .scheduleTab .nav-item:last-child {
-    margin-right: 0
+    margin-right: 0;
 }
 
 .scheduleTab .nav-item a {
@@ -803,7 +803,7 @@ h4,
 }
 
 .blogCarousel {
-    position: relative
+    position: relative;
 }
 
 .blogCarousel .owl-nav .owl-prev,
@@ -829,13 +829,13 @@ h4,
 
 .blogCarousel .owl-nav button:not(.disabled) i,
 .blogCarousel .owl-nav button:not(.disabled) span {
-    color: #fff
+    color: #fff;
 }
 
 .blogCarousel .owl-nav button.disabled {
     background: #f7f7f7 !important;
     opacity: 1;
-    cursor: not-allowed
+    cursor: not-allowed;
 }
 
 .blogCarousel .owl-nav button:not(.disabled):hover {
@@ -851,7 +851,7 @@ h4,
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 0
+    left: 0;
 }
 
 @media (min-width: 1340px) {
@@ -878,19 +878,22 @@ h4,
 }
 
 .blog_details {
-    width: 110%;
-    padding: 15px 0 20px 10px;
+    width: 90%;
+    padding: 15px 30px 35px 35px;
     box-shadow: 0px 10px 20px 0px rgba(221, 221, 221, 0.3)
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .blog_details {
-        padding: 15px 30px 35px 35px;
+        padding: 15px 0 20px 10px;
+        width: 100%;
     }
 }
 
 .blog_details p {
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    hyphens: auto;
+    margin: 0 10px 0 0;
 }
 
 .blog_details h2 {
@@ -917,10 +920,10 @@ h4,
     color: #242424;
     border: 1px solid #3b1d82;
     text-transform: uppercase;
-    -webkit-transition: all 0.2s ease 0.2s;
-    -moz-transition: all 0.2s ease 0.2s;
-    -o-transition: all 0.2s ease 0.2s;
-    transition: all 0.2s ease .2s;
+    -webkit-transition: all 0.1s ease 0.1s;
+    -moz-transition: all 0.1s ease 0.1s;
+    -o-transition: all 0.1s ease 0.1s;
+    transition: all 0.1s ease 0.1s;
 }
 
 @media (max-width: 767px) {

@@ -314,10 +314,9 @@
                     $in = $row['info_anons_'.$_SESSION["lang"]];
 
                     $anons.="<div class='blog_details jojo'><div class='no-gutters card__anons'>
-                    <div class='col-md-3'>";
+                    <div class='informative__letter'>";
                     
                     $_SESION["ANONS"] = (integer)$row['ID_conf'];
-                    // $ANONS = (integer)$ANONS;
                     $anonsBD_prog = mysqli_query($connect,"SELECT `ID_playbill`, `name_playbill_".$_SESSION["lang"]."`, `road_".$_SESSION["lang"]."`, `ID_conf` FROM `playbill` WHERE `ID_conf` = '".$_SESION["ANONS"]."'");
                     while(($row_prog = mysqli_fetch_assoc($anonsBD_prog)) != false){
                         $anons.="<div class = 'anons__prog__footer'>
