@@ -402,7 +402,7 @@
         $contaption_Date = mysqli_query($connect, "SELECT * FROM `dates` WHERE `ID_conf` =".$_SESSION["ID_conf"]);
         while(($row = mysqli_fetch_assoc($contaption_Date)) != false){
             $contaption_keyDate .= " <div class='keyDate'>
-								<h3>".name('to')."<span>".$row["date_".$_SESSION["lang"]]."</span></h3>
+								<h3><span>".$row["date_".$_SESSION["lang"]]."</span></h3>
 								<p>".$row["text_".$_SESSION["lang"]]."</p>
 							</div>";
         }
