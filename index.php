@@ -26,8 +26,8 @@ include "probnik/class.php";
 						<div class="next__conference">
 							<div class="next__conference__body">
 								<div class="next__conference__content">
-									<h2 class = "next__conference__title">Ближайшая конференция состоится</h2>
-									<h2 class = "next__conference__date">17-18 февраля 2022 года</h2>
+									<h2 class = "next__conference__title"><?php echo name('nextconf')?></h2>
+									<h2 class = "next__conference__date"><?php echo name('date')?></h2>
 								</div>
 							</div>
 						</div>
@@ -38,10 +38,10 @@ include "probnik/class.php";
 								</div>
 								<div class="application_button">
 									<a href = " https://forms.gle/tMsnyhTz18S3xnt26" class = "application__participation">
-									<?php echo name('application_f') ?>
+									<?php echo name('application_f')?>
 									</a>
 									<a href = "https://forms.gle/TG3TjqcY5uMXquP78" class = "application__publication">
-									<?php echo name('application_s') ?>
+									<?php echo name('application_s')?>
 									</a>
 								</div>
 							</div>
@@ -100,16 +100,16 @@ include "probnik/class.php";
 							?>
 						</div>
 						<div class="contaption__conferencePartners">
-							<h2>Информационные партнёры конференции </h2>
+							<h2><?php echo name('partner')?></h2>
 							<div class="contaption__conferencePartner__list">
 								<div class="contaption__conferencePartner">
-									<img src="/img/партнеры конференций/17.02.2022/ЛП_Лого горизонтальный_цветной 1.png">
+									<img src="/img/partners/2022.02.17/logo-1.png">
 								</div>
 								<div class="contaption__conferencePartner">
-									<img src="/img/партнеры конференций/17.02.2022/logo-2 1.png">
+									<img src="/img/partners/2022.02.17/logo-2.png">
 								</div>
 								<div class="contaption__conferencePartner">
-									<img src="/img/партнеры конференций/17.02.2022/logo_3 1.png">
+									<img src="/img/partners/2022.02.17/logo-3.png">
 								</div>
 							</div>
 						</div>
