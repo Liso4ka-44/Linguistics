@@ -1,5 +1,4 @@
 <?php
-
     function orgcomitet(){
         include "connect.php";
         $list='';
@@ -402,7 +401,7 @@
         }
         $contaption_keyDate = "<h2>".name('dates')."</h2>
         <div class='keysDate'>";
-        $contaption_Date = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en',CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, 'До %d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates`  WHERE ID_conf = ".$_SESSION['ID_conf']." ORDER BY `date_from` ASC");
+        $contaption_Date = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, 'До %d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates`  WHERE ID_conf = ".$_SESSION['ID_conf']." ORDER BY `date_from` ASC");
         while(($row = mysqli_fetch_assoc($contaption_Date)) != false){
             $contaption_keyDate .= " <div class='keyDate'>";
             if($row["date_from"] == $row["date_to"]){
@@ -426,13 +425,14 @@
         $next__conference = "<div class='next__conference__content'>
         <h2 class = 'next__conference__title'>".name('nextconf')."</h2>
         <h2 class = 'next__conference__date'>";
-        $nextContaptionDate = mysqli_query($connect, "SELECT dates.*,conf.`date`, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, 'До %d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates` dates LEFT JOIN `conferences` conf ON conf.`date` = dates.`date_from` || conf.`date` = dates.`date_to` WHERE ID_conf = ".$_SESSION['ID_conf']);
+        $nextContaptionDate = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, '%d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates` WHERE `date_from` = (SELECT `date` FROM `conferences` WHERE ID_conf = 80)");
         $nextContaptionDate = mysqli_fetch_assoc($nextContaptionDate);
-            if($row["date_from"] == $row["date_to"] && $nextContaptionDate["date"] != null){
-                $contaption_keyDate .="<h3><span>". $row["date_".$_SESSION["lang"]]."</span></h3>";
+            if($nextContaptionDate["date_from"] == $nextContaptionDate["date_to"]){
+                echo $_SESSION["ID_conf"];
+                $next__conference.= $nextContaptionDate["date_".$_SESSION["lang"]];
             }
-            else if($row["date_from"] != $row["date_to"] && $nextContaptionDate["date"] != null){
-                $contaption_keyDate .="<h3><span>".$row["date_two_".$_SESSION["lang"]]."</span></h3>";
+            else if($nextContaptionDate["date_from"] != $nextContaptionDate["date_to"]){
+                $next__conference.= $nextContaptionDate["date_two_".$_SESSION["lang"]];
             }
             else{
                 $next__conference = ""; 
