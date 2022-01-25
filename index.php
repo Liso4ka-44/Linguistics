@@ -28,10 +28,6 @@ include "probnik/class.php";
 								<?php 
 									next__conference(); 
 								?>
-								<div class="next__conference__content">
-									<h2 class = "next__conference__title"><?php echo name('nextconf')?></h2>
-									<h2 class = "next__conference__date"><?php echo name('date')?></h2>
-								</div>
 							</div>
 						</div>
 						<div class="application">
