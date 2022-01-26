@@ -26,7 +26,7 @@ $(document).ready(function() {
         if (elementClick2[1] != undefined) {
             let destination2 = $("#" + elementClick2[1]).offset().top - 110;
             $('html, body').animate({ scrollTop: destination2 }, 1500);
-        } else if (link == "index.php" && window.location.href == "https://linguistics.mgimo.ru/index.php") {
+        } else if (link == "index.php" && window.location.href == "http://localhost/index.php") {
             let destination2 = $('body').offset().top - 110;
             $('html, body').animate({ scrollTop: destination2 }, 1500);
         } else {
