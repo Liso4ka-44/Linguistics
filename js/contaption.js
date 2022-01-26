@@ -3,11 +3,10 @@ $(document).ready(function() {
 
 
     $('#contaption__link').click(function() {
-        // event.preventDefault();
+
         $('.contaption__spaeks__list').toggleClass("contaption__spaeks__list__full");
         if ($(".contaption__spaeks__list").hasClass("contaption__spaeks__list__full")) {
-            $('#contaption__link').attr("href", "#contaption__link");
-            let elementClick = $(this).attr("href");
+            let elementClick = $('#cont').attr("href", "#contaption__link");
             let destination = $(elementClick).offset().top - 800;
             $('html, body').animate({ scrollTop: destination }, 1500);
             return false;
