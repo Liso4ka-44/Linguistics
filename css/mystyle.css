@@ -1431,43 +1431,6 @@ label {
     width: 100%;
 }
 
-@media (max-width: 995px) {
-    .contaption__title {
-        margin: 25px;
-    }
-    .contaption__spaeks__list {
-        justify-content: space-between;
-    }
-    .contaption__spaek {
-        margin: 0;
-    }
-    .keyDate span {
-        white-space: nowrap;
-    }
-}
-
-@media (max-width: 460px) {
-    .keyDate span {
-        white-space: wrap;
-        font-size: 16px;
-    }
-    .keyDate p {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .contaption__spaeks__list {
-        height: 950px;
-    }
-    .contaption__spaeks__list__full {
-        height: 3000px;
-    }
-    .keyDate p {
-        width: 50%;
-    }
-}
-
 .next__conference {
     width: 100%;
 }
@@ -1529,13 +1492,58 @@ label {
     object-fit: cover;
 }
 
+@media (max-width: 1000px) {
+    .contaption__spaeks__list {
+        height: 950px;
+    }
+    .contaption__spaeks__list__full {
+        height: 100%;
+    }
+    .keyDate p {
+        width: 50%;
+    }
+}
+
+@media (max-width: 995px) {
+    .contaption__title {
+        margin: 25px;
+    }
+    .contaption__spaeks__list {
+        justify-content: space-between;
+    }
+    .contaption__spaek {
+        margin: 0;
+    }
+    .keyDate span {
+        white-space: nowrap;
+    }
+}
+
 @media (max-width: 770px) {
+    .konf {
+        display: block;
+        width: 100%;
+    }
+    .spisok-konf__img {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .button__konf {
+        padding: 5px 10px;
+    }
+    .spisok-konf__img img {
+        width: 100%;
+    }
+    .blog_details {
+        width: 70%;
+        margin: 0 auto;
+    }
     .contaption__spaeks__list {
         justify-content: center;
         height: 980px;
     }
     .contaption__spaeks__list__full {
-        height: 1980px;
+        height: 100%;
     }
     .contaption__spaek:nth-child(3n) {
         margin: 10px 0;
@@ -1549,6 +1557,16 @@ label {
     .contaption__conferencePartner {
         width: 40%;
         margin: 0;
+    }
+}
+
+@media (max-width: 460px) {
+    .keyDate span {
+        white-space: wrap;
+        font-size: 16px;
+    }
+    .keyDate p {
+        font-size: 16px;
     }
 }
 
