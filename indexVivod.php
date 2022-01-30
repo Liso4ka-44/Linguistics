@@ -24,10 +24,11 @@
     }
     function listLASTconf () {
         include "connect.php";
-       
-        $CONFBD = mysqli_query($connect,"SELECT * FROM `conferences` WHERE DATE(`date`) <= CURDATE() ORDER BY `ID_conf` DESC LIMIT 3");
+        //$year = mysqli_query($connect,"SELECT * FROM `years` WHERE `ID_year` <".$Date["ID_year"]);
+        $CONFBD = mysqli_query($connect, "SELECT conf.`ID_conf`, conf.`Name_conf_".$_SESSION["lang"]."`, conf.`ID_year`, conf.`main_photo`, dat.`date_from` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) <= CURDATE() ORDER BY `ID_conf` DESC LIMIT 3 ");
+        //поправки
         while(($row = mysqli_fetch_assoc($CONFBD)) != false){
-        $year = explode("-", $row['date']);
+        $year = explode("-", $row['date_from']);
         if($row['main_photo']==''){
         $img = "/img/logo/logo2.png";
         }
@@ -77,8 +78,8 @@
             $confYear = $roww["year"];
             echo "<script> echo (".$confYear.")</script>";
         }
-        //$archiveBD = mysqli_query($connect,"SELECT anons.`ID_announcement`,anons.`announcement_name_konf_".$_SESSION["lang"]."`, anons.`announcement_info_konf_".$_SESSION["lang"]."`,conf.`ID_conf`, conf.`main_photo`, conf.`date` FROM `announcement` anons LEFT JOIN `conferences` conf ON anons.ID_announcement = conf.ID_anons WHERE conf.ID_year = ".$_SESSION["year"]);
-        $archiveBD = mysqli_query($connect,"SELECT `ID_conf`, `anons_name_".$_SESSION["lang"]."`, `info_anons_".$_SESSION["lang"]."`, `main_photo`, `date` FROM `conferences` WHERE ID_year = ".$_SESSION["year"]);
+       
+        $archiveBD = mysqli_query($connect,"SELECT conf.`ID_conf`, conf.`anons_name_".$_SESSION["lang"]."`, conf.`info_anons_".$_SESSION["lang"]."`, conf.`main_photo`, dat.`date_from` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE ID_year = ".$_SESSION["year"]);
         while(($row = mysqli_fetch_assoc($archiveBD)) != false){
             // $string = mb_substr($row['info'],0,200,'UTF-8'); Сокращенный текст с анонса
            if($row['main_photo']==''){
@@ -90,7 +91,7 @@
             
             $archive .="<article class='konf'>
                         <div class='spisok-konf__img'>
-                            <h3>".date('d.m.Y',strtotime($row['date']))."</h3>
+                            <h3>".date('d.m.Y',strtotime($row['date_from']))."</h3>
                             <img class='card-img rounded-0' src='$img'>
                             <a class = 'button__konf'  href='blog-details.php?id=".$row['ID_conf']."'>".name('but_read')."</a>
                             <div class = 'spisok-konf__footer'>";
@@ -276,11 +277,11 @@
     function anonsDate (){
         include "connect.php";
         $arrayDateAnnouncement=array();
-        $anonsBD = mysqli_query($connect,"SELECT `ID_conf`, `date`, `Time`, `anons_name_".$_SESSION["lang"]."`,  `info_anons_".$_SESSION["lang"]."` FROM `conferences` WHERE DATE(`date`) >= CURDATE()");
+        $anonsBD = mysqli_query($connect,"SELECT conf.`ID_conf`, dat.`date_from`, conf.`Time`, conf.`anons_name_".$_SESSION["lang"]."`,  conf.`info_anons_".$_SESSION["lang"]."` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE()");
         while(($row = mysqli_fetch_assoc($anonsBD)) != false){
             $_SESSION["ID_conf"] = $row["ID_conf"];
-            if(!in_array($row['date'], $arrayDateAnnouncement) && count($arrayDateAnnouncement)<4){
-                $arrayDateAnnouncement[]=$row['date'];
+            if(!in_array($row['date_from'], $arrayDateAnnouncement) && count($arrayDateAnnouncement)<4){
+                $arrayDateAnnouncement[]=$row['date_from'];
                 
             }
         }
@@ -302,7 +303,7 @@
                 $active="";
                 }
                 $anons.="<div id='day$k' class='tab-pane $active' >";
-                $anonsconf = mysqli_query($connect,"SELECT `ID_conf`, `date`, `Time`, `anons_name_".$_SESSION["lang"]."`,  `info_anons_".$_SESSION["lang"]."` FROM `conferences` WHERE `date` = '$arrayDateAnnouncement[$i]'");
+                $anonsconf = mysqli_query($connect,"SELECT conf.`ID_conf`, dat.`date_from`, conf.`Time`, conf.`anons_name_".$_SESSION["lang"]."`,  conf.`info_anons_".$_SESSION["lang"]."` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE `date_from` = '$arrayDateAnnouncement[$i]'");
                 while(($row = mysqli_fetch_assoc($anonsconf)) != false){ 
                     /*if(!empty($row['announcement_foto_speaker'])&&$row['announcement_foto_speaker']!=''){
                         $fotoanons="<img class='boederimg' src='".$row['announcement_foto_speaker']."' alt=''>";
@@ -425,6 +426,7 @@
         $next__conference = "<div class='next__conference__content'>
         <h2 class = 'next__conference__title'>".name('nextconf')."</h2>
         <h2 class = 'next__conference__date'>";
+        //поправки
         $nextContaptionDate = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, '%d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates` WHERE `date_from` = (SELECT `date` FROM `conferences` WHERE ID_conf = 80)");
         $nextContaptionDate = mysqli_fetch_assoc($nextContaptionDate);
             if($nextContaptionDate["date_from"] == $nextContaptionDate["date_to"]){
