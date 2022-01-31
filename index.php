@@ -18,8 +18,8 @@
                     <ul class="header__list">
                         <li class="header__item"><a href="#" date-nav = "1" class="header__link active">Добавление</a></li>
                         <li class="header__item"><a href="#" date-nav = "2" class="header__link">Редактирование</a></li>
-                        <li class="header__item"><a href="#" date-nav = "3" class="header__link">Оргокмитет</a></li>
-                        <li class="header__item"><a href="#" date-nav = "4" class="header__link">Добавление пользователи</a></li>
+                        <li class="header__item"><a href="#" date-nav = "3" class="header__link">Оргкомитет</a></li>
+                        <li class="header__item"><a href="#" date-nav = "4" class="header__link">Добавление пользователей</a></li>
                         <li class="header__item"><a href="#" date-nav = "5" class="header__link">Аналитика</a></li>
                     </ul>
                     <a href="#" class="exit">Выйти</a>
