@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+}
+body a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0 auto;
+}
+.container .header__body {
+  width: 100%;
+  padding: 50px 0 10px 0;
+}
+.container .header__body .header__nav {
+  max-width: 770px;
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.container .header__body .header__nav .header__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style-type: none;
+}
+.container .header__body .header__nav .header__list .header__item {
+  margin: 0 20px 0 0;
+}
+.container .header__body .header__nav .header__list .header__item .header__link {
+  -webkit-transition: all 0.5s ease 0.2s;
+  transition: all 0.5s ease 0.2s;
+}
+.container .header__body .header__nav .header__list .header__item:last-child {
+  margin: 0;
+}
+.container .header__body .header__nav .header__list .active {
+  color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid black;
+}
+.container .header__body .header__nav .exit {
+  padding: 0 10px 0 0;
+  margin-left: auto;
+  background-image: url("/img/icon/exitAccount.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 10px;
+}
+.container .main__body {
+  padding: 60px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.container .main__body .main__nav a {
+  display: block;
+}
+.container .main__body .main__content {
+  width: 100%;
+}
+.container .main__body .main__content h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 29px;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 0 0 30px 0;
+}
+.container .main__body .main__content .information__announcement .main__introductionAnnouncement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.container .main__body .main__content .information__announcement .main__introductionAnnouncement .introductionRu p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #394BE5;
+}
+.container .main__body .main__content .information__announcement .main__introductionAnnouncement .introductionEn p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #F54E4E;
+}
+.container .main__body .main__content .information__announcement .main__introductionAnnouncement textarea {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+  width: 285px;
+  margin: 10px 0 0 0;
+}
+.container .main__body .main__content .editor__list {
+  margin: 0 auto;
+  width: 480px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+.container .main__body .main__content .editor__list .edit {
+  width: 100%;
+  height: 210px;
+}
+.container .main__body .main__content .editor__list .ru {
+  color: #394BE5;
+}
+.container .main__body .main__content .editor__list .en {
+  color: #F54E4E;
+}
+.container .main__body .main__content .editor__list h4 {
+  margin: 30px 0 10px 0;
+}
+.container .main__body .main__content .KeysDate {
+  width: 100%;
+}
+.container .main__body .main__content .KeysDate .dateConf {
+  width: 500px;
+  margin: 0 auto;
+}
+.container .main__body .main__content .KeysDate .dateConf .beetwenDate {
+  width: 300px;
+  margin: 30px auto 25px;
+}
+.container .main__body .main__content .KeysDate .dateConf h3 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 0 0 10px 0;
+}
+.container .main__body .main__content .KeysDate .dateConf p {
+  width: 100%;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #505050;
+  background-image: url("/img/icon/warning.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 17px;
+  padding: 0 0 0 20px;
+}
+.container .main__body .main__content .KeysDate .additionalDates {
+  width: 600px;
+  margin: 0 auto;
+}
+.container .main__body .main__content .KeysDate .additionalDates .additionalDate {
+  width: 290px;
+  margin: 0 auto 10px;
+}
+.container .main__body .main__content .KeysDate .additionalDates .description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+.container .main__body .main__content .KeysDate .additionalDates h3 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 35px 0 10px 0;
+}
+.container .main__body .main__content .KeysDate .additionalDates .addAdditionalDates {
+  margin: 15px 0 0 0;
+  border-top: 1px solid #000000;
+}
+.container .main__body .main__content .KeysDate .additionalDates .addAdditionalDates img {
+  display: block;
+  margin: 0 auto;
+}
+.container .main__body .main__content .programs {
+  padding: 62px 0 0 0;
+}
+.container .main__body .main__content .programs h3 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+.container .main__body .main__content .programs .program {
+  width: 600px;
+  margin: 0 auto;
+}
