@@ -19,4 +19,13 @@ $(document).ready(function() {
     }).catch(error => {
         console.error(error);
     });
+    $('.header__link').mouseenter(function() {
+        let left = $(this).offset().left - $('.header__list').offset().left,
+            width = $(this).width();
+
+        $('hr').css({
+            'margin-left': left,
+            'width': width
+        });
+    });
 });

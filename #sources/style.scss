@@ -28,22 +28,23 @@
                 margin-left: auto;
                 display: flex;
                 .header__list {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    list-style-type: none;
                     .header__item {
                         margin: 0 20px 0 0;
+                        display: inline-block;
                         .header__link {
                             transition: all 0.5s ease 0.2s;
                         }
                     }
-                    .header__item:last-child {
-                        margin: 0;
-                    }
                     .active {
                         color: rgba(0, 0, 0, 0.5);
-                        border-bottom: 1px solid black;
+                    }
+                    hr {
+                        height: 2px;
+                        margin: 0;
+                        width: 0;
+                        background: linear-gradient(90.38deg, #0D06DB 0%, #3984FF 100%);
+                        border: none;
+                        transition: .3s ease-in-out;
                     }
                 }
                 .exit {

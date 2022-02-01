@@ -21,7 +21,9 @@
                         <li class="header__item"><a href="#" date-nav = "3" class="header__link">Оргкомитет</a></li>
                         <li class="header__item"><a href="#" date-nav = "4" class="header__link">Добавление пользователей</a></li>
                         <li class="header__item"><a href="#" date-nav = "5" class="header__link">Аналитика</a></li>
+                        <hr>
                     </ul>
+                    
                     <a href="#" class="exit">Выйти</a>
                 </div>
                 <div class="header__breadCrumbs">
@@ -110,7 +112,7 @@
                             <label class="programText"  for="programEn" >Describtion </label>
                             <textarea class="programText" id="programEn"></textarea>
                         </div>
-                        <div class="addAdditionalDates">
+                        <div class="addAdditionalprogram">
                             <a href="#"><img src="/img/icon/add.jpg" alt=""></a> 
                         </div>
                     </div>

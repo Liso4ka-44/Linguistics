@@ -33,31 +33,25 @@ body a {
   display: -ms-flexbox;
   display: flex;
 }
-.container .header__body .header__nav .header__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  list-style-type: none;
-}
 .container .header__body .header__nav .header__list .header__item {
   margin: 0 20px 0 0;
+  display: inline-block;
 }
 .container .header__body .header__nav .header__list .header__item .header__link {
   -webkit-transition: all 0.5s ease 0.2s;
   transition: all 0.5s ease 0.2s;
 }
-.container .header__body .header__nav .header__list .header__item:last-child {
-  margin: 0;
-}
 .container .header__body .header__nav .header__list .active {
   color: rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid black;
+}
+.container .header__body .header__nav .header__list hr {
+  height: 2px;
+  margin: 0;
+  width: 0;
+  background: linear-gradient(90.38deg, #0D06DB 0%, #3984FF 100%);
+  border: none;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 .container .header__body .header__nav .exit {
   padding: 0 10px 0 0;
