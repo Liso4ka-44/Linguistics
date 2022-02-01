@@ -1,5 +1,4 @@
 <?php
-
 	session_start();
 	include "probnik/podcl.php";
 	include "probnik/class.php";

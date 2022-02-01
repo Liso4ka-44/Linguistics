@@ -1,4 +1,8 @@
 <?php
+    include "connect.php";
+    $ID_Conf = mysqli_query($connect,"SELECT MAX(`ID_conf`) AS 'ID_conf' FROM `conferences`");
+    $ID_Conf = mysqli_fetch_assoc($ID_Conf);
+    $_SESSION['ID_conf'] = $ID_Conf["ID_conf"];
     function orgcomitet(){
         include "connect.php";
         $list='';
@@ -25,7 +29,7 @@
     function listLASTconf () {
         include "connect.php";
         //$year = mysqli_query($connect,"SELECT * FROM `years` WHERE `ID_year` <".$Date["ID_year"]);
-        $CONFBD = mysqli_query($connect, "SELECT conf.`ID_conf`, conf.`Name_conf_".$_SESSION["lang"]."`, conf.`ID_year`, conf.`main_photo`, dat.`date_from` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) <= CURDATE() ORDER BY `ID_conf` DESC LIMIT 3 ");
+        $CONFBD = mysqli_query($connect, "SELECT conf.`ID_conf`, conf.`Name_conf_".$_SESSION["lang"]."`, conf.`ID_year`, conf.`main_photo`, dat.`date_from` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE conf.`ID_conf` != " .$_SESSION['ID_conf']." AND DATE(`date_from`) <= CURDATE() ORDER BY `ID_conf` DESC LIMIT 3");
         //поправки
         while(($row = mysqli_fetch_assoc($CONFBD)) != false){
         $year = explode("-", $row['date_from']);
@@ -178,7 +182,7 @@
         while(($row = mysqli_fetch_assoc($photoBD)) != false){
             if($row['video_conf']!=''){
                 $video.="
-                <iframe class='videokonf  ' src='https://www.youtube.com/embed/".$row['video_conf']."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+                <iframe class='videokonf' src='https://www.youtube.com/embed/".$row['video_conf']."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
             }
         }
         if($video!="<div class='last-photo-konf-title blo-padd'><h2 class='primary-text'>".name('video')."</h2><img src='img/home/section-style.png' ></div><div class='row no-gutters '><div class='foto'>"){
@@ -427,7 +431,7 @@
         <h2 class = 'next__conference__title'>".name('nextconf')."</h2>
         <h2 class = 'next__conference__date'>";
         //поправки
-        $nextContaptionDate = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, '%d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates` WHERE `ID_conf` = ".$_SESSION['ID_conf']);
+        $nextContaptionDate = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, '%d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = ".$_SESSION['ID_conf']);
         $nextContaptionDate = mysqli_fetch_assoc($nextContaptionDate);
             if($nextContaptionDate["date_from"] == $nextContaptionDate["date_to"]){
                 echo $_SESSION["ID_conf"];
