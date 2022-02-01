@@ -427,7 +427,7 @@
         <h2 class = 'next__conference__title'>".name('nextconf')."</h2>
         <h2 class = 'next__conference__date'>";
         //поправки
-        $nextContaptionDate = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, '%d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates` WHERE `date_from` = (SELECT `date` FROM `conferences` WHERE ID_conf = 80)");
+        $nextContaptionDate = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, '%d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates` WHERE `ID_conf` = ".$_SESSION['ID_conf']);
         $nextContaptionDate = mysqli_fetch_assoc($nextContaptionDate);
             if($nextContaptionDate["date_from"] == $nextContaptionDate["date_to"]){
                 echo $_SESSION["ID_conf"];
