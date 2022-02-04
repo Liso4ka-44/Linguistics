@@ -281,7 +281,7 @@
     function anonsDate (){
         include "connect.php";
         $arrayDateAnnouncement=array();
-        $anonsBD = mysqli_query($connect,"SELECT conf.`ID_conf`, dat.`date_from`, conf.`Time`, conf.`anons_name_".$_SESSION["lang"]."`,  conf.`info_anons_".$_SESSION["lang"]."` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE()");
+        $anonsBD = mysqli_query($connect,"SELECT conf.`ID_conf`, dat.`date_from`, dat.`text_ru`, conf.`Time`, conf.`anons_name_".$_SESSION["lang"]."`,  conf.`info_anons_".$_SESSION["lang"]."` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%'");
         while(($row = mysqli_fetch_assoc($anonsBD)) != false){
             $_SESSION["ID_conf"] = $row["ID_conf"];
             if(!in_array($row['date_from'], $arrayDateAnnouncement) && count($arrayDateAnnouncement)<4){
