@@ -9,7 +9,7 @@
     <script src="/js/autoriz.js" type = "text/javascript" defer></script>
     <title>Авторизация</title>
 </head>
-<body>
+<body class="back">
     <div class="authorization">
         <div class="authorization__body">
             <h1>Язык. Культура. Перевод</h1>
@@ -18,11 +18,11 @@
                 <h3>Авторизация</h3>
                 <p class = "error__autoriz">awdadw</p>
                 <label class ="authorization__input">
-                    <img src="/img/icon/Vector.jpg" alt="">
+                    <img src="/img/icon/username.svg" alt="">
                     <input type="text" name="authorization__login" class = "input" placeholder="Логин...">
                 </label>
                 <label class ="authorization__input">
-                    <img src="/img/icon/carbon_password.jpg" alt="">
+                    <img src="/img/icon/password.svg" alt="">
                     <input type="password" name="authorization__password" class = "input" placeholder="Пароль...">
                 </label>
                 
