@@ -1,0 +1,109 @@
+.back {
+    background-image: url(/img/background/back_index.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.authorization {
+    background: rgba(175, 175, 175, 0.3);
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    width: 453px;
+    &__body {
+        padding: 50px 50px 100px 50px;
+        h1 {
+            font-family: Oswald;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 35px;
+            line-height: 52px;
+        }
+        h2 {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 25px;
+            line-height: 29px;
+            margin: 0 0 95px 0;
+        }
+        .authorization__form {
+            display: block;
+            background: #F4F4F4;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            h3 {
+                transform: translateY(-50%);
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 23px;
+                background: #C93C3C;
+                border-radius: 7px;
+                width: 164px;
+                margin: 0 auto;
+            }
+            .error__autoriz {
+                display: none;
+                color: #8d36c0;
+                background-color: #5b66cc;
+                border-radius: 5px;
+                width: 85%;
+                margin: 0 auto;
+                padding: 10px 20px;
+            }
+            .authorization__input {
+                display: block;
+                margin: 5px 0;
+                .authorization__input img {
+                    vertical-align: middle;
+                }
+            }
+        }
+        .authorization__footer {
+            margin: 22px 0 32px 50px;
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #000000;
+            display: inline-flex;
+            align-items: center;
+            .check__input {
+                appearance: none;
+                position: absolute;
+            }
+            .check__box {
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                background: #FFFFFF;
+                border: 1px solid #000000;
+                box-sizing: border-box;
+                border-radius: 2px;
+                margin-left: -20px;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .check__input:checked+.check__box {
+                background-image: url(/img/icon/on.svg);
+                border: none;
+            }
+        }
+        .authorization__btn {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            padding: 7px 30px;
+            border: none;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            color: #FFFFFF;
+        }
+    }
+}
