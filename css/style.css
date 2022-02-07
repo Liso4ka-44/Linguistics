@@ -127,6 +127,36 @@
   color: #FFFFFF;
 }
 
+.reg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 90px 0 0 0;
+}
+.reg .reg__form {
+  width: 280px;
+}
+.reg .reg__form .reg__title {
+  margin: 0 0 30px 0;
+}
+.reg .reg__form .input {
+  margin: 0 0 10px 0;
+}
+.reg .reg__form .reg__btn {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  background: #C53434;
+  border-radius: 5px;
+  padding: 7px 68px;
+  border: none;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -144,6 +174,10 @@ body {
 body a {
   text-decoration: none;
   color: #000000;
+}
+
+h1 {
+  text-align: center;
 }
 
 .input {

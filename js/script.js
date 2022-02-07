@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $('.header__link').click(function() {
-        $(".header__link").removeClass('active');
-        let dateNav = $(this).attr("date-nav");
-        $(`.header__link[date-nav="${dateNav}"]`).addClass("active");
-    });
+    // $('.header__link').click(function() {
+    //     $(".header__link").removeClass('active');
+    //     let dateNav = $(this).attr("date-nav");
+    //     $(`.header__link[date-nav="${dateNav}"]`).addClass("active");
+    // });
     let myEditor
     ClassicEditor.create(document.querySelector('#editor')).then(editor => {
         myEditor = editor
