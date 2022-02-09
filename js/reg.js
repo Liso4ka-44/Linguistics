@@ -1,4 +1,5 @@
 function show() {
+    $('.user__list').empty();
     $.ajax({
         url: "userOnl.php",
         cache: false,
