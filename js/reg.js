@@ -8,6 +8,7 @@ $(document).ready(function() {
             data: ({ login: $("input[name = 'login']").val() }),
             dataType: "html",
             success: function(data) {
+                console.log(data);
                 if (data != "done") {
                     $("#error_login").show();
 
