@@ -17,10 +17,19 @@
             font-size: 14px;
             line-height: 16px;
             color: #FFFFFF;
-            background: #C53434;
+            background: #AD0404;
             border-radius: 5px;
             padding: 7px 68px;
             border: none;
+        }
+        .reg__btn:hover {
+            background: rgba(173, 4, 4, 0.7);
+        }
+        .reg__btn:active {
+            transform: translateY(5px);
+        }
+        .reg__btn:disabled {
+            background: rgba(104, 6, 6, 0.7);
         }
     }
 }

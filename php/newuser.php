@@ -28,16 +28,12 @@ if (isset($_POST["btn"])) {
             <div class="reg">
                 <form action="#" method="post" class="reg__form">
                     <h1 class="reg__title">Регистрация</h1>
+                    <span id="error_login" class="suc">Логин занят</span>
                     <input type="text" class="input" name="name" placeholder="Введите имя">
-                    <input type="text" class="input" name="log" placeholder="Введите логин">
-                    <input type="text" class="input" name="pass" placeholder="Введите пароль">
-                    <button name="btn" type="submit" class="reg__btn">Зарегистрироваться</button>
+                    <input type="text" class="input" name="login" placeholder="Введите логин">
+                    <input type="text" class="input" name="password" placeholder="Введите пароль">
+                    <button name="btn" type="submit" class="reg__btn" disabled>Зарегистрироваться</button>
                 </form>
-                <div class="user">
-                    <ul class="user__list">
-
-                    </ul>
-                </div>
             </div>
         </div>
     </main>

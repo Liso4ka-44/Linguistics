@@ -1,10 +1,11 @@
 <?php
 include "connect.php";
-$listUser = array();
-$count = 0;
-$userOnl = mysqli_query($connect, "SELECT * FROM `users`");
-while (($row = mysqli_fetch_assoc($userOnl)) != false) {
-    array_push($listUser, $row["name_us"] . " " . $row["online"]);
-    $count++;
+if (isset($_POST["login"])) {
+    $login_bd = mysqli_query($connect, "SELECT * FROM `users` WHERE `login` = " . $_POST["login"]);
+    $login_bd = mysqli_fetch_assoc($login_bd);
+    if (empty($login_bd)) {
+        echo "done";
+    } else {
+        echo "undone";
+    }
 }
-echo json_encode($listUser);

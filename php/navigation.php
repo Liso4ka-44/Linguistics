@@ -1,3 +1,14 @@
+<?php
+include "connect.php";
+if (isset($_POST["exit"])) {
+    mysqli_query($connect, "UPDATE `users` SET `online`= 0 WHERE `ID_user` = " . $_SESSION["user"]["ID_user"]);
+    session_destroy();
+
+
+    echo "<script>window.location = '../index.php';</script>";
+}
+?>
+
 <header class="header">
     <div class="container">
         <div class="header__body">
@@ -10,8 +21,10 @@
                     <li class="header__item"><a href="#" date-nav="5" class="header__link">Аналитика</a></li>
                     <hr>
                 </ul>
+                <form action="" method="post" class="exit">
+                    <button class="exit__btn" type="submit" name="exit">Выйти</button>
+                </form>
 
-                <a href="#" class="exit">Выйти</a>
             </div>
             <div class="header__breadCrumbs">
             </div>

@@ -32,6 +32,11 @@ h1 {
     height: 40px;
 }
 
+.input:focus {
+    outline: none;
+    border-color: blue;
+}
+
 .container {
     max-width: 940px;
     margin: 0 auto;
@@ -69,6 +74,10 @@ h1 {
                 background-position: right;
                 background-repeat: no-repeat;
                 background-size: 10px;
+                .exit__btn {
+                    background-color: #fff;
+                    border: none;
+                }
             }
         }
     }
