@@ -1,19 +1,21 @@
 $(document).ready(function() {
     $('.authorization__btn').click(function() {
         $(".error__autoriz").empty();
-        let login = $('input[name="authorization__login"]').val();
+        let login1 = $('input[name="authorization__login"]').val();
         let pass = $('input[name="authorization__password"]').val();
-        if (login == "" || pass == "") {
+
+        if (login1 == "" || pass == "") {
             $(".error__autoriz").css("display", "block");
             $(".error__autoriz").append("<b>*Заполните все поля</b>");
         } else {
             $.ajax({
                 url: 'php/checkAutoriz.php',
                 method: 'post',
-                data: { login, pass },
+                data: { login1, pass },
                 success: function(data) {
+                    console.log(data);
                     if (data == true) {
-                        window.location.href = "php/add.php";
+                        window.location.href = "/php/add.php";
                     } else {
                         $(".error__autoriz").append("<b>*Логин или пароль неверные</b>");
                     }

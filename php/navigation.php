@@ -1,10 +1,7 @@
 <?php
 include "connect.php";
 if (isset($_POST["exit"])) {
-    mysqli_query($connect, "UPDATE `users` SET `online`= 0 WHERE `ID_user` = " . $_SESSION["user"]["ID_user"]);
     session_destroy();
-
-
     echo "<script>window.location = '../index.php';</script>";
 }
 ?>
