@@ -1,7 +1,8 @@
 <?php
 include "connect.php";
 if (isset($_POST["btn"])) {
-    $pass = password_hash($_POST["pass"], PASSWORD_ARGON2I);
+    $pass = trim($_POST["password"]);
+    $pass = password_hash($_POST["password"], PASSWORD_DEFAULT);
     mysqli_query($connect, "INSERT INTO `users`(`name_us`, `login`, `password`) VALUES ('" . $_POST['name'] . "','" . $_POST["login"] . "','$pass')");
 }
 ?>

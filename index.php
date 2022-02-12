@@ -21,7 +21,12 @@ include "php/connect.php";
             <h2>Панель администратора</h2>
             <form method="post" class="authorization__form">
                 <h3>Авторизация</h3>
-                <div class="error__autoriz">
+                <div class="error">
+                    <div class="error__text">
+                        <p>Данные были введены некорректно.</p>
+                        <a href="#">Забыли пароль?</a>
+                    </div>
+
                 </div>
                 <label class="authorization__input">
                     <img src="/img/icon/username.svg" alt="">
