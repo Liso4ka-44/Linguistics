@@ -12,7 +12,7 @@ if (isset($_POST["exit"])) {
             <div class="header__nav">
                 <ul class="header__list">
                     <li class="header__item"><a href="add.php" date-nav="1" class="header__link active">Добавление</a></li>
-                    <li class="header__item"><a href="#" date-nav="2" class="header__link">Редактирование</a></li>
+                    <li class="header__item"><a href="editing.php" date-nav="2" class="header__link">Редактирование</a></li>
                     <li class="header__item"><a href="#" date-nav="3" class="header__link">Оргкомитет</a></li>
                     <li class="header__item"><a href="newuser.php" date-nav="4" class="header__link">Добавление пользователей</a></li>
                     <li class="header__item"><a href="#" date-nav="5" class="header__link">Аналитика</a></li>

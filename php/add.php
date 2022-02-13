@@ -1,9 +1,7 @@
-<?php
-include "connect.php";
+<?php include "connect.php";
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -23,41 +21,31 @@ include "connect.php";
     <main class="main">
         <div class="container">
             <div class="main__body">
-                <div class="main__nav">
-                    <a href="">Сведения об анонсе</a>
-                    <a href="">Важные даты</a>
-                    <a href="">Программки</a>
-                </div>
+                <div class="main__nav"><a href="">Сведения об анонсе</a><a href="">Важные даты</a><a href="">Программки</a></div>
                 <div class="main__content">
                     <div class="information__announcement">
                         <h2>Сведения об анонсе</h2>
                         <div class="main__introductionAnnouncement">
                             <div class="introductionRu">
-                                <p>Вступление анонса</p>
-                                <textarea id=""></textarea>
+                                <p>Вступление анонса</p><textarea id=""></textarea>
                             </div>
                             <div class="introductionEn">
-                                <p>Introduction</p>
-                                <textarea></textarea>
+                                <p>Introduction</p><textarea></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="editor__list">
                         <div class="editor1">
-                            <h4 class="ru">Информация о конференции</h4>
-                            <textarea class="edit" id="editor"></textarea>
+                            <h4 class="ru">Информация о конференции</h4><textarea class="edit" id="editor"></textarea>
                         </div>
                         <div class="editor2">
-                            <h4 class="en">Conference information</h4>
-                            <textarea class="edit" id="editor1"></textarea>
+                            <h4 class="en">Conference information</h4><textarea class="edit" id="editor1"></textarea>
                         </div>
                         <div class="editor3">
-                            <h4 class="ru">Концепция конференции</h4>
-                            <textarea class="edit" id="editor2"></textarea>
+                            <h4 class="ru">Концепция конференции</h4><textarea class="edit" id="editor2"></textarea>
                         </div>
                         <div class="editor4">
-                            <h4 class="en">Conference conception</h4>
-                            <textarea class="edit" id="editor3"></textarea>
+                            <h4 class="en">Conference conception</h4><textarea class="edit" id="editor3"></textarea>
                         </div>
                     </div>
                     <div class="KeysDate">
@@ -70,7 +58,8 @@ include "connect.php";
                                 <label for="to">До </label>
                                 <input type="date" name="" id="to">
                             </div>
-                            <p>если дата не является промежутком, продублируйте её в обе формы</p>
+                            <p>если дата не является промежутком,
+                                продублируйте её в обе формы</p>
                         </div>
                         <div class="additionalDates">
                             <h3>Дата 1</h3>
@@ -81,29 +70,40 @@ include "connect.php";
                                 <input type="date" name="" id="to">
                             </div>
                             <div class="description">
+
                                 <label class="descriptionText" for="descriptionRu">Описание </label>
                                 <textarea class="descriptionText" id="descriptionRu"></textarea>
+
                                 <label class="descriptionText" for="descriptionEn">Describtion </label>
                                 <textarea class="descriptionText" id="descriptionEn"></textarea>
                             </div>
                             <div class="addAdditionalDates">
-                                <a href="#"><img src="/img/icon/add.jpg" alt=""></a>
+                                <a href="#">
+                                    <img src="/img/icon/add.jpg" alt="">
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="programs">
-                        <h2>Программки, информационные письма</h2>
+                        <h2>Программки,информационные письма</h2>
                         <div class="program">
                             <h3>Документ 1</h3>
-                            <label class="programText" for="programRu">Описание </label>
-                            <textarea class="programText" id="programRu"></textarea>
-                            <label class="programText" for="programEn">Describtion </label>
-                            <textarea class="programText" id="programEn"></textarea>
+                            <input type="file" name="" id="">
+                            <label class="programText">Название
+                                <textarea class="programText"></textarea>
+                            </label>
+                            <input type="file" name="" id="">
+                            <label class="programText">Name
+                                <textarea class="programText"></textarea>
+                            </label>
                         </div>
-                        <div class="addAdditionalprogram">
-                            <a href="#"><img src="/img/icon/add.jpg" alt=""></a>
+                        <div class="addAdditionalDates">
+                            <a href="#">
+                                <img src="/img/icon/add.jpg" alt="">
+                            </a>
                         </div>
                     </div>
+                    <button type="submit" class="main__button">Добавить конференцию</button>
                 </div>
             </div>
         </div>

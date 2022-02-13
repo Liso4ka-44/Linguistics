@@ -6,6 +6,19 @@
 
 .main__content {
     width: 100%;
+    text-align: center;
+    // label {
+    //     display: block;
+    // }
+    .addAdditionalDates {
+        width: 600px;
+        margin: 15px 0 0 0;
+        border-top: 1px solid #000000;
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
     h2 {
         text-align: center;
         font-weight: 500;
@@ -115,18 +128,12 @@
                 text-align: center;
                 padding: 35px 0 10px 0;
             }
-            .addAdditionalDates {
-                margin: 15px 0 0 0;
-                border-top: 1px solid #000000;
-                img {
-                    display: block;
-                    margin: 0 auto;
-                }
-            }
         }
     }
     .programs {
         padding: 62px 0 0 0;
+        width: 600px;
+        margin: 0 auto;
         h3 {
             font-weight: 500;
             font-size: 20px;
@@ -139,5 +146,17 @@
             width: 600px;
             margin: 0 auto;
         }
+    }
+    .main__button {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #FFFFFF;
+        background: #168628;
+        border-radius: 5px;
+        padding: 7px 8px;
+        border: none;
     }
 }
