@@ -15,7 +15,7 @@ if (isset($_POST["exit"])) {
                     <li class="header__item"><a href="editing.php" date-nav="2" class="header__link">Редактирование</a></li>
                     <li class="header__item"><a href="#" date-nav="3" class="header__link">Оргкомитет</a></li>
                     <li class="header__item"><a href="newuser.php" date-nav="4" class="header__link">Добавление пользователей</a></li>
-                    <li class="header__item"><a href="#" date-nav="5" class="header__link">Аналитика</a></li>
+                    <!-- <li class="header__item"><a href="#" date-nav="5" class="header__link">Аналитика</a></li> -->
                     <hr>
                 </ul>
                 <form action="" method="post" class="exit">

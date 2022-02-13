@@ -1,0 +1,42 @@
+.main__content {
+    width: 600px;
+    .date {
+        padding: 60px 0;
+        .date__editing {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .dateImportant {
+        div {
+            margin: 15px 0;
+        }
+        .description {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            label,
+            textarea {
+                display: block;
+            }
+            textarea {
+                width: 285px;
+                height: 32px;
+                resize: vertical;
+            }
+        }
+        .dateImportant__btn {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            color: #FFFFFF;
+            padding: 7px 15px;
+            background: #6A0D0D;
+            border-radius: 5px;
+            border: none;
+        }
+    }
+}

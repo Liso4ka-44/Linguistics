@@ -21,7 +21,11 @@
     <main class="main">
         <div class="container">
             <div class="main__body">
-                <div class="main__nav"><a href="">Сведения об анонсе</a><a href="">Важные даты</a><a href="">Программки</a></div>
+                <div class="main__nav">
+                    <a href="">Сведения об анонсе</a>
+                    <a href="">Важные даты</a>
+                    <a href="">Программки</a>
+                </div>
                 <div class="main__content">
                     <div class="information__announcement">
                         <h2>Сведения об анонсе</h2>
@@ -58,7 +62,7 @@
                                 <label for="to">До </label>
                                 <input type="date" name="" id="to">
                             </div>
-                            <p>если дата не является промежутком,
+                            <p class="warning">если дата не является промежутком,
                                 продублируйте её в обе формы</p>
                         </div>
                         <div class="additionalDates">
