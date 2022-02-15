@@ -28,11 +28,12 @@
         .exit {
             padding: 0 10px 0 0;
             margin-left: auto;
-            background-image: url("/img/icon/exitAccount.png");
+            background-image: url("../img/icon/exitAccount.png");
             background-position: right;
             background-repeat: no-repeat;
             background-size: 10px;
             .exit__btn {
+                color: #000;
                 background-color: #fff;
                 border: none;
             }

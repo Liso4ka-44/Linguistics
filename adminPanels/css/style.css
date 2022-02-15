@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 .back {
-  background: url(../img/background/back_index.jpg);
+  background: url(/img/background/back_index.jpg);
   -o-object-fit: cover;
      object-fit: cover;
   display: -webkit-box;
@@ -69,7 +69,7 @@
   padding: 15px 12px;
 }
 .authorization__body .authorization__form .error .error__text {
-  background: url(../img/icon/Group.png) no-repeat top left;
+  background: url(/img/icon/Group.png) no-repeat top left;
   padding-left: 30px;
   text-align: start;
 }
@@ -127,7 +127,7 @@
   background-size: cover;
 }
 .authorization__body .authorization__footer .check__input:checked + .check__box {
-  background-image: url(../img/icon/on.svg);
+  background-image: url(/img/icon/on.svg);
   border: none;
 }
 .authorization__body .authorization__btn {
@@ -223,6 +223,7 @@
   background-size: 10px;
 }
 .header__body .header__nav .exit .exit__btn {
+  color: #000;
   background-color: #fff;
   border: none;
 }
@@ -328,7 +329,7 @@
   font-size: 12px;
   line-height: 14px;
   color: #505050;
-  background-image: url("../img/icon/warning.png");
+  background-image: url("/img/icon/warning.png");
   background-position: left;
   background-repeat: no-repeat;
   background-size: 17px;
@@ -461,6 +462,132 @@
   color: #AD0404;
 }
 
+.main__content {
+  width: 600px;
+}
+.main__content .date__editing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.main__content .date__editing div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.main__content label,
+.main__content textarea {
+  display: block;
+}
+.main__content h2 {
+  padding: 60px 0;
+}
+.main__content label {
+  text-align: start;
+}
+.main__content .btn {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 7px 15px;
+  background: #6A0D0D;
+}
+.main__content .dateImportant div {
+  margin: 15px 0;
+}
+.main__content .dateImportant .description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.main__content .dateImportant .description textarea {
+  width: 285px;
+  height: 32px;
+}
+.main__content .datelist a {
+  color: #1293DC;
+  padding: 10px;
+}
+.main__content .datelist .dateitem .description {
+  border-bottom: 1px solid #000000;
+  margin-bottom: 30px;
+}
+.main__content .datelist .dateitem .description label {
+  height: auto;
+}
+.main__content .datelist .dateitem .description label,
+.main__content .datelist .dateitem .description textarea {
+  width: 470px;
+  text-align: start;
+}
+.main__content .datelist .dateitem .description div {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.main__content .datelist .dateitem .dateitem__btn {
+  color: #FFFFFF;
+  padding: 4px 6px;
+  background: #AD0404;
+  margin: 0 0 30px 0;
+}
+.main__content .eddit__info_programm div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.main__content .eddit__info_programm div input[type=file] {
+  width: 100%;
+  padding: 5px 10px;
+  color: #000;
+  border-top: 2px solid rgba(0, 0, 0, 0.3);
+  border-left: 2px solid rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 5px;
+}
+.main__content .eddit__info_programm div .file {
+  width: 220px;
+}
+.main__content .eddit__info_programm div textarea {
+  width: 285px;
+}
+.main__content .eddit__info_programm button {
+  margin: 40px 0 0 0;
+}
+.main__content .eddit__info_programm .programm__item {
+  width: 100%;
+  text-align: center;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -508,4 +635,73 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+div {
+  text-align: center;
+}
+
+.warning {
+  text-align: center;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #505050;
+  background-image: url("../img/icon/warning.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 17px;
+  padding: 0 0 0 20px;
+  display: inline;
+}
+
+input[type=date] {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 5px 15px 0 0;
+  background: url(../img/icon/date.png) no-repeat right;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.ruText {
+  color: #394BE5;
+}
+
+.enText {
+  color: #F54E4E;
+}
+
+textarea {
+  resize: vertical;
+  border-radius: 5px;
+}
+
+button {
+  border: none;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+
+label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.8);
 }

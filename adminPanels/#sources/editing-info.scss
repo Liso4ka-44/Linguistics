@@ -1,0 +1,105 @@
+.main__content {
+    .date__editing {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        div {
+            display: flex;
+            align-items: center;
+        }
+    }
+    label,
+    textarea {
+        display: block;
+    }
+    width: 600px;
+    h2 {
+        padding: 60px 0;
+    }
+    label {
+        text-align: start;
+    }
+    .btn {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 7px 15px;
+        background: #6A0D0D;
+    }
+    .dateImportant {
+        div {
+            margin: 15px 0;
+        }
+        .description {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            textarea {
+                width: 285px;
+                height: 32px;
+            }
+        }
+    }
+    .datelist {
+        a {
+            color: #1293DC;
+            padding: 10px;
+        }
+        .dateitem {
+            .description {
+                border-bottom: 1px solid #000000;
+                margin-bottom: 30px;
+                label {
+                    height: auto;
+                }
+                label,
+                textarea {
+                    width: 470px;
+                    text-align: start;
+                }
+                div {
+                    margin: 20px 0;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+            .dateitem__btn {
+                color: #FFFFFF;
+                padding: 4px 6px;
+                background: #AD0404;
+                margin: 0 0 30px 0;
+            }
+        }
+    }
+    .eddit__info_programm {
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input[type="file"] {
+                width: 100%;
+                padding: 5px 10px;
+                color: #000;
+                border-top: 2px solid rgb(0, 0, 0, 0.3);
+                border-left: 2px solid rgb(0, 0, 0, 0.3);
+                border-top-left-radius: 5px;
+            }
+            .file {
+                width: 220px;
+            }
+            textarea {
+                width: 285px;
+            }
+        }
+        button {
+            margin: 40px 0 0 0;
+        }
+        .programm__item {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
