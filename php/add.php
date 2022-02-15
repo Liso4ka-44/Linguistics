@@ -93,11 +93,11 @@
                         <div class="program">
                             <h3>Документ 1</h3>
                             <input type="file" name="" id="">
-                            <label class="programText">Название
+                            <label class="ruText">Название
                                 <textarea class="programText"></textarea>
                             </label>
                             <input type="file" name="" id="">
-                            <label class="programText">Name
+                            <label class="enText">Name
                                 <textarea class="programText"></textarea>
                             </label>
                         </div>

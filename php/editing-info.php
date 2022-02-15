@@ -43,7 +43,7 @@
                         <p class="warning">если дата не является промежутком,
                             продублируйте её в обе формы
                         </p>
-                        <div>
+                        <div class="date__editing">
                             <label>От <input type="date"></label>
                             <label>До <input type="date"></label>
                         </div>
@@ -51,7 +51,64 @@
                             <label class="ruText">Описание <textarea></textarea></label>
                             <label class="enText">Describtion <textarea></textarea></label>
                         </div>
-                        <button type="submit" class="dateImportant__btn">Добавить дату</button>
+                        <button type="submit" class="btn">Добавить дату</button>
+                    </div>
+                    <div class="datelist">
+                        <div class="dateitem">
+                            <h2>Дата 1</h2>
+                            <div class="date__editing">
+                                <div>
+                                    <label>От <input type="date"></label>
+                                    <label>До <input type="date"></label>
+                                </div>
+
+                                <img src="/img/icon/pen.png" alt="">
+                            </div>
+                            <div class="description">
+                                <div>
+                                    <label class="ruText">Описание <textarea></textarea></label>
+                                    <img src="/img/icon/pen.png" alt="">
+                                </div>
+                                <div>
+                                    <label class="enText">Describtion <textarea></textarea></label>
+                                    <img src="/img/icon/pen.png" alt="">
+                                </div>
+
+                            </div>
+                            <button type="submit" class="dateitem__btn">Удалить дату</button>
+                        </div>
+                        <a href="#">Смотреть все даты <img src="/img/icon/Vector 3.png" alt="" class="slide"></a>
+                    </div>
+                    <div class="eddit__info_programm">
+                        <h2>Программки, информационные письма</h2>
+                        <div>
+                            <label class="ruText file">
+                                Файл
+                                <input type="file">
+                            </label>
+                            <label class="ruText">
+                                Название
+                                <textarea class=""></textarea>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="enText file">
+                                File
+                                <input type="file">
+                            </label>
+                            <label class="enText">
+                                Name
+                                <textarea class=""></textarea>
+                            </label>
+                        </div>
+                        <button class="btn">Добавить программку</button>
+                        <div class="programm__list">
+                            <div class="programm__item">
+                                <h3>Программка 1</h3>
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

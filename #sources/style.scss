@@ -50,6 +50,10 @@ h1 {
     }
 }
 
+div {
+    text-align: center;
+}
+
 .warning {
     text-align: center;
     font-style: italic;
@@ -84,4 +88,32 @@ input[type="date"] {
 
 .enText {
     color: #F54E4E;
+}
+
+textarea {
+    resize: vertical;
+    border-radius: 5px;
+}
+
+button {
+    border: none;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+label {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+h3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(0, 0, 0, 0.8);
 }
