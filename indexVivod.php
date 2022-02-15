@@ -281,7 +281,7 @@
     function anonsDate (){
         include "connect.php";
         $arrayDateAnnouncement=array();
-        $anonsBD = mysqli_query($connect,"SELECT conf.`ID_conf`, dat.`date_from`, dat.`text_ru`, conf.`Time`, conf.`anons_name_".$_SESSION["lang"]."`,  conf.`info_anons_".$_SESSION["lang"]."` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%'");
+        $anonsBD = mysqli_query($connect,"SELECT conf.`ID_conf`, dat.`date_from`, dat.`text_ru`, conf.`anons_name_".$_SESSION["lang"]."`,  conf.`info_anons_".$_SESSION["lang"]."` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%'");
         while(($row = mysqli_fetch_assoc($anonsBD)) != false){
             $_SESSION["ID_conf"] = $row["ID_conf"];
             if(!in_array($row['date_from'], $arrayDateAnnouncement) && count($arrayDateAnnouncement)<4){
@@ -307,7 +307,7 @@
                 $active="";
                 }
                 $anons.="<div id='day$k' class='tab-pane $active' >";
-                $anonsconf = mysqli_query($connect,"SELECT conf.`ID_conf`, dat.`date_from`, conf.`Time`, conf.`anons_name_".$_SESSION["lang"]."`,  conf.`info_anons_".$_SESSION["lang"]."` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE `date_from` = '$arrayDateAnnouncement[$i]'");
+                $anonsconf = mysqli_query($connect,"SELECT conf.`ID_conf`, dat.`date_from`, conf.`anons_name_".$_SESSION["lang"]."`,  conf.`info_anons_".$_SESSION["lang"]."` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE `date_from` = '$arrayDateAnnouncement[$i]'");
                 while(($row = mysqli_fetch_assoc($anonsconf)) != false){ 
                     /*if(!empty($row['announcement_foto_speaker'])&&$row['announcement_foto_speaker']!=''){
                         $fotoanons="<img class='boederimg' src='".$row['announcement_foto_speaker']."' alt=''>";
@@ -322,7 +322,9 @@
                     
                     $_SESION["ANONS"] = (integer)$row['ID_conf'];
                     $anonsBD_prog = mysqli_query($connect,"SELECT `ID_playbill`, `name_playbill_".$_SESSION["lang"]."`, `road_".$_SESSION["lang"]."`, `ID_conf` FROM `playbill` WHERE `ID_conf` = '".$_SESION["ANONS"]."'");
+                   
                     while(($row_prog = mysqli_fetch_assoc($anonsBD_prog)) != false){
+                        if ($row_prog['name_playbill_'.$_SESSION["lang"]] != ""){
                         $anons.="<div class = 'anons__prog__footer'>
                             <p class = 'Anons__text__button'>  ".$row_prog['name_playbill_'.$_SESSION["lang"]]."</p>
                                 <a href='".$row_prog['road_'.$_SESSION["lang"]]."' class='download__program' download>
@@ -330,13 +332,13 @@
                                 </a>
                             </div>";
                         }
+                    }
                     $anons.="</div>
                     
                     <div class='content__anons'>
 
                     <a class='schedule-title' href='#'>
                     <h4 class = 'index__anons__date'>".date('d.m.Y',strtotime($arrayDateAnnouncement[$i]))."</h4>
-                    <h4>".$row['Time']."</h4>
                     <h3>".$row['anons_name_'.$_SESSION["lang"]]."</h3></a><br>";
                        
                     $plak=explode(PHP_EOL,$in);

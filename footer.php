@@ -25,7 +25,7 @@
     </div>
     <div class = "contacts">
         <p>+7 495 661 71 98</p>
-        <p>yazykkultura-perevod@odin.mgimo.ru</p>
+        <p>yazyk-kultura-perevod@odin.mgimo.ru</p>
         <p>v.ikonnikova@odin.mgimo.ru </p>
     </div>
 </div>
