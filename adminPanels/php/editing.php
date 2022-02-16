@@ -18,12 +18,17 @@
     ?>
     <main>
         <div class="main__body">
-
-            <div class="konfList">
-                <h2>Список конференций</h2>
-                <div class="konf">
-                    <div class="konf__title">
-                        <p>Дата конференции 21.03.2018</p>
+        <div class="konfList">
+                        <h2>Список конференций</h2>
+                    <div class="konf">
+                    <?php
+        include('connect.php');
+        $poisk = mysqli_query($connect,"SELECT `ID_conf`, `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%'");
+            while(($row = mysqli_fetch_assoc($poisk)) != false){
+                    $id = (int) $row['ID_conf'];
+                    $date = date("d.m.Y",strtotime($row['date_from']));  
+                    echo'<div class="konf__title">
+                        <p>Дата конференции'.' '.$date.'</p>
                         <img src="../img/icon/Vector 3.png" alt="" class="slide">
                     </div>
                     <div class="konf__footer">
@@ -38,7 +43,8 @@
                             <a href="#" class="konf__editing">Редактировать общую информацию</a>
                             <a href="#" class="konf__delet">Удалить конференцию</a>
                         </div>
-                    </div>
+                    </div>';}
+                    ?>
                 </div>
             </div>
         </div>
