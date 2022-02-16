@@ -23,17 +23,19 @@
 
                 <?php
                 include('connect.php');
+                $count = 0;
                 $poisk = mysqli_query($connect, "SELECT `ID_conf`, `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' ORDER BY `date_from` DESC");
                 while (($row = mysqli_fetch_assoc($poisk)) != false) {
+
                     $id = (int) $row['ID_conf'];
                     $date = date("d.m.Y", strtotime($row['date_from']));
                     echo
                     '<div class="konf">
                         <div class="konf__title">
                             <p>Дата конференции' . ' ' . $date . '</p>
-                            <img src="../img/icon/Vector 3.png" alt="" class="slide">
+                            <img src="../img/icon/Vector 3.png" alt="" class="slide" data-item = "' . $count . '">
                         </div>
-                           <div class="konf__footer">
+                           <div class="konf__footer" data-item = "' . $count . '">
                             <div class="konf__lang">
                                 <p>Выберите язык редактирования:</p>
                                 <div class="">
@@ -47,6 +49,7 @@
                             </div>
                         </div> 
                     </div>';
+                    $count++;
                 }
                 ?>
 

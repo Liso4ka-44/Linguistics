@@ -1,11 +1,11 @@
 $(document).ready(function() {
     $(".konf__footer").hide();
-    let count = 0;
     $('.slide').on('click', function() {
-        if ($(".konf__footer").is(":hidden")) {
-            $(".konf__footer").slideDown();
+        let div = $(this).attr('data-item');
+        if ($(`.konf__footer[data-item="${div}"]`).is(":hidden")) {
+            $(`.konf__footer[data-item="${div}"]`).slideDown();
         } else {
-            $(".konf__footer").slideUp();
+            $(`.konf__footer[data-item="${div}"]`).slideUp();
         }
 
     });
