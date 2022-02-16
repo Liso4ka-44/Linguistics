@@ -1,4 +1,199 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+}
+body a {
+  text-decoration: none;
+  color: #000000;
+}
+
+h1 {
+  text-align: center;
+}
+
+.ruText {
+  color: #394BE5;
+}
+
+.enText {
+  color: #F54E4E;
+}
+
+div {
+  text-align: center;
+}
+
+.main__content {
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 29px;
+  /* H1 */
+  color: rgba(0, 0, 0, 0.8);
+  padding: 60px 0 30px 0;
+}
+
+h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+h4 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 10px 0px;
+  text-align: center;
+}
+
+label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.input {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 7px;
+  width: 275px;
+  height: 40px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: blue;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0 auto;
+}
+.container .main__body {
+  padding: 60px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.warning {
+  text-align: center;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #505050;
+  background-image: url("../img/icon/warning.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 17px;
+  padding: 0 0 0 20px;
+  display: inline;
+}
+
+input[type=date] {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 5px 15px 0 0;
+  background: url(../img/icon/date.png) no-repeat right;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+  border-radius: 5px;
+}
+
+button {
+  border: none;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+
+.btn {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 7px 15px;
+  background: #6A0D0D;
+}
+
+.btnDelet {
+  padding: 30px 0 0 0;
+  border-top: 1px solid #000;
+}
+.btnDelet .delete__btn {
+  color: #FFFFFF;
+  padding: 4px 6px;
+  background: #AD0404;
+  margin: 0 0 30px 0;
+}
+
+.description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+.description textarea {
+  width: 285px;
+}
+
+.editing_icon_right {
+  display: block;
+}
+.editing_icon_right div {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.editing_icon_right div textarea {
+  width: 477px;
+}
+
 .back {
   background: url(/img/background/back_index.jpg);
   -o-object-fit: cover;
@@ -245,14 +440,6 @@
   display: block;
   margin: 0 auto;
 }
-.main__content h2 {
-  text-align: center;
-  font-weight: 500;
-  font-size: 25px;
-  line-height: 29px;
-  color: rgba(0, 0, 0, 0.8);
-  padding: 0 0 30px 0;
-}
 .main__content .information__announcement .main__introductionAnnouncement {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -262,18 +449,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.main__content .information__announcement .main__introductionAnnouncement .introductionRu p {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  color: #394BE5;
-}
-.main__content .information__announcement .main__introductionAnnouncement .introductionEn p {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  color: #F54E4E;
 }
 .main__content .information__announcement .main__introductionAnnouncement textarea {
   border: 1px solid rgba(0, 0, 0, 0.8);
@@ -294,15 +469,6 @@
   width: 100%;
   height: 210px;
 }
-.main__content .editor__list .ru {
-  color: #394BE5;
-}
-.main__content .editor__list .en {
-  color: #F54E4E;
-}
-.main__content .editor__list h4 {
-  margin: 30px 0 10px 0;
-}
 .main__content .KeysDate {
   width: 100%;
 }
@@ -313,14 +479,6 @@
 .main__content .KeysDate .dateConf .beetwenDate {
   width: 300px;
   margin: 30px auto 25px;
-}
-.main__content .KeysDate .dateConf h3 {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  color: rgba(0, 0, 0, 0.8);
-  text-align: center;
-  padding: 0 0 10px 0;
 }
 .main__content .KeysDate .dateConf p {
   width: 100%;
@@ -343,34 +501,10 @@
   width: 290px;
   margin: 0 auto 10px;
 }
-.main__content .KeysDate .additionalDates .description {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  width: 100%;
-}
-.main__content .KeysDate .additionalDates h3 {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  color: rgba(0, 0, 0, 0.8);
-  text-align: center;
-  padding: 35px 0 10px 0;
-}
 .main__content .programs {
   padding: 62px 0 0 0;
   width: 600px;
   margin: 0 auto;
-}
-.main__content .programs h3 {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 23px;
-  color: rgba(0, 0, 0, 0.8);
-  text-align: center;
-  margin: 0 0 10px 0;
 }
 .main__content .programs .program {
   width: 600px;
@@ -394,20 +528,11 @@
   margin: 0 auto;
   text-align: center;
 }
-.konfList h2 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 25px;
-  line-height: 29px;
-  /* H1 */
-  color: rgba(0, 0, 0, 0.8);
-  padding: 60px 0 40px 0;
-}
 .konfList .konf {
   padding: 15px 50px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 7px;
+  margin: 0 0 10px 0;
 }
 .konfList .konf .konf__title {
   display: -webkit-box;
@@ -434,16 +559,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.konfList .konf .konf__footer .konf__lang {
-  padding: 10px 0 15px 0;
-}
-.konfList .konf .konf__footer .konf__lang .konf__ru {
-  color: #394BE6;
-  margin-right: 10px;
-}
-.konfList .konf .konf__footer .konf__lang .konf__en {
-  color: #F54E4E;
 }
 .konfList .konf .konf__footer .konf__editing {
   font-family: Roboto;
@@ -494,15 +609,6 @@
 .main__content label {
   text-align: start;
 }
-.main__content .btn {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  padding: 7px 15px;
-  background: #6A0D0D;
-}
 .main__content .dateImportant div {
   margin: 15px 0;
 }
@@ -549,12 +655,6 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.main__content .datelist .dateitem .dateitem__btn {
-  color: #FFFFFF;
-  padding: 4px 6px;
-  background: #AD0404;
-  margin: 0 0 30px 0;
-}
 .main__content .eddit__info_programm div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -588,120 +688,33 @@
   text-align: center;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+.orgcommitet__item .imgEditing {
+  display: block;
 }
-
-body {
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-}
-body a {
-  text-decoration: none;
-  color: #000000;
-}
-
-h1 {
-  text-align: center;
-}
-
-.input {
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border-radius: 7px;
-  width: 275px;
-  height: 40px;
-}
-
-.input:focus {
-  outline: none;
-  border-color: blue;
-}
-
-.container {
-  max-width: 940px;
-  margin: 0 auto;
-}
-.container .main__body {
-  padding: 60px 0 0 0;
+.orgcommitet__item .imgEditing .imgEditing__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
-
-div {
-  text-align: center;
+.orgcommitet__item .imgEditing .imgEditing__input {
+  display: -ms-grid;
+  display: grid;
 }
-
-.warning {
-  text-align: center;
-  font-style: italic;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  color: #505050;
-  background-image: url("../img/icon/warning.png");
-  background-position: left;
-  background-repeat: no-repeat;
-  background-size: 17px;
-  padding: 0 0 0 20px;
-  display: inline;
+.orgcommitet__item .imgEditing .imgEditing__input input {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 5px;
+  padding: 5px 2px 0 10px;
+  margin-bottom: 10px;
 }
-
-input[type=date] {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-  padding: 5px 15px 0 0;
-  background: url(../img/icon/date.png) no-repeat right;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+.orgcommitet__item .imgEditing .imgEditing__input button {
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
-}
-
-.ruText {
-  color: #394BE5;
-}
-
-.enText {
-  color: #F54E4E;
-}
-
-textarea {
-  resize: vertical;
-  border-radius: 5px;
-}
-
-button {
-  border: none;
-  color: #FFFFFF;
-  border-radius: 5px;
-}
-
-label {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-}
-
-h3 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  color: rgba(0, 0, 0, 0.8);
+  padding: 6px 10px;
 }

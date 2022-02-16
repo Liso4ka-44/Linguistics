@@ -1,3 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    a {
+        text-decoration: none;
+        color: #000000;
+    }
+}
+
+h1 {
+    text-align: center;
+}
+
 .ruText {
     color: #394BE5;
 }
@@ -6,15 +28,23 @@
     color: #F54E4E;
 }
 
+div {
+    text-align: center;
+}
+
+.main__content {
+    margin: 0 auto;
+}
+
 h2 {
     font-family: Roboto;
     text-align: center;
     font-weight: 500;
     font-size: 25px;
     line-height: 29px;
-     /* H1 */
+    /* H1 */
     color: rgba(0, 0, 0, 0.8);
-    padding: 0 0 30px 0;
+    padding: 60px 0 30px 0;
 }
 
 h3 {
@@ -26,13 +56,14 @@ h3 {
     color: rgba(0, 0, 0, 0.8);
 }
 
-h4{
+h4 {
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
     margin: 10px 0px;
+    text-align: center;
 }
 
 label {
@@ -41,6 +72,68 @@ label {
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
+}
+
+.input {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    border-radius: 7px;
+    width: 275px;
+    height: 40px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: blue;
+}
+
+.container {
+    max-width: 940px;
+    margin: 0 auto;
+    .main__body {
+        padding: 60px 0 0 0;
+        display: flex;
+    }
+}
+
+.warning {
+    text-align: center;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #505050;
+    background-image: url("../img/icon/warning.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 17px;
+    padding: 0 0 0 20px;
+    display: inline;
+}
+
+input[type="date"] {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 5px 15px 0 0;
+    background: url(../img/icon/date.png) no-repeat right;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+    border-radius: 5px;
+}
+
+button {
+    border: none;
+    color: #FFFFFF;
+    border-radius: 5px;
 }
 
 .btn {
@@ -53,9 +146,35 @@ label {
     background: #6A0D0D;
 }
 
-.delete__btn {
-    color: #FFFFFF;
-    padding: 4px 6px;
-    background: #AD0404;
-    margin: 0 0 30px 0;
+.btnDelet {
+    padding: 30px 0 0 0;
+    border-top: 1px solid #000;
+    .delete__btn {
+        color: #FFFFFF;
+        padding: 4px 6px;
+        background: #AD0404;
+        margin: 0 0 30px 0;
+    }
+}
+
+.description {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    textarea {
+        width: 285px;
+    }
+}
+
+.editing_icon_right {
+    display: block;
+    div {
+        margin: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        textarea {
+            width: 477px;
+        }
+    }
 }

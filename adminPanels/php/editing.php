@@ -18,34 +18,38 @@
     ?>
     <main>
         <div class="main__body">
-        <div class="konfList">
-                        <h2>Список конференций</h2>
-                    <div class="konf">
-                    <?php
-        include('connect.php');
-        $poisk = mysqli_query($connect,"SELECT `ID_conf`, `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%'");
-            while(($row = mysqli_fetch_assoc($poisk)) != false){
+            <div class="konfList">
+                <h2>Список конференций</h2>
+
+                <?php
+                include('connect.php');
+                $poisk = mysqli_query($connect, "SELECT `ID_conf`, `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' ORDER BY `date_from` DESC");
+                while (($row = mysqli_fetch_assoc($poisk)) != false) {
                     $id = (int) $row['ID_conf'];
-                    $date = date("d.m.Y",strtotime($row['date_from']));  
-                    echo'<div class="konf__title">
-                        <p>Дата конференции'.' '.$date.'</p>
-                        <img src="../img/icon/Vector 3.png" alt="" class="slide">
-                    </div>
-                    <div class="konf__footer">
-                        <div class="konf__lang">
-                            <p>Выберите язык редактирования:</p>
-                            <div class="">
-                                <a href="#" class="enText">RU</a>
-                                <a href="#" class="ruText">EN</a>
+                    $date = date("d.m.Y", strtotime($row['date_from']));
+                    echo
+                    '<div class="konf">
+                        <div class="konf__title">
+                            <p>Дата конференции' . ' ' . $date . '</p>
+                            <img src="../img/icon/Vector 3.png" alt="" class="slide">
+                        </div>
+                           <div class="konf__footer">
+                            <div class="konf__lang">
+                                <p>Выберите язык редактирования:</p>
+                                <div class="">
+                                    <a href="#" class="enText">RU</a>
+                                    <a href="#" class="ruText">EN</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="konf__action">
-                            <a href="#" class="konf__editing">Редактировать общую информацию</a>
-                            <a href="#" class="konf__delet">Удалить конференцию</a>
-                        </div>
-                    </div>';}
-                    ?>
-                </div>
+                            <div class="konf__action">
+                                <a href="#" class="konf__editing">Редактировать общую информацию</a>
+                                <a href="#" class="konf__delet">Удалить конференцию</a>
+                            </div>
+                        </div> 
+                    </div>';
+                }
+                ?>
+
             </div>
         </div>
     </main>

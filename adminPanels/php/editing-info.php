@@ -73,7 +73,6 @@
                                     <label class="enText">Describtion <textarea></textarea></label>
                                     <img src="../img/icon/pen.png" alt="">
                                 </div>
-
                             </div>
                             <button type="submit" class="delete__btn">Удалить дату</button>
                         </div>
@@ -107,7 +106,6 @@
                                 <h3>Программка 1</h3>
 
                             </div>
-
                         </div>
                     </div>
                 </div>
