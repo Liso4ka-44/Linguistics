@@ -23,7 +23,7 @@
                     <label class="ruText">ФИО <textarea></textarea></label>
                     <label class="enText">Name <textarea></textarea></label>
                 </div>
-                <label class="file">
+                <label class="file orgcomm_file_center">
                     Фотография
                     <input type="file">
                 </label>

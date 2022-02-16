@@ -19,7 +19,6 @@
     label {
         text-align: start;
     }
-   
     .dateImportant {
         div {
             margin: 15px 0;
@@ -38,27 +37,6 @@
         a {
             color: #1293DC;
             padding: 10px;
-        }
-        .dateitem {
-            .description {
-                border-bottom: 1px solid #000000;
-                margin-bottom: 30px;
-                label {
-                    height: auto;
-                }
-                label,
-                textarea {
-                    width: 470px;
-                    text-align: start;
-                }
-                div {
-                    margin: 20px 0;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-            }
-            
         }
     }
     .eddit__info_programm {

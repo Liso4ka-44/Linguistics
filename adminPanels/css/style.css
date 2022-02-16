@@ -170,6 +170,7 @@ button {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   width: 100%;
+  margin: 30px 0;
 }
 .description textarea {
   width: 285px;
@@ -192,6 +193,37 @@ button {
 }
 .editing_icon_right div textarea {
   width: 477px;
+}
+
+.imgEditing {
+  display: block;
+}
+.imgEditing .imgEditing__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.imgEditing .imgEditing__input {
+  display: -ms-grid;
+  display: grid;
+}
+.imgEditing .imgEditing__input input {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 5px;
+  padding: 5px 2px 0 10px;
+  margin-bottom: 10px;
+}
+.imgEditing .imgEditing__input button {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  padding: 6px 10px;
 }
 
 .back {
@@ -631,30 +663,6 @@ button {
   color: #1293DC;
   padding: 10px;
 }
-.main__content .datelist .dateitem .description {
-  border-bottom: 1px solid #000000;
-  margin-bottom: 30px;
-}
-.main__content .datelist .dateitem .description label {
-  height: auto;
-}
-.main__content .datelist .dateitem .description label,
-.main__content .datelist .dateitem .description textarea {
-  width: 470px;
-  text-align: start;
-}
-.main__content .datelist .dateitem .description div {
-  margin: 20px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
 .main__content .eddit__info_programm div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -688,33 +696,7 @@ button {
   text-align: center;
 }
 
-.orgcommitet__item .imgEditing {
-  display: block;
-}
-.orgcommitet__item .imgEditing .imgEditing__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-.orgcommitet__item .imgEditing .imgEditing__input {
+.orgcomm_file_center {
   display: -ms-grid;
   display: grid;
-}
-.orgcommitet__item .imgEditing .imgEditing__input input {
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border-left: 1px solid rgba(0, 0, 0, 0.3);
-  border-top-left-radius: 5px;
-  padding: 5px 2px 0 10px;
-  margin-bottom: 10px;
-}
-.orgcommitet__item .imgEditing .imgEditing__input button {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-  padding: 6px 10px;
 }

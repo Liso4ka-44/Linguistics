@@ -64,7 +64,7 @@
 
                                 <img src="../img/icon/pen.png" alt="">
                             </div>
-                            <div class="description">
+                            <div class="description editing_icon_right">
                                 <div>
                                     <label class="ruText">Описание <textarea></textarea></label>
                                     <img src="../img/icon/pen.png" alt="">
@@ -74,7 +74,9 @@
                                     <img src="../img/icon/pen.png" alt="">
                                 </div>
                             </div>
-                            <button type="submit" class="delete__btn">Удалить дату</button>
+                            <div class="btnDelet">
+                                <button type="submit" class="delete__btn">Удалить представителя</button>
+                            </div>
                         </div>
                         <a href="#">Смотреть все даты <img src="../img/icon/Vector 3.png" alt="" class="slide"></a>
                     </div>
