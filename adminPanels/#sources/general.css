@@ -1,0 +1,61 @@
+.ruText {
+  color: #394BE5;
+}
+
+.enText {
+  color: #F54E4E;
+}
+
+h2 {
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 29px;
+  /* H1 */
+  color: rgba(0, 0, 0, 0.8);
+  padding: 0 0 30px 0;
+}
+
+h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+h4 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 10px 0px;
+}
+
+label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.btn {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 7px 15px;
+  background: #6A0D0D;
+}
+
+.delete__btn {
+  color: #FFFFFF;
+  padding: 4px 6px;
+  background: #AD0404;
+  margin: 0 0 30px 0;
+}

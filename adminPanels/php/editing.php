@@ -30,8 +30,8 @@
                         <div class="konf__lang">
                             <p>Выберите язык редактирования:</p>
                             <div class="">
-                                <a href="#" class="konf__ru">RU</a>
-                                <a href="#" class="konf__en">EN</a>
+                                <a href="#" class="enText">RU</a>
+                                <a href="#" class="ruText">EN</a>
                             </div>
                         </div>
                         <div class="konf__action">

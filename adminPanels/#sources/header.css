@@ -1,0 +1,44 @@
+.header__body {
+  width: 100%;
+  padding: 50px 0 10px 0;
+}
+.header__body .header__nav {
+  max-width: 770px;
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header__body .header__nav .header__list .header__item {
+  margin: 0 20px 0 0;
+  display: inline-block;
+}
+.header__body .header__nav .header__list .header__item .header__link {
+  -webkit-transition: all 0.5s ease 0.2s;
+  transition: all 0.5s ease 0.2s;
+}
+.header__body .header__nav .header__list .active {
+  color: rgba(0, 0, 0, 0.5);
+}
+.header__body .header__nav .header__list hr {
+  height: 2px;
+  margin: 0;
+  width: 0;
+  background: linear-gradient(90.38deg, #0D06DB 0%, #3984FF 100%);
+  border: none;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.header__body .header__nav .exit {
+  padding: 0 10px 0 0;
+  margin-left: auto;
+  background-image: url("../img/icon/exitAccount.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 10px;
+}
+.header__body .header__nav .exit .exit__btn {
+  color: #000;
+  background-color: #fff;
+  border: none;
+}

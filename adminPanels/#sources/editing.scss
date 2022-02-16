@@ -2,16 +2,7 @@
     width: 600px;
     margin: 0 auto;
     text-align: center;
-    h2 {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 25px;
-        line-height: 29px;
-        /* H1 */
-        color: rgba(0, 0, 0, 0.8);
-        padding: 60px 0 40px 0;
-    }
+    
     .konf {
         padding: 15px 50px;
         border: 1px solid rgba(0, 0, 0, 0.5);
@@ -29,16 +20,7 @@
                 justify-content: space-between;
                 align-items: center;
             }
-            .konf__lang {
-                padding: 10px 0 15px 0;
-                .konf__ru {
-                    color: #394BE6;
-                    margin-right: 10px;
-                }
-                .konf__en {
-                    color: #F54E4E;
-                }
-            }
+            
             .konf__editing {
                 font-family: Roboto;
                 font-style: normal;

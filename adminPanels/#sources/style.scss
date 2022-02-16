@@ -5,6 +5,7 @@
 @import 'addConf.scss';
 @import 'editing.scss';
 @import 'editing-info.scss';
+@import 'general.scss';
 * {
     padding: 0;
     margin: 0;
@@ -82,14 +83,6 @@ input[type="date"] {
     border-radius: 5px;
 }
 
-.ruText {
-    color: #394BE5;
-}
-
-.enText {
-    color: #F54E4E;
-}
-
 textarea {
     resize: vertical;
     border-radius: 5px;
@@ -101,19 +94,5 @@ button {
     border-radius: 5px;
 }
 
-label {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-}
 
-h3 {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    color: rgba(0, 0, 0, 0.8);
-}
+

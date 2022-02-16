@@ -75,7 +75,7 @@
                                 </div>
 
                             </div>
-                            <button type="submit" class="dateitem__btn">Удалить дату</button>
+                            <button type="submit" class="delete__btn">Удалить дату</button>
                         </div>
                         <a href="#">Смотреть все даты <img src="../img/icon/Vector 3.png" alt="" class="slide"></a>
                     </div>

@@ -27,25 +27,25 @@
                         <h2>Сведения об анонсе</h2>
                         <div class="main__introductionAnnouncement">
                             <div class="introductionRu">
-                                <p>Вступление анонса</p><textarea id=""></textarea>
+                                <h4 class="ruText">Вступление анонса</h4><textarea id=""></textarea>
                             </div>
                             <div class="introductionEn">
-                                <p>Introduction</p><textarea></textarea>
+                                <h4 class="enText">Introduction</h4><textarea></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="editor__list">
                         <div class="editor1">
-                            <h4 class="ru">Информация о конференции</h4><textarea class="edit" id="editor"></textarea>
+                            <h4 class="ruText">Информация о конференции</h4><textarea class="edit" id="editor"></textarea>
                         </div>
                         <div class="editor2">
-                            <h4 class="en">Conference information</h4><textarea class="edit" id="editor1"></textarea>
+                            <h4 class="enText">Conference information</h4><textarea class="edit" id="editor1"></textarea>
                         </div>
                         <div class="editor3">
-                            <h4 class="ru">Концепция конференции</h4><textarea class="edit" id="editor2"></textarea>
+                            <h4 class="ruText">Концепция конференции</h4><textarea class="edit" id="editor2"></textarea>
                         </div>
                         <div class="editor4">
-                            <h4 class="en">Conference conception</h4><textarea class="edit" id="editor3"></textarea>
+                            <h4 class="enText">Conference conception</h4><textarea class="edit" id="editor3"></textarea>
                         </div>
                     </div>
                     <div class="KeysDate">
@@ -71,10 +71,10 @@
                             </div>
                             <div class="description">
 
-                                <label class="descriptionText" for="descriptionRu">Описание </label>
+                                <label class="ruText">Описание </label>
                                 <textarea class="descriptionText" id="descriptionRu"></textarea>
 
-                                <label class="descriptionText" for="descriptionEn">Describtion </label>
+                                <label class="enText">Describtion </label>
                                 <textarea class="descriptionText" id="descriptionEn"></textarea>
                             </div>
                             <div class="addAdditionalDates">
@@ -89,11 +89,11 @@
                         <div class="program">
                             <h3>Документ 1</h3>
                             <input type="file" name="" id="">
-                            <label class="programText">Название
+                            <label class="ruText">Название
                                 <textarea class="programText"></textarea>
                             </label>
                             <input type="file" name="" id="">
-                            <label class="programText">Name
+                            <label class="enText">Name
                                 <textarea class="programText"></textarea>
                             </label>
                         </div>
