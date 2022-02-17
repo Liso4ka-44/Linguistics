@@ -27,20 +27,21 @@
                 </div>
                 <div class="main__content">
                     <?php
-                     include('connect.php');
+                    include('connect.php');
                     $date = "SELECT `ID_conf`, `date_from`, `date_to` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $_GET[id_konf]";
                     $poisk = mysqli_query($connect, $date);
-                    while(($row = mysqli_fetch_assoc($poisk)) != false){
+                    while (($row = mysqli_fetch_assoc($poisk)) != false) {
                         $date_from = date("d.m.Y", strtotime($row['date_from']));
                         $date_to = date("d.m.Y", strtotime($row['date_to']));
-                        }
+                    }
                     ?>
-                    <h1>Конференция <?php echo $date_from?></h1>
+                    <h1>Конференция <?php echo $date_from ?></h1>
                     <div class="date">
                         <h2>Дата конференции</h2>
                         <div class="date__editing">
-                                <label>От <input type="date" value = '<?php echo $date_from?>'></label> <!--вывод не робит, то же самое на строке 74,75-->
-                                <label>До <input type="date" value = '<?php echo $row["date_to"]?>'></label>
+                            <label>От <input type="date" value='<?php echo $date_from ?>'></label>
+                            <!--вывод не робит, то же самое на строке 74,75-->
+                            <label>До <input type="date" value='<?php echo $row["date_to"] ?>'></label>
                             <img src="../img/icon/update.svg" alt="">
                         </div>
                     </div>
@@ -49,7 +50,7 @@
                         <p class="warning">если дата не является промежутком,
                             продублируйте её в обе формы
                         </p>
-                        
+
                         <div class="date__editing">
                             <label>От <input type="date"></label>
                             <label>До <input type="date"></label>
@@ -62,28 +63,28 @@
                     </div>
                     <?php $count = 1;
                     $all_dates = mysqli_query($connect, "SELECT * FROM `dates` WHERE `text_ru` NOT LIKE 'Конференция%' AND `ID_conf` = $_GET[id_konf]");
-                        while (($row = mysqli_fetch_assoc($all_dates)) != false) {
-                            $f_date = date("d.m.Y", strtotime($row['date_from']));
-                            $s_date = date("d.m.Y", strtotime($row['date_to']));
-                    echo
-                    '<div class="datelist">
+                    while (($row = mysqli_fetch_assoc($all_dates)) != false) {
+                        $f_date = date("Y-m-d", strtotime($row['date_from']));
+                        $s_date = date("Y-m-d", strtotime($row['date_to']));
+                        echo
+                        '<div class="datelist">
                         <div class="dateitem">
-                            <h2>Дата'.' '.$count.'</h2>
+                            <h2>Дата' . ' ' . $count . '</h2>
                             <div class="date__editing">
                                 <div>
-                                    <label>От <input type="date" value='.$f_date.'></label> 
-                                    <label>До <input type="date" value='.$s_date.'></label>
+                                    <label>От <input type="date" value="' . $f_date . '"></label> 
+                                    <label>До <input type="date" value="' . $s_date . '"></label>
                                 </div>
 
                                 <img src="../img/icon/update.svg" alt="">
                             </div>
                             <div class="description editing_icon_right">
                                 <div>
-                                    <label class="ruText">Описание <textarea>'.$row["text_ru"].'</textarea></label>
+                                    <label class="ruText">Описание <textarea>' . $row["text_ru"] . '</textarea></label>
                                     <img src="../img/icon/update.svg" alt="">
                                 </div>
                                 <div>
-                                    <label class="enText">Describtion <textarea>'.$row["text_en"].'</textarea></label>
+                                    <label class="enText">Describtion <textarea>' . $row["text_en"] . '</textarea></label>
                                     <img src="../img/icon/update.svg" alt="">
                                 </div>
                             </div>
@@ -92,10 +93,10 @@
                             </div>
                         </div> </div>';
                         $count++;
-                        }
+                    }
                     ?>
-                        <a href="#">Смотреть все даты <img src="../img/icon/down.svg" alt="" class="slide"></a>
-                   
+                    <a href="#">Смотреть все даты <img src="../img/icon/down.svg" alt="" class="slide"></a>
+
                     <div class="eddit__info_programm">
                         <h2>Программки, информационные письма</h2>
                         <div>
