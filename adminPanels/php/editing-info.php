@@ -31,17 +31,17 @@
                     $date = "SELECT `ID_conf`, `date_from`, `date_to` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $_GET[id_konf]";
                     $poisk = mysqli_query($connect, $date);
                     while (($row = mysqli_fetch_assoc($poisk)) != false) {
-                        $date_from = date("d.m.Y", strtotime($row['date_from']));
-                        $date_to = date("d.m.Y", strtotime($row['date_to']));
+                        $date_from = date("Y-m-d", strtotime($row['date_from']));
+                        $date_to = date("Y-m-d", strtotime($row['date_to']));
                     }
                     ?>
                     <h1>Конференция <?php echo $date_from ?></h1>
                     <div class="date">
                         <h2>Дата конференции</h2>
                         <div class="date__editing">
-                            <label>От <input type="date" value='<?php echo $date_from ?>'></label>
+                            <label>От <input type="date" value="<?php echo $date_from ?>"></label>
                             <!--вывод не робит, то же самое на строке 74,75-->
-                            <label>До <input type="date" value='<?php echo $row["date_to"] ?>'></label>
+                            <label>До <input type="date" value="<?php echo $date_to ?>"></label>
                             <img src="../img/icon/update.svg" alt="">
                         </div>
                     </div>
