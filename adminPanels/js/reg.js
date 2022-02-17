@@ -4,7 +4,7 @@ $(document).ready(function() {
     $("input[name = 'login']").change(function() {
         $.ajax({
             type: "post",
-            url: "userOnl.php",
+            url: "../php/no_markup/userOnl.php",
             data: ({ login: $("input[name = 'login']").val() }),
             dataType: "html",
             success: function(data) {

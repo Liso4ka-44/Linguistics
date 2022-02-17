@@ -1,5 +1,5 @@
 <?php
-include "connect.php";
+include "../connect.php";
 if (isset($_POST["login"])) {
     $login_bd = mysqli_query($connect, "SELECT * FROM `users` WHERE `login` = '" . $_POST["login"] . "'");
     $login_bd = mysqli_fetch_assoc($login_bd);

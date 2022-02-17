@@ -33,7 +33,7 @@
                     '<div class="konf">
                         <div class="konf__title">
                             <p>Дата конференции' . ' ' . $date . '</p>
-                            <img src="../img/icon/Vector 3.png" alt="" class="slide" data-item = "' . $count . '">
+                            <img src="../img/icon/down.svg" alt="" class="slide" data-item = "' . $count . '">
                         </div>
                            <div class="konf__footer" data-item = "' . $count . '">
                             <div class="konf__lang">

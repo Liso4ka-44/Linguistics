@@ -39,30 +39,37 @@
             </div>
             <div class="orgcommitet">
                 <div class="orgcommitet__list">
-                    <div class="orgcommitet__item">
-                        <h4>Представитель 1</h4>
+                <?php 
+                include('connect.php');
+                $count = 1;
+                            $query = "SELECT * FROM `committee`";
+                            $poisk = mysqli_query($connect, $query);
+                            while(($row = mysqli_fetch_assoc($poisk)) != false){
+                            
+                    echo'<div class="orgcommitet__item">
+                        <h4>Представитель'.' '.$count.'</h4>
                         <div class="description editing_icon_right ">
                             <div>
-                                <label class="ruText">ФИО <textarea></textarea></label>
-                                <img src="../img/icon/pen.png" alt="">
+                                <label class="ruText">ФИО <textarea>'.$row["name_per_ru"].'</textarea></label>
+                                <img src="../img/icon/update.svg" alt="">
                             </div>
                             <div>
-                                <label class="enText">Name <textarea></textarea></label>
-                                <img src="../img/icon/pen.png" alt="">
+                                <label class="enText">Name <textarea>'.$row["name_per_en"].'</textarea></label>
+                                <img src="../img/icon/update.svg" alt="">
                             </div>
                             <div>
-                                <label class="ruText">Должность <textarea></textarea></label>
-                                <img src="../img/icon/pen.png" alt="">
+                                <label class="ruText">Должность <textarea>'.$row["position_ru"].'</textarea></label>
+                                <img src="../img/icon/update.svg" alt="">
                             </div>
                             <div>
-                                <label class="enText">Post <textarea></textarea></label>
-                                <img src="../img/icon/pen.png" alt="">
+                                <label class="enText">Post <textarea>'.$row["position_en"].'</textarea></label>
+                                <img src="../img/icon/update.svg" alt="">
                             </div>
                             <div class="imgEditing">
                                 <h4>Фотография</h4>
                                 <div class="imgEditing__content">
                                     <div class="imgEditing__img">
-                                        <img src="/adminPanels/orgcom/malgin-6.jpg">
+                                        <img src="'.'../'.$row["photo_per"].'">
                                     </div>
                                     <div class="imgEditing__input">
                                         <input type="file">
@@ -72,21 +79,24 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="ruText">Ссылка <textarea></textarea></label>
-                                <img src="../img/icon/pen.png" alt="">
+                                <label class="ruText">Ссылка <textarea>'.$row["link_per_ru"].'</textarea></label>
+                                <img src="../img/icon/update.svg" alt="">
                             </div>
                             <div>
-                                <label class="enText">Link <textarea></textarea></label>
-                                <img src="../img/icon/pen.png" alt="">
+                                <label class="enText">Link <textarea>'.$row["link_per_en"].'</textarea></label>
+                                <img src="../img/icon/update.svg" alt="">
                             </div>
                         </div>
                         <div class="btnDelet">
                             <button type="submit" class="delete__btn">Удалить представителя</button>
                         </div>
 
-                    </div>
+                    </div>';
+                    $count++;
+                    }
+                ?>
                 </div>
-            </div>
+        </div>
         </div>
         </div>
     </main>

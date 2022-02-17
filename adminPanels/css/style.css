@@ -109,7 +109,7 @@ label {
   font-size: 12px;
   line-height: 14px;
   color: #505050;
-  background-image: url("../img/icon/warning.png");
+  background-image: url("../img/icon/info.svg");
   background-position: left;
   background-repeat: no-repeat;
   background-size: 17px;
@@ -227,7 +227,7 @@ button {
 }
 
 .back {
-  background: url(/img/background/back_index.jpg);
+  background: url(../img/background/back_index.jpg);
   -o-object-fit: cover;
      object-fit: cover;
   display: -webkit-box;
@@ -296,7 +296,7 @@ button {
   padding: 15px 12px;
 }
 .authorization__body .authorization__form .error .error__text {
-  background: url(/img/icon/Group.png) no-repeat top left;
+  background: url(../img/icon/warning.svg) no-repeat top left;
   padding-left: 30px;
   text-align: start;
 }
@@ -444,7 +444,7 @@ button {
 .header__body .header__nav .exit {
   padding: 0 10px 0 0;
   margin-left: auto;
-  background-image: url("../img/icon/exitAccount.png");
+  background-image: url("../img/icon/exit.svg");
   background-position: right;
   background-repeat: no-repeat;
   background-size: 10px;

@@ -57,10 +57,11 @@
                                 <input type="date" name="" id="from">
                                 <label for="to">До </label>
                                 <input type="date" name="" id="to">
-                            </div>
-                            <p>если дата не является промежутком,
-                                продублируйте её в обе формы</p>
-                        </div>
+                            </div></div>
+                            <p class="warning">если дата не является промежутком,
+                            продублируйте её в обе формы
+                            </p>
+                        
                         <div class="additionalDates">
                             <h3>Дата 1</h3>
                             <div class="additionalDate">
@@ -79,7 +80,7 @@
                             </div>
                             <div class="addAdditionalDates">
                                 <a href="#">
-                                    <img src="../img/icon/add.jpg" alt="">
+                                    <img src="../img/icon/add.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -99,7 +100,7 @@
                         </div>
                         <div class="addAdditionalDates">
                             <a href="#">
-                                <img src="../img/icon/add.jpg" alt="">
+                                <img src="../img/icon/add.svg" alt="">
                             </a>
                         </div>
                     </div>

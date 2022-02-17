@@ -1,5 +1,5 @@
 .back {
-    background: url(/img/background/back_index.jpg);
+    background: url(../img/background/back_index.jpg);
     object-fit: cover;
     display: flex;
     justify-content: center;
@@ -56,7 +56,7 @@
                 margin: 0 auto;
                 padding: 15px 12px;
                 .error__text {
-                    background: url(/img/icon/Group.png) no-repeat top left;
+                    background: url(../img/icon/warning.svg) no-repeat top left;
                     padding-left: 30px;
                     text-align: start;
                     p {

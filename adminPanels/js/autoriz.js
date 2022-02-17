@@ -18,7 +18,7 @@ $(document).ready(function() {
 
                     $.ajax({
 
-                            url: '/adminPanels/php/checkAutoriz.php',
+                            url: '/adminPanels/php/no_markup/checkAutoriz.php',
                             method: 'post',
                             data: {
                                 login1,
