@@ -140,6 +140,7 @@ button {
   border: none;
   color: #FFFFFF;
   border-radius: 5px;
+  background-color: #fff;
 }
 
 .btn {
@@ -224,6 +225,10 @@ button {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
   padding: 6px 10px;
+}
+
+.main__nav a {
+  text-align: start;
 }
 
 .back {
@@ -696,7 +701,22 @@ button {
   text-align: center;
 }
 
-.orgcomm_file_center {
-  display: -ms-grid;
-  display: grid;
+.imgEditing__content {
+  width: 100%;
+}
+.imgEditing__content .imgEditing__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.imgEditing__content .imgEditing__img {
+  width: 20%;
+}
+.imgEditing__content .imgEditing__img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
