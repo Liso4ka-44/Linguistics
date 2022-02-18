@@ -45,7 +45,8 @@
                             </div>
                             <div class="konf__action">
                                 <a href="/adminPanels/php/editing-info.php?id_konf=' . $id . '" class="konf__editing">Редактировать общую информацию</a>
-                                <a href="#" class="konf__delet">Удалить конференцию</a>
+                                <a href="./../konf/delete.php?id='.$row["ID_conf"].'" class="konf__delet">Удалить конференцию</a>
+                                
                             </div>
                         </div> 
                     </div>';

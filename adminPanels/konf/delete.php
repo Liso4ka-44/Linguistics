@@ -1,13 +1,12 @@
 <?php
-
-include('../connect.php');
+include('../php/connect.php');
 
                 
                   $ID_conf = (int)$_GET['id'];
-                  $sql = "SELECT  `date` FROM `conferences` WHERE `ID_conf` = ".$ID_conf;
+                  $sql = "SELECT  `date_from` FROM `dates` WHERE `ID_conf` = ".$ID_conf;
                   $poisk=mysqli_query($connect, $sql);	
                   $row = mysqli_fetch_assoc($poisk);
-                  $dateKonf = date("Y.m.d",strtotime($row["date"]));
+                  $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
                   $dir = $dateKonf;
 
                 function removeDirectory($dir) {
@@ -29,6 +28,6 @@ include('../connect.php');
                   mysqli_query($connect, $sql);
                   
 	
-                echo "<script> document.location.href='../conflist.php';</script>"; 
+                echo "<script> document.location.href='../php/editing.php';</script>"; 
               
 ?>
