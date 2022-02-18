@@ -18,25 +18,28 @@
     <main>
         <div class="main__content">
             <h2>Добавление и редактирование оргкомитета</h2>
-            <div class="addOrg">
-                <div class="description">
-                    <label class="ruText">ФИО <textarea></textarea></label>
-                    <label class="enText">Name <textarea></textarea></label>
-                </div>
-                <label class="file orgcomm_file_center">
-                    Фотография
-                    <input type="file">
-                </label>
-                <div class="description">
-                    <label class="ruText">Должность <textarea></textarea></label>
-                    <label class="enText">Post <textarea></textarea></label>
-                </div>
-                <div class="description">
-                    <label class="ruText">Ссылка <textarea></textarea></label>
-                    <label class="enText">Link <textarea></textarea></label>
-                </div>
-                <button type="submit" class="btn">Добавить представителя</button>
-            </div>
+                <form action="add_edit\orgcom_add.php" method="post" enctype="multipart/form-data" role="form">
+                    <div class="addOrg">
+                        <div class="description">
+                            <label class="ruText">ФИО <textarea name="name_ru"></textarea></label>
+                            <label class="enText">Name <textarea name="name_en"></textarea></label>
+                        </div>
+                            <label class="file orgcomm_file_center">
+                                Фотография
+                                    <input type="file" name="photo">
+                            </label>
+                        <div class="description">
+                            <label class="ruText">Должность <textarea name="post_ru"></textarea></label>
+                            <label class="enText">Post <textarea name="post_en"></textarea></label>
+                        </div>
+                        <div class="description">
+                            <label class="ruText">Ссылка <textarea name="url_ru"></textarea></label>
+                            <label class="enText">Link <textarea name="url_en"></textarea></label>
+                        </div>
+                            <button type="submit" class="btn">Добавить представителя</button>
+                    </div>
+                </form>
+
             <div class="orgcommitet">
                 <div class="orgcommitet__list">
                 <?php 
@@ -49,48 +52,62 @@
                     echo'<div class="orgcommitet__item">
                         <h4>Представитель'.' '.$count.'</h4>
                         <div class="description editing_icon_right ">
+                        <form action="add_edit\orgcom_edit.php?update=up_name_ru&ID_per='.$row['ID_per'].'" method="post" enctype="multipart/form-data" >
                             <div>
-                                <label class="ruText">ФИО <textarea>'.$row["name_per_ru"].'</textarea></label>
-                                <img src="../img/icon/update.svg" alt="">
+                                <label class="ruText">ФИО <textarea name = "name_ru">'.$row["name_per_ru"].'</textarea></label>
+                                <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
+                        </form>
+                        <form action="add_edit\orgcom_edit.php?update=up_name_en&ID_per='.$row['ID_per'].'" method="post" enctype="multipart/form-data" >
                             <div>
-                                <label class="enText">Name <textarea>'.$row["name_per_en"].'</textarea></label>
-                                <img src="../img/icon/update.svg" alt="">
+                                <label class="enText">Name <textarea name = "name_en">'.$row["name_per_en"].'</textarea></label>
+                                <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
+                        </form>
+                        <form action="add_edit\orgcom_edit.php?update=up_post_ru&ID_per='.$row['ID_per'].'" method="post" enctype="multipart/form-data" >
                             <div>
-                                <label class="ruText">Должность <textarea>'.$row["position_ru"].'</textarea></label>
-                                <img src="../img/icon/update.svg" alt="">
+                                <label class="ruText">Должность <textarea name = "post_ru">'.$row["position_ru"].'</textarea></label>
+                                <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
+                        </form>
+                        <form action="add_edit\orgcom_edit.php?update=up_post_en&ID_per='.$row['ID_per'].'" method="post" enctype="multipart/form-data" >
                             <div>
-                                <label class="enText">Post <textarea>'.$row["position_en"].'</textarea></label>
-                                <img src="../img/icon/update.svg" alt="">
+                                <label class="enText">Post <textarea name = "post_en">'.$row["position_en"].'</textarea></label>
+                                <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
+                        </form>
                             <div class="imgEditing">
                                 <h4>Фотография</h4>
+                                <form action="add_edit\orgcom_edit.php?update=up_photo&ID_per='.$row['ID_per'].'" method="post" enctype="multipart/form-data" >
                                 <div class="imgEditing__content">
                                     <div class="imgEditing__img">
                                         <img src="'.'../'.$row["photo_per"].'">
                                     </div>
                                     <div class="imgEditing__input">
-                                        <input type="file">
+                                        <input type="file" name="photo">
                                         <button type="submit">Загрузить новое фото</button>
                                     </div>
-
                                 </div>
+                                </form>
                             </div>
+                        <form action="add_edit\orgcom_edit.php?update=up_link_ru&ID_per='.$row['ID_per'].'" method="post" enctype="multipart/form-data" >
                             <div>
-                                <label class="ruText">Ссылка <textarea>'.$row["link_per_ru"].'</textarea></label>
-                                <img src="../img/icon/update.svg" alt="">
+                                <label class="ruText">Ссылка <textarea name="link_ru">'.$row["link_per_ru"].'</textarea></label>
+                                <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
+                        </form>
+                        <form action="add_edit\orgcom_edit.php?update=up_link_en&ID_per='.$row['ID_per'].'" method="post" enctype="multipart/form-data" >
                             <div>
-                                <label class="enText">Link <textarea>'.$row["link_per_en"].'</textarea></label>
-                                <img src="../img/icon/update.svg" alt="">
+                                <label class="enText">Link <textarea name="link_en">'.$row["link_per_en"].'</textarea></label>
+                                <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
+                        </form>
                         </div>
+                        <form action="add_edit\orgcom_edit.php?update=del_per&ID_per='.$row['ID_per'].'" method="post" enctype="multipart/form-data" >
                         <div class="btnDelet">
                             <button type="submit" class="delete__btn">Удалить представителя</button>
                         </div>
-
+                        </form>
                     </div>';
                     $count++;
                     }
