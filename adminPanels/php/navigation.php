@@ -18,7 +18,7 @@ if (isset($_POST["exit"])) {
                     <li class="header__item"><a href="#" date-nav="5" class="header__link">Аналитика</a></li>
                     <hr>
                 </ul>
-                <form action="" method="post" class="exit">
+                <form method="post" class="exit">
                     <button class="exit__btn" type="submit" name="exit">Выйти</button>
                 </form>
 
