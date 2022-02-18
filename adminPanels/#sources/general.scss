@@ -16,10 +16,6 @@ body {
     }
 }
 
-h1 {
-    text-align: center;
-}
-
 .ruText {
     color: #394BE5;
 }
@@ -29,11 +25,16 @@ h1 {
 }
 
 div {
+    display: block;
     text-align: center;
 }
 
 .main__content {
     margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
 }
 
 h2 {
@@ -42,7 +43,6 @@ h2 {
     font-weight: 500;
     font-size: 25px;
     line-height: 29px;
-    /* H1 */
     color: rgba(0, 0, 0, 0.8);
     padding: 60px 0 30px 0;
 }
@@ -50,10 +50,13 @@ h2 {
 h3 {
     font-family: Roboto;
     font-style: normal;
+    text-align: center;
+    width: 100%;
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
     color: rgba(0, 0, 0, 0.8);
+    padding: 60px 0 10px 0;
 }
 
 h4 {
@@ -86,6 +89,15 @@ label {
 .input:focus {
     outline: none;
     border-color: blue;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 5px 10px;
+    color: #000;
+    border-top: 2px solid rgb(0, 0, 0, 0.3);
+    border-left: 2px solid rgb(0, 0, 0, 0.3);
+    border-top-left-radius: 5px;
 }
 
 .container {
@@ -135,6 +147,7 @@ button {
     color: #FFFFFF;
     border-radius: 5px;
     background-color: #fff;
+    margin: 40px 0 0 0;
 }
 
 .btn {
@@ -171,6 +184,7 @@ button {
 .editing_icon_right {
     display: block;
     div {
+        width: 100%;
         margin: 20px 0;
         display: flex;
         justify-content: space-between;
@@ -188,7 +202,16 @@ button {
         justify-content: space-between;
         align-items: flex-start;
     }
+    .imgEditing__img {
+        width: 35%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
     .imgEditing__input {
+        width: 40%;
         display: grid;
         input {
             border-top: 1px solid rgba(0, 0, 0, 0.3);
@@ -202,11 +225,5 @@ button {
             border-radius: 5px;
             padding: 6px 10px;
         }
-    }
-}
-
-.main__nav {
-    a {
-        text-align: start;
     }
 }

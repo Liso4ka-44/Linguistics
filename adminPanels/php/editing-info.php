@@ -61,13 +61,14 @@
                         </div>
                         <button type="submit" class="btn">Добавить дату</button>
                     </div>
-                    <?php $count = 1;
-                    $all_dates = mysqli_query($connect, "SELECT * FROM `dates` WHERE `text_ru` NOT LIKE 'Конференция%' AND `ID_conf` = $_GET[id_konf]");
-                    while (($row = mysqli_fetch_assoc($all_dates)) != false) {
-                        $f_date = date("Y-m-d", strtotime($row['date_from']));
-                        $s_date = date("Y-m-d", strtotime($row['date_to']));
-                        echo
-                        '<div class="datelist">
+                    <div class="datelist">
+                        <?php $count = 1;
+                        $all_dates = mysqli_query($connect, "SELECT * FROM `dates` WHERE `text_ru` NOT LIKE 'Конференция%' AND `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($all_dates)) != false) {
+                            $f_date = date("Y-m-d", strtotime($row['date_from']));
+                            $s_date = date("Y-m-d", strtotime($row['date_to']));
+                            echo
+                            '
                         <div class="dateitem">
                             <h2>Дата' . ' ' . $count . '</h2>
                             <div class="date__editing">
@@ -91,11 +92,15 @@
                             <div class="btnDelet">
                                 <button type="submit" class="delete__btn">Удалить дату</button>
                             </div>
-                        </div> </div>';
-                        $count++;
-                    }
-                    ?>
-                    <a href="#">Смотреть все даты <img src="../img/icon/down.svg" alt="" class="slide"></a>
+                        </div> ';
+                            $count++;
+                        }
+                        ?>
+                    </div>
+                    <a href="#" class="watch_more">
+                        Смотреть все даты
+                        <img src="../img/icon/down.svg" alt="" class="slide">
+                    </a>
 
                     <div class="eddit__info_programm">
                         <h2>Программки, информационные письма</h2>
@@ -106,7 +111,7 @@
                             </label>
                             <label class="ruText">
                                 Название
-                                <textarea class=""></textarea>
+                                <textarea></textarea>
                             </label>
                         </div>
                         <div>
@@ -116,20 +121,254 @@
                             </label>
                             <label class="enText">
                                 Name
-                                <textarea class=""></textarea>
+                                <textarea></textarea>
                             </label>
                         </div>
                         <button class="btn">Добавить программку</button>
                         <div class="programm__list">
                             <div class="programm__item">
                                 <h3>Программка 1</h3>
+                                <div class="description editing_icon_right ">
+                                    <div>
+                                        <label class="ruText">Название <textarea></textarea></label>
+                                        <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                    </div>
+                                </div>
+                                <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
+                                    <h4>Файл</h4>
+                                    <div class="imgEditing__content">
+                                        <div class="imgEditing__img">
+                                            <a href="#">Программа
+                                                конференции 2020</a>
+                                        </div>
+                                        <div class="imgEditing__input">
+                                            <input type="file" name="photo">
+                                            <button type="submit">Загрузить новое фото</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="description editing_icon_right ">
+                                    <div>
+                                        <label class="enText">Name <textarea></textarea></label>
+                                        <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                    </div>
+                                </div>
+                                <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
+                                    <h4>Файл</h4>
+                                    <div class="imgEditing__content">
+                                        <div class="imgEditing__img">
+                                            <a href="#">Conference
+                                                program 2020 </a>
+                                        </div>
+                                        <div class="imgEditing__input">
+                                            <input type="file">
+                                            <button type="submit">Загрузить новое фото</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="collectionsMaterials">
+                        <div class="addCollections">
+                            <h3>Cборники материалов</h3>
+                            <div class="description">
+                                <label class="ruText">Описание <textarea></textarea></label>
+                                <label class="enText">Describtion <textarea></textarea></label>
+                            </div>
+                            <div class="cover">
+                                <label class="file">
+                                    Обложка
+                                    <input type="file">
+                                </label>
+                                <label class="file">
+                                    Файл
+                                    <input type="file">
+                                </label>
+                            </div>
+                            <div class="elibrary">
+                                <label>Ссылка elibrary <textarea></textarea></label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Добавить дату</button>
+                        <div class="collectionsMaterialsList">
+                            <h3>Список сборников материалов</h3>
+                            <div class="collectionsMaterialsItem">
+                                <div class="description editing_icon_right ">
+                                    <div>
+                                        <label class="ruText">Название <textarea></textarea></label>
+                                        <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                    </div>
+                                    <div>
+                                        <label class="enText">Name <textarea></textarea></label>
+                                        <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                    </div>
+                                    <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
+                                        <h4>Фотография</h4>
+                                        <div class="imgEditing__content">
+                                            <div class="imgEditing__img">
+                                                <img src="/adminPanels/orgcom/ikonnikova.jpg">
+                                            </div>
+                                            <div class="imgEditing__input">
+                                                <input type="file" name="photo">
+                                                <button type="submit">Загрузить новое фото</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="elibrary">
+                                        <label>Ссылка elibrary <textarea></textarea></label>
+                                    </div>
+                                    <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
+                                        <h4>Файл</h4>
+                                        <div class="imgEditing__content">
+                                            <div class="imgEditing__img">
+                                                <a href="#">Conference
+                                                    program 2020 </a>
+                                            </div>
+                                            <div class="imgEditing__input">
+                                                <input type="file">
+                                                <button type="submit">Загрузить новое фото</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="btnDelet">
+                                    <button type="submit" class="delete__btn">Удалить сборник материалов</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <h3>Главная фотография</h3>
+                        <div class="mainPfoto">
+                            <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
+                                <h4>Фотография</h4>
+                                <div class="imgEditing__content">
+                                    <div class="imgEditing__img">
+                                        <img src="/adminPanels/konf/2019.02.20/centralphoto/IMG_3953.jpg">
+                                    </div>
+                                    <div class="imgEditing__input">
+                                        <input type="file" name="photo">
+                                        <button type="submit" class="btn">Загрузить новое фото</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="PhotoKonf">
+                            <div class="addPhoto">
+                                <h3>Фотографии конференции</h3>
+                                <input type="file">
+                                <button type="submit" class="btn">Загрузить фотографию(ии)</button>
+                            </div>
+                            <div class="PhotoKonf__list">
+                                <div class="PhotoKonf__item">
+                                    <div class="PhotoKonf__delet">
+                                        <img src="/adminPanels/img/icon/delete.png" alt="">
+                                    </div>
+                                    <div class="PhotoKonf__photo">
+                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="PhotoKonf__item">
+                                    <div class="PhotoKonf__delet">
+                                        <img src="/adminPanels/img/icon/delete.png" alt="">
+                                    </div>
+                                    <div class="PhotoKonf__photo">
+                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="PhotoKonf__item">
+                                    <div class="PhotoKonf__delet">
+                                        <img src="/adminPanels/img/icon/delete.png" alt="">
+                                    </div>
+                                    <div class="PhotoKonf__photo">
+                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="PhotoKonf__item">
+                                    <div class="PhotoKonf__delet">
+                                        <img src="/adminPanels/img/icon/delete.png" alt="">
+                                    </div>
+                                    <div class="PhotoKonf__photo">
+                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="PhotoKonf__item">
+                                    <div class="PhotoKonf__delet">
+                                        <img src="/adminPanels/img/icon/delete.png" alt="">
+                                    </div>
+                                    <div class="PhotoKonf__photo">
+                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="PhotoKonf__item">
+                                    <div class="PhotoKonf__delet">
+                                        <img src="/adminPanels/img/icon/delete.png" alt="">
+                                    </div>
+                                    <div class="PhotoKonf__photo">
+                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="PhotoKonf__item">
+                                    <div class="PhotoKonf__delet">
+                                        <img src="/adminPanels/img/icon/delete.png" alt="">
+                                    </div>
+                                    <div class="PhotoKonf__photo">
+                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="PhotoKonf__item">
+                                    <div class="PhotoKonf__delet">
+                                        <img src="/adminPanels/img/icon/delete.png" alt="">
+                                    </div>
+                                    <div class="PhotoKonf__photo">
+                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video">
+                            <h3>Видео конференции</h3>
+                            <div class="description editing_icon_right ">
+                                <div>
+                                    <label>Ссылка на видео из ютуб
+                                        <textarea></textarea>
+                                    </label>
+                                    <button type="submit" class="btn">Добавить</button>
+                                </div>
+                            </div>
+                            <div class="videoList">
+                                <div class="video__item">
+                                    <div class="video__delet">
+                                        <img src="/adminPanels/img/icon/delete.png" alt="">
+                                    </div>
+                                    <div class="video__photo">
+                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="partners">
+                        <div class="addPartners">
+                            <h3>Партнеры конференции</h3>
+                            <input type="file">
+                            <button type="submit" class="btn">Загрузить фотографию(ии)</button>
+                        </div>
+                        <div class="partnersList">
+                            <div class="partners__item">
+                                <div class="partners__delet">
+                                    <img src="/adminPanels/img/icon/delete.png" alt="">
+                                </div>
+                                <div class="partners__photo">
+                                    <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </main>
 </body>
 
