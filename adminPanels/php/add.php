@@ -21,7 +21,11 @@
     <main class="main">
         <div class="container">
             <div class="main__body">
-                <div class="main__nav"><a href="">Сведения об анонсе</a><a href="">Важные даты</a><a href="">Программки</a></div>
+                <div class="main__nav">
+                    <a href="">Сведения об анонсе</a>
+                    <a href="">Важные даты</a>
+                    <a href="">Программки</a>
+                </div>
                 <div class="main__content">
                     <div class="information__announcement">
                         <h2>Сведения об анонсе</h2>

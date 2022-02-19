@@ -33,7 +33,7 @@
                                 <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
                             <div>
-                                <label class="enText">Conference conception <textarea></textarea></label>
+                                <label class="enText">Conference conception <textarea id="editor5"></textarea></label>
                                 <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                     <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                                 <div>
-                                    <label class="enText">Information about announcement <textarea></textarea></label>
+                                    <label class="enText">Information about announcement <textarea id="editor"></textarea></label>
                                     <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                             <h3>Информация о прошедшей конференции</h3>
                             <div class="description editing_icon_right">
                                 <div>
-                                    <label class="enText">Вступление <textarea></textarea></label>
+                                    <label class="enText">Вступление <textarea id="editor"></textarea></label>
                                     <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                             </div>
@@ -75,11 +75,11 @@
                                 </div>
                                 <label>
                                     Фотография
-                                    <input type="file" name="" id="">
+                                    <input type="file">
                                 </label>
                                 <label class="enText">
                                     Information about speaker
-                                    <textarea></textarea>
+                                    <textarea id="editor"></textarea>
                                 </label>
                             </div>
                             <div class="speack__list">
@@ -105,7 +105,7 @@
                                     </form>
                                     <div class="editing_icon_right">
                                         <div>
-                                            <label class="enText">Information about speaker <textarea></textarea></label>
+                                            <label class="enText">Information about speaker <textarea id="editor"></textarea></label>
                                             <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                         </div>
                                         <div>
