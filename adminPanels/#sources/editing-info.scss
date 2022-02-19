@@ -40,30 +40,14 @@
             }
         }
         .eddit__info_programm {
-            div {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                input[type="file"] {
-                    width: 100%;
-                    padding: 5px 10px;
-                    color: #000;
-                    border-top: 2px solid rgb(0, 0, 0, 0.3);
-                    border-left: 2px solid rgb(0, 0, 0, 0.3);
-                    border-top-left-radius: 5px;
-                }
-                .file {
-                    width: 220px;
-                }
-                textarea {
-                    width: 285px;
-                }
-            }
-            .programm__item {
-                width: 100%;
+            .programm__list {
                 display: block;
-                form {
+                .programm__item {
                     width: 100%;
+                    display: block;
+                    form {
+                        width: 100%;
+                    }
                 }
             }
         }

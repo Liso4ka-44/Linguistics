@@ -19,6 +19,11 @@ $(document).ready(function() {
     }).catch(error => {
         console.error(error);
     });
+    ClassicEditor.create(document.querySelector('#editor5')).then(editor => {
+        myEditor = editor
+    }).catch(error => {
+        console.error(error);
+    });
     $('.header__link').mouseenter(function() {
         let left = $(this).offset().left - $('.header__list').offset().left,
             width = $(this).width();
