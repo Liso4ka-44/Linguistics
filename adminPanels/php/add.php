@@ -27,7 +27,7 @@
                         <h2>Сведения об анонсе</h2>
                         <div class="main__introductionAnnouncement">
                             <div class="introductionRu">
-                                <h4 class="ruText">Вступление анонса</h4><textarea id=""></textarea>
+                                <h4 class="ruText">Вступление анонса</h4><textarea></textarea>
                             </div>
                             <div class="introductionEn">
                                 <h4 class="enText">Introduction</h4><textarea></textarea>
@@ -57,11 +57,12 @@
                                 <input type="date" name="" id="from">
                                 <label for="to">До </label>
                                 <input type="date" name="" id="to">
-                            </div></div>
-                            <p class="warning">если дата не является промежутком,
+                            </div>
+                        </div>
+                        <p class="warning">если дата не является промежутком,
                             продублируйте её в обе формы
-                            </p>
-                        
+                        </p>
+
                         <div class="additionalDates">
                             <h3>Дата 1</h3>
                             <div class="additionalDate">
@@ -72,11 +73,12 @@
                             </div>
                             <div class="description">
 
-                                <label class="ruText">Описание </label>
-                                <textarea class="descriptionText" id="descriptionRu"></textarea>
-
-                                <label class="enText">Describtion </label>
-                                <textarea class="descriptionText" id="descriptionEn"></textarea>
+                                <label class="ruText">Описание
+                                    <textarea class="descriptionText" id="descriptionRu"></textarea>
+                                </label>
+                                <label class="enText">Describtion
+                                    <textarea class="descriptionText" id="descriptionEn"></textarea>
+                                </label>
                             </div>
                             <div class="addAdditionalDates">
                                 <a href="#">
