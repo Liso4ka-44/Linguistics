@@ -126,8 +126,8 @@
                         </div>
                         <button class="btn">Добавить программку</button>
                         <?php $count = 1;
-                        $all_dates = mysqli_query($connect, "SELECT * FROM `playbill` WHERE `ID_conf` = $_GET[id_konf]");
-                        while (($row = mysqli_fetch_assoc($all_dates)) != false) {
+                        $playbill = mysqli_query($connect, "SELECT * FROM `playbill` WHERE `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($playbill)) != false) {
                             
                             echo
                         '<div class="programm__list">
@@ -199,12 +199,11 @@
                         <div class="collectionsMaterialsList">
                             <h3>Список сборников материалов</h3>
                             <?php $count = 1;
-                        $all_dates = mysqli_query($connect, "SELECT * FROM `el_collection` WHERE `ID_conf` = $_GET[id_konf]");
-                        while (($row = mysqli_fetch_assoc($all_dates)) != false) {
+                        $collections = mysqli_query($connect, "SELECT * FROM `el_collection` WHERE `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($collections)) != false) {
                             
                             echo
-                        '
-                            <div class="collectionsMaterialsItem">
+                        '<div class="collectionsMaterialsItem">
                             <h3>Сборник' . ' ' . $count . '</h3>
                                 <div class="description editing_icon_right ">
                                     <div>
@@ -258,23 +257,21 @@
                         <div class="mainPfoto">
                             <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
                                 <h4>Фотография</h4>
-                                 <?php
-                        $main_photo = mysqli_query($connect, "SELECT `main_photo` FROM `conferences` WHERE `ID_conf` = $_GET[id_konf]");
-                        $poiskk = mysqli_query($connect, $main_photo);
-                    while (($row1 = mysqli_fetch_assoc($poiskk)) != false) {
-                        $main = $row1['main_photo'];
-                        
-                    }
-                    ?>
-                                <div class="imgEditing__content">
+                                 <?php 
+                        $main_ph = mysqli_query($connect, "SELECT `main_photo` FROM `conferences` WHERE `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($main_ph)) != false) {
+                            
+                        echo'<div class="imgEditing__content">
                                     <div class="imgEditing__img">
-                                        <img src="<?php echo $main ?>">
+                                        <img src="' . '../' . $row["main_photo"] . '">
                                     </div>
                                     <div class="imgEditing__input">
                                         <input type="file" name="photo">
                                         <button type="submit" class="btn">Загрузить новое фото</button>
                                     </div>
-                                </div>
+                            </div>';    
+                            }
+                        ?> 
                             </form>
                         </div>
                         <div class="PhotoKonf">
@@ -284,70 +281,22 @@
                                 <button type="submit" class="btn">Загрузить фотографию(ии)</button>
                             </div>
                             <div class="PhotoKonf__list">
-                                <div class="PhotoKonf__item">
+                            <?php $count = 1;
+                        $photos = mysqli_query($connect, "SELECT `photo_conf` FROM `photo_conf` WHERE `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($photos)) != false) {
+                            
+                            echo
+                        '<div class="PhotoKonf__item">
                                     <div class="PhotoKonf__delet">
                                         <img src="/adminPanels/img/icon/delete.png" alt="">
                                     </div>
                                     <div class="PhotoKonf__photo">
-                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                        <img src="' . '../' . $row["photo_conf"] . '" alt="">
                                     </div>
-                                </div>
-                                <div class="PhotoKonf__item">
-                                    <div class="PhotoKonf__delet">
-                                        <img src="/adminPanels/img/icon/delete.png" alt="">
-                                    </div>
-                                    <div class="PhotoKonf__photo">
-                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="PhotoKonf__item">
-                                    <div class="PhotoKonf__delet">
-                                        <img src="/adminPanels/img/icon/delete.png" alt="">
-                                    </div>
-                                    <div class="PhotoKonf__photo">
-                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="PhotoKonf__item">
-                                    <div class="PhotoKonf__delet">
-                                        <img src="/adminPanels/img/icon/delete.png" alt="">
-                                    </div>
-                                    <div class="PhotoKonf__photo">
-                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="PhotoKonf__item">
-                                    <div class="PhotoKonf__delet">
-                                        <img src="/adminPanels/img/icon/delete.png" alt="">
-                                    </div>
-                                    <div class="PhotoKonf__photo">
-                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="PhotoKonf__item">
-                                    <div class="PhotoKonf__delet">
-                                        <img src="/adminPanels/img/icon/delete.png" alt="">
-                                    </div>
-                                    <div class="PhotoKonf__photo">
-                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="PhotoKonf__item">
-                                    <div class="PhotoKonf__delet">
-                                        <img src="/adminPanels/img/icon/delete.png" alt="">
-                                    </div>
-                                    <div class="PhotoKonf__photo">
-                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="PhotoKonf__item">
-                                    <div class="PhotoKonf__delet">
-                                        <img src="/adminPanels/img/icon/delete.png" alt="">
-                                    </div>
-                                    <div class="PhotoKonf__photo">
-                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
-                                    </div>
-                                </div>
+                        </div>';
+                            $count++;
+                        }
+                        ?> 
                             </div>
                         </div>
                         <div class="video">
@@ -379,14 +328,23 @@
                             <button type="submit" class="btn">Загрузить фотографию(ии)</button>
                         </div>
                         <div class="partnersList">
+                        <?php $count = 1;
+                        $partners = mysqli_query($connect, "SELECT `logo` FROM `partners` WHERE `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($partners)) != false) {
+                            
+                            echo
+                        '
                             <div class="partners__item">
                                 <div class="partners__delet">
                                     <img src="/adminPanels/img/icon/delete.png" alt="">
                                 </div>
                                 <div class="partners__photo">
-                                    <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    <img src="' . '../' . $row["logo"] . '" alt="">
                                 </div>
-                            </div>
+                            </div>';
+                             $count++;
+                        }
+                        ?> 
                         </div>
                     </div>
                 </div>
