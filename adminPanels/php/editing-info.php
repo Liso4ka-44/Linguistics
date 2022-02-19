@@ -125,51 +125,55 @@
                             </label>
                         </div>
                         <button class="btn">Добавить программку</button>
-                        <div class="programm__list">
-                            <div class="programm__item">
-                                <h3>Программка 1</h3>
+                        <?php $count = 1;
+                        $all_dates = mysqli_query($connect, "SELECT * FROM `playbill` WHERE `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($all_dates)) != false) {
+                            
+                            echo
+                        '<div class="programm__list">
+                           <div class="programm__item">
+                                <h3>Программка' . ' ' . $count . '</h3>
                                 <div class="description editing_icon_right ">
                                     <div>
-                                        <label class="ruText">Название <textarea></textarea></label>
+                                        <label class="ruText">Название<textarea>'.$row["name_playbill_ru"].'</textarea></label>
                                         <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                     </div>
                                 </div>
-                                <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
+                                
                                     <h4>Файл</h4>
                                     <div class="imgEditing__content">
                                         <div class="imgEditing__img">
-                                            <a href="#">Программа
-                                                конференции 2020</a>
+                                            <a href="'.$row["road_ru"].'">'.$row["name_playbill_ru"].'</a>
                                         </div>
                                         <div class="imgEditing__input">
                                             <input type="file" name="photo">
                                             <button type="submit">Загрузить новое фото</button>
                                         </div>
                                     </div>
-                                </form>
+                                
                                 <div class="description editing_icon_right ">
                                     <div>
-                                        <label class="enText">Name <textarea></textarea></label>
+                                        <label class="enText">Name <textarea>'.$row["name_playbill_en"].'</textarea></label>
                                         <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                     </div>
                                 </div>
-                                <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
+                                
                                     <h4>Файл</h4>
                                     <div class="imgEditing__content">
                                         <div class="imgEditing__img">
-                                            <a href="#">Conference
-                                                program 2020 </a>
+                                        <a href="'.$row["road_en"].'">'.$row["name_playbill_en"].'</a>
                                         </div>
                                         <div class="imgEditing__input">
                                             <input type="file">
                                             <button type="submit">Загрузить новое фото</button>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-
+                            </div> </div>  ';
+                            $count++;
+                        }
+                        ?> 
                     </div>
+
                     <div class="collectionsMaterials">
                         <div class="addCollections">
                             <h3>Cборники материалов</h3>
@@ -191,24 +195,31 @@
                                 <label>Ссылка elibrary <textarea></textarea></label>
                             </div>
                         </div>
-                        <button type="submit" class="btn">Добавить дату</button>
+                        <button type="submit" class="btn">Добавить сборник</button>
                         <div class="collectionsMaterialsList">
                             <h3>Список сборников материалов</h3>
+                            <?php $count = 1;
+                        $all_dates = mysqli_query($connect, "SELECT * FROM `el_collection` WHERE `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($all_dates)) != false) {
+                            
+                            echo
+                        '
                             <div class="collectionsMaterialsItem">
+                            <h3>Сборник' . ' ' . $count . '</h3>
                                 <div class="description editing_icon_right ">
                                     <div>
-                                        <label class="ruText">Название <textarea></textarea></label>
+                                        <label class="ruText">Название <textarea>'.$row["Name_documents_ru"].'</textarea></label>
                                         <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                     </div>
                                     <div>
-                                        <label class="enText">Name <textarea></textarea></label>
+                                        <label class="enText">Name <textarea>'.$row["Name_documents_en"].'</textarea></label>
                                         <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                     </div>
                                     <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
                                         <h4>Фотография</h4>
                                         <div class="imgEditing__content">
                                             <div class="imgEditing__img">
-                                                <img src="/adminPanels/orgcom/ikonnikova.jpg">
+                                                <img src="' . '../' . $row["cover"] . '">
                                             </div>
                                             <div class="imgEditing__input">
                                                 <input type="file" name="photo">
@@ -217,18 +228,17 @@
                                         </div>
                                     </form>
                                     <div class="elibrary">
-                                        <label>Ссылка elibrary <textarea></textarea></label>
+                                        <label>Ссылка elibrary <textarea>'.$row["link"].'</textarea></label>
                                     </div>
                                     <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
                                         <h4>Файл</h4>
                                         <div class="imgEditing__content">
                                             <div class="imgEditing__img">
-                                                <a href="#">Conference
-                                                    program 2020 </a>
+                                                <a href="'.$row["Road_to_documents"].'">Посмотреть файл</a>
                                             </div>
                                             <div class="imgEditing__input">
                                                 <input type="file">
-                                                <button type="submit">Загрузить новое фото</button>
+                                                <button type="submit">Загрузить новый файл</button>
                                             </div>
                                         </div>
                                     </form>
@@ -237,6 +247,10 @@
                                     <button type="submit" class="delete__btn">Удалить сборник материалов</button>
                                 </div>
                             </div>
+                            ';
+                            $count++;
+                        }
+                        ?> 
                         </div>
                     </div>
                     <div class="media">
@@ -244,9 +258,17 @@
                         <div class="mainPfoto">
                             <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
                                 <h4>Фотография</h4>
+                                 <?php
+                        $main_photo = mysqli_query($connect, "SELECT `main_photo` FROM `conferences` WHERE `ID_conf` = $_GET[id_konf]");
+                        $poiskk = mysqli_query($connect, $main_photo);
+                    while (($row1 = mysqli_fetch_assoc($poiskk)) != false) {
+                        $main = $row1['main_photo'];
+                        
+                    }
+                    ?>
                                 <div class="imgEditing__content">
                                     <div class="imgEditing__img">
-                                        <img src="/adminPanels/konf/2019.02.20/centralphoto/IMG_3953.jpg">
+                                        <img src="<?php echo $main ?>">
                                     </div>
                                     <div class="imgEditing__input">
                                         <input type="file" name="photo">
