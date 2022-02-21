@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "../connect.php";
 
 function translitText($str){
@@ -20,77 +20,23 @@ function translitText($str){
     return strtr($str,$tr);
 }
 
-if ($_GET['update'] == 'up_konf_date') {
+
+if($_GET["add"]=="add_dates"){
     $ID_conf = (int)$_GET['ID_konf'];
-    $sql = "UPDATE `dates` SET `date_from`= '" . $_POST["date_from"] . "', `date_to`= '" . $_POST["date_to"] . "' WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` =".$ID_conf;
+    $date_from = $_POST['date_from'];
+    $date_to = $_POST['date_to'];
+    $text_ru = $_POST['text_ru'];
+    $text_en = $_POST['text_en'];
+    $sql = "INSERT INTO `dates`( `date_from`,`date_to`, `text_ru`, `text_en`, `ID_conf`) VALUES ('$date_from', '$date_to', '$text_ru', '$text_en', '$ID_conf')";
     mysqli_query($connect, $sql);
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
-if ($_GET['update'] == 'up_dates') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_date = (int)$_GET['ID_date'];
-    $sql = "UPDATE `dates` SET `date_from`= '" . $_POST["date_from"] . "', `date_to`= '" . $_POST["date_to"] . "' WHERE `ID_date` =".$ID_date;
-    mysqli_query($connect, $sql);
-    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
-}
-
-if ($_GET['update'] == 'up_desc_ru') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_date = (int)$_GET['ID_date'];
-    $sql = "UPDATE `dates` SET `text_ru`= '" . $_POST["text_ru"] . "' WHERE `ID_date` =".$ID_date;
-    mysqli_query($connect, $sql);
-    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
-}
-
-if ($_GET['update'] == 'up_desc_en') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_date = (int)$_GET['ID_date'];
-    $sql = "UPDATE `dates` SET `text_en`= '" . $_POST["text_en"] . "' WHERE `ID_date` =".$ID_date;
-    mysqli_query($connect, $sql);
-    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
-}
-
-if ($_GET['update'] == 'del_date') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_date = (int)$_GET['ID_date'];
-    $result = mysqli_query($connect, "DELETE FROM `dates` WHERE `ID_date` = $ID_date");
-    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
-}
-
-if ($_GET['update'] == 'up_plname_ru') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_playbill = (int)$_GET['ID_playbill'];
-    $sql = "UPDATE `playbill` SET `name_playbill_ru`= '" . $_POST["name_ru"] . "' WHERE `ID_playbill` =".$ID_playbill;
-    mysqli_query($connect, $sql);
-    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
-}
-
-if ($_GET['update'] == 'up_plname_en') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_playbill = (int)$_GET['ID_playbill'];
-    $sql = "UPDATE `playbill` SET `name_playbill_en`= '" . $_POST["name_en"] . "' WHERE `ID_playbill` =".$ID_playbill;
-    mysqli_query($connect, $sql);
-    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
-}
-
-if($_GET['update']=='up_file_ru'){
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_playbill = (int)$_GET['ID_playbill'];
-    $sql = "SELECT  `road_ru` FROM `playbill` WHERE `ID_playbill` = ".$ID_playbill;
-    $poisk=mysqli_query($connect, $sql);	
-    $row = mysqli_fetch_assoc($poisk);
-    if($row["road_ru"]!=''){
-      $patch ="../../..".$row["road_ru"];
-      if (file_exists($patch)) {
-        if(unlink($_SERVER['DOCUMENT_ROOT']."$row[road_ru]")){
-          echo 'файл удален';
-        }
-      }
-    }
+if($_GET["add"]=="add_playbill"){
     
-    $ID_playbill = (int)$_GET['ID_playbill'];
     $ID_conf = (int)$_GET['ID_konf'];
+    $name_ru = $_POST['name_ru'];
+    $name_en = $_POST['name_en'];
     $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
     $poisk = mysqli_query($connect, $query);
     $row = mysqli_fetch_assoc($poisk);
@@ -149,9 +95,10 @@ if($_GET['update']=='up_file_ru'){
                             // Перемещаем файл в директорию.
                             if (move_uploaded_file($file['tmp_name'], $path . $name)) {
                                 $dir = htmlspecialchars("/adminPanels/konf/$dateKonf/playbill/$name", ENT_QUOTES);
-                                $sql = "UPDATE `playbill` SET `road_ru`= '$dir' WHERE `ID_playbill` =".$ID_playbill;
+                                $sql = "INSERT INTO `playbill`( `name_playbill_ru`, `road_ru`, `ID_conf`) VALUES ('$name_ru', '$dir', '$ID_conf')";
                                 mysqli_query($connect, $sql);
                                 echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+                                //echo 'sql';
                             } 
                         }
                     }
@@ -159,30 +106,7 @@ if($_GET['update']=='up_file_ru'){
             }
         }
     }
-}
-
-if($_GET['update']=='up_file_en'){
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_playbill = (int)$_GET['ID_playbill'];
-    $sql = "SELECT  `road_en` FROM `playbill` WHERE `ID_playbill` = ".$ID_playbill;
-    $poisk=mysqli_query($connect, $sql);	
-    $row = mysqli_fetch_assoc($poisk);
-    if($row["road_en"]!=''){
-      $patch ="../../..".$row["road_en"];
-      if (file_exists($patch)) {
-        if(unlink($_SERVER['DOCUMENT_ROOT']."$row[road_en]")){
-          echo 'файл удален';
-        }
-      }
-    }
-    
-    $ID_playbill = (int)$_GET['ID_playbill'];
-    $ID_conf = (int)$_GET['ID_konf'];
-    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-    $poisk = mysqli_query($connect, $query);
-    $row = mysqli_fetch_assoc($poisk);
-    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
-
+    /*
     if(!empty($_FILES["playbill_en"]["name"])){
         $input_name = 'playbill_en';
         $dir = "./../../konf/$dateKonf/playbill/" ;
@@ -236,7 +160,7 @@ if($_GET['update']=='up_file_en'){
                             // Перемещаем файл в директорию.
                             if (move_uploaded_file($file['tmp_name'], $path . $name)) {
                                 $dir = htmlspecialchars("/adminPanels/konf/$dateKonf/playbill/$name", ENT_QUOTES);
-                                $sql = "UPDATE `playbill` SET `road_en`= '$dir' WHERE `ID_playbill` =".$ID_playbill;
+                                $sql = "INSERT INTO `playbill`( `name_playbill_en`, `road_en`, `ID_conf`) VALUES ('$name_en', '$dir', '$ID_conf')";
                                 mysqli_query($connect, $sql);
                                 echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
                             } 
@@ -245,36 +169,7 @@ if($_GET['update']=='up_file_en'){
                 }
             }
         }
-    }
-}
-
-if($_GET['update']=='del_playbill'){
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_playbill = (int)$_GET['ID_playbill'];
-    $sql = "SELECT  `road_ru`, `road_en` FROM `playbill` WHERE `ID_playbill` = ".$ID_playbill;
-    $poisk=mysqli_query($connect, $sql);	
-    $row = mysqli_fetch_assoc($poisk);
-    if($row["road_ru"]!=''){
-      $patch ="../../..".$row["road_ru"];
-      if (file_exists($patch)) {
-        if(unlink($_SERVER['DOCUMENT_ROOT']."$row[road_ru]")){
-          echo 'файл удален';
-        }
-      }
-    }
-    
-    if($row["road_en"]!=''){
-        $patch ="../../..".$row["road_en"];
-        if (file_exists($patch)) {
-          if(unlink($_SERVER['DOCUMENT_ROOT']."$row[road_en]")){
-            echo 'файл удален';
-          }
-        }
-      }
-
-      $sql = "DELETE FROM `playbill` WHERE `ID_playbill`=".$ID_playbill;
-      mysqli_query($connect, $sql);	
-      echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+    }*/
 }
 
 ?>
