@@ -73,10 +73,12 @@
                                         <textarea></textarea>
                                     </label>
                                 </div>
-                                <label>
-                                    Фотография
-                                    <input type="file" name="" id="">
-                                </label>
+                                <div class="file_center">
+                                    <label>
+                                        Фотография
+                                        <input type="file">
+                                    </label>
+                                </div>
                                 <label class="ruText">
                                     Информация о спикере
                                     <textarea></textarea>

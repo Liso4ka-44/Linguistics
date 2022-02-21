@@ -39,30 +39,30 @@
                     <h1>Конференция <?php echo $date_head ?></h1>
                     <div class="date">
                         <h2>Дата конференции</h2>
-                        <form action="add_edit\general_edit.php?update=up_konf_date&ID_konf=<?php echo $_GET["id_konf"]?>" method="post" enctype="multipart/form-data" >
+                        <form action="add_edit\general_edit.php?update=up_konf_date&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data">
                             <div class="date__editing">
-                                <label>От <input type="date" name = "date_from" value="<?php echo $date_from ?>"></label>
-                                <label>До <input type="date" name = "date_to" value="<?php echo $date_to ?>"></label>
+                                <label>От <input type="date" name="date_from" value="<?php echo $date_from ?>"></label>
+                                <label>До <input type="date" name="date_to" value="<?php echo $date_to ?>"></label>
                                 <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
                         </form>
                     </div>
 
-                    <form action="add_edit\general_add.php?add=add_dates&ID_konf=<?php echo $_GET["id_konf"]?>" method="post" enctype="multipart/form-data" role="form">
+                    <form action="add_edit\general_add.php?add=add_dates&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
                         <div class="dateImportant">
                             <h2>Важные даты</h2>
-                                <p class="warning">если дата не является промежутком,
-                                    продублируйте её в обе формы
-                                </p>
+                            <p class="warning">если дата не является промежутком,
+                                продублируйте её в обе формы
+                            </p>
 
-                        <div class="date__editing">
-                            <label>От <input type="date" name = "date_from"></label>
-                            <label>До <input type="date" name = "date_to"></label>
-                        </div>
-                        <div class="description">
-                            <label class="ruText">Описание <textarea name = "text_ru"></textarea></label>
-                            <label class="enText">Describtion <textarea name = "text_en"></textarea></label>
-                        </div>
+                            <div class="date__editing">
+                                <label>От <input type="date" name="date_from"></label>
+                                <label>До <input type="date" name="date_to"></label>
+                            </div>
+                            <div class="description">
+                                <label class="ruText">Описание <textarea name="text_ru"></textarea></label>
+                                <label class="enText">Describtion <textarea name="text_en"></textarea></label>
+                            </div>
                             <button type="submit" class="btn">Добавить дату</button>
                         </div>
                     </form>
@@ -77,7 +77,7 @@
                             '
                         <div class="dateitem">
                             <h2>Дата' . ' ' . $count . '</h2>
-                            <form action="add_edit\general_edit.php?update=up_dates&ID_konf='.$_GET["id_konf"].'&ID_date='.$row["ID_date"].'" method="post" enctype="multipart/form-data" >
+                            <form action="add_edit\general_edit.php?update=up_dates&ID_konf=' . $_GET["id_konf"] . '&ID_date=' . $row["ID_date"] . '" method="post" enctype="multipart/form-data" >
                             <div class="date__editing">
                                 <div>
                                     <label>От <input type="date" name = "date_from" value="' . $f_date . '"></label> 
@@ -87,20 +87,20 @@
                             </div>
                             </form>
                             <div class="description editing_icon_right">
-                            <form action="add_edit\general_edit.php?update=up_desc_ru&ID_konf='.$_GET["id_konf"].'&ID_date='.$row["ID_date"].'" method="post" enctype="multipart/form-data" >
+                            <form action="add_edit\general_edit.php?update=up_desc_ru&ID_konf=' . $_GET["id_konf"] . '&ID_date=' . $row["ID_date"] . '" method="post" enctype="multipart/form-data" >
                                 <div>
                                     <label class="ruText">Описание <textarea name = "text_ru">' . $row["text_ru"] . '</textarea></label>
                                     <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                             </form>
-                            <form action="add_edit\general_edit.php?update=up_desc_en&ID_konf='.$_GET["id_konf"].'&ID_date='.$row["ID_date"].'" method="post" enctype="multipart/form-data" >
+                            <form action="add_edit\general_edit.php?update=up_desc_en&ID_konf=' . $_GET["id_konf"] . '&ID_date=' . $row["ID_date"] . '" method="post" enctype="multipart/form-data" >
                                 <div>
                                     <label class="enText">Describtion <textarea name = "text_en">' . $row["text_en"] . '</textarea></label>
                                     <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                             </form>
                             </div>
-                            <form action="add_edit\general_edit.php?update=del_date&ID_konf='.$_GET["id_konf"].'&ID_date='.$row["ID_date"].'" method="post" enctype="multipart/form-data" >
+                            <form action="add_edit\general_edit.php?update=del_date&ID_konf=' . $_GET["id_konf"] . '&ID_date=' . $row["ID_date"] . '" method="post" enctype="multipart/form-data" >
                             <div class="btnDelet">
                                 <button type="submit" class="delete__btn">Удалить дату</button>
                             </div>
@@ -117,29 +117,29 @@
 
                     <div class="eddit__info_programm">
                         <h2>Программки, информационные письма</h2>
-                        <form action="add_edit\general_add.php?add=add_playbill&ID_konf=<?php echo $_GET["id_konf"]?>" method="post" enctype="multipart/form-data" role="form">
-                        <div>
-                            <label class="ruText file">
-                                Файл
-                                <input type="file" name = "playbill_ru">
-                            </label>
-                            <label class="ruText">
-                                Название
-                                <textarea name = "name_ru"></textarea>
-                            </label>
-                        </div>
-                        <div>
-                            <label class="enText file">
-                                File
-                                <input type="file" name = "playbill_en">
-                            </label>
-                            <label class="enText">
-                                Name
-                                <textarea name = "name_en"></textarea>
-                            </label>
-                        </div>
-                        <button class="btn">Добавить программку</button>
-                    </form>
+                        <form action="add_edit\general_add.php?add=add_playbill&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
+                            <div>
+                                <label class="ruText file">
+                                    Файл
+                                    <input type="file" name="playbill_ru">
+                                </label>
+                                <label class="ruText">
+                                    Название
+                                    <textarea name="name_ru"></textarea>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="enText file">
+                                    File
+                                    <input type="file" name="playbill_en">
+                                </label>
+                                <label class="enText">
+                                    Name
+                                    <textarea name="name_en"></textarea>
+                                </label>
+                            </div>
+                            <button class="btn">Добавить программку</button>
+                        </form>
                         <div class="programm__list">
                             <?php $count = 1;
                             $playbill = mysqli_query($connect, "SELECT * FROM `playbill` WHERE `ID_conf` = $_GET[id_konf]");
@@ -149,7 +149,7 @@
                                 '
                                 <div class="programm__item">
                                     <h3>Программка' . ' ' . $count . '</h3>
-                                    <form action="add_edit\general_edit.php?update=up_plname_ru&ID_konf='.$_GET["id_konf"].'&ID_playbill='.$row["ID_playbill"].'" method="post" enctype="multipart/form-data" >
+                                    <form action="add_edit\general_edit.php?update=up_plname_ru&ID_konf=' . $_GET["id_konf"] . '&ID_playbill=' . $row["ID_playbill"] . '" method="post" enctype="multipart/form-data" >
                                     <div class="description editing_icon_right ">
                                         <div>
                                             <label class="ruText">Название<textarea name="name_ru">' . $row["name_playbill_ru"] . '</textarea></label>
@@ -157,7 +157,7 @@
                                         </div>
                                     </div>
                                     </form>
-                                    <form class="imgEditing" action="add_edit\general_edit.php?update=up_file_ru&ID_konf='.$_GET["id_konf"].'&ID_playbill='.$row["ID_playbill"].'" method="post" enctype="multipart/form-data" >
+                                    <form class="imgEditing" action="add_edit\general_edit.php?update=up_file_ru&ID_konf=' . $_GET["id_konf"] . '&ID_playbill=' . $row["ID_playbill"] . '" method="post" enctype="multipart/form-data" >
                                         <h4>Файл</h4>
                                         <div class="imgEditing__content">
                                             <div class="imgEditing__img">
@@ -169,7 +169,7 @@
                                             </div>
                                         </div>
                                         </form>
-                                    <form action="add_edit\general_edit.php?update=up_plname_en&ID_konf='.$_GET["id_konf"].'&ID_playbill='.$row["ID_playbill"].'" method="post" enctype="multipart/form-data" >    
+                                    <form action="add_edit\general_edit.php?update=up_plname_en&ID_konf=' . $_GET["id_konf"] . '&ID_playbill=' . $row["ID_playbill"] . '" method="post" enctype="multipart/form-data" >    
                                     <div class="description editing_icon_right ">
                                         <div>
                                             <label class="enText">Name <textarea name="name_en">' . $row["name_playbill_en"] . '</textarea></label>
@@ -177,7 +177,7 @@
                                         </div>
                                     </div>
                                     </form>
-                                    <form class="imgEditing" action="add_edit\general_edit.php?update=up_file_en&ID_konf='.$_GET["id_konf"].'&ID_playbill='.$row["ID_playbill"].'" method="post" enctype="multipart/form-data" >
+                                    <form class="imgEditing" action="add_edit\general_edit.php?update=up_file_en&ID_konf=' . $_GET["id_konf"] . '&ID_playbill=' . $row["ID_playbill"] . '" method="post" enctype="multipart/form-data" >
                                         <h4>Файл</h4>
                                         <div class="imgEditing__content">
                                             <div class="imgEditing__img">
@@ -189,7 +189,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <form action="add_edit\general_edit.php?update=del_playbill&ID_konf='.$_GET["id_konf"].'&ID_playbill='.$row["ID_playbill"].'" method="post" enctype="multipart/form-data" >
+                                    <form action="add_edit\general_edit.php?update=del_playbill&ID_konf=' . $_GET["id_konf"] . '&ID_playbill=' . $row["ID_playbill"] . '" method="post" enctype="multipart/form-data" >
                                         <div class="btnDelet">
                                             <button type="submit" class="delete__btn">Удалить программку</button>
                                         </div>
@@ -303,7 +303,9 @@
                         <div class="PhotoKonf">
                             <div class="addPhoto">
                                 <h3>Фотографии конференции</h3>
-                                <input type="file">
+                                <div class="file_center">
+                                    <input type="file">
+                                </div>
                                 <button type="submit" class="btn">Загрузить фотографию(ии)</button>
                             </div>
                             <div class="PhotoKonf__list">
@@ -336,14 +338,14 @@
                                 </div>
                             </div>
                             <div class="videoList">
-                            <?php $count = 1;
+                                <?php $count = 1;
                                 $video = mysqli_query($connect, "SELECT `video_conf` FROM `video_conf` WHERE `ID_conf` = $_GET[id_konf]");
                                 while (($row = mysqli_fetch_assoc($video)) != false) {
 
-                            echo'<div class="video__item">
+                                    echo '<div class="video__item">
                                     <div class="video__delet">
                                         <img src="/adminPanels/img/icon/delete.png" alt="">
-                                        <iframe src="https://www.youtube.com/embed/'.$row["video_conf"].'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe src="https://www.youtube.com/embed/' . $row["video_conf"] . '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                     <div class="video__photo">
                                         <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">

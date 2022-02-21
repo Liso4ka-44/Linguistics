@@ -24,10 +24,13 @@
                         <label class="ruText">ФИО <textarea name="name_ru"></textarea></label>
                         <label class="enText">Name <textarea name="name_en"></textarea></label>
                     </div>
-                    <label class="file orgcomm_file_center">
-                        Фотография
-                        <input type="file" name="photo">
-                    </label>
+                    <div class="file_center">
+                        <label class="file orgcomm_file_center">
+                            Фотография
+                            <input type="file" name="photo">
+                        </label>
+                    </div>
+
                     <div class="description">
                         <label class="ruText">Должность <textarea name="post_ru"></textarea></label>
                         <label class="enText">Post <textarea name="post_en"></textarea></label>
