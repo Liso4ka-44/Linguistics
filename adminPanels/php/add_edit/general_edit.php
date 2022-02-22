@@ -66,6 +66,30 @@ if ($_GET['update'] == 'up_plname_ru') {
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
+if ($_GET['update'] == 'up_colname_ru') {
+    $ID_conf = (int)$_GET['ID_konf'];
+    $ID_doc = (int)$_GET['ID_doc'];
+    $sql = "UPDATE `el_collection` SET `Name_documents_ru`= '" . $_POST["name_ru"] . "' WHERE `ID_documents` =".$ID_doc;
+    mysqli_query($connect, $sql);
+    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+}
+
+if ($_GET['update'] == 'up_colname_en') {
+    $ID_conf = (int)$_GET['ID_konf'];
+    $ID_doc = (int)$_GET['ID_doc'];
+    $sql = "UPDATE `el_collection` SET `Name_documents_en`= '" . $_POST["name_en"] . "' WHERE `ID_documents` =".$ID_doc;
+    mysqli_query($connect, $sql);
+    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+}
+
+if ($_GET['update'] == 'up_collink') {
+    $ID_conf = (int)$_GET['ID_konf'];
+    $ID_doc = (int)$_GET['ID_doc'];
+    $sql = "UPDATE `el_collection` SET `link`= '" . $_POST["link"] . "' WHERE `ID_documents` =".$ID_doc;
+    mysqli_query($connect, $sql);
+    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+}
+
 if ($_GET['update'] == 'up_plname_en') {
     $ID_conf = (int)$_GET['ID_konf'];
     $ID_playbill = (int)$_GET['ID_playbill'];
@@ -255,24 +279,170 @@ if($_GET['update']=='del_playbill'){
     $poisk=mysqli_query($connect, $sql);	
     $row = mysqli_fetch_assoc($poisk);
     if($row["road_ru"]!=''){
-      $patch ="../../..".$row["road_ru"];
-      if (file_exists($patch)) {
-        if(unlink($_SERVER['DOCUMENT_ROOT']."$row[road_ru]")){
-          echo 'файл удален';
+        $patch ="../../..".$row["road_ru"];
+        if (file_exists($patch)) {
+            if(unlink($_SERVER['DOCUMENT_ROOT']."$row[road_ru]")){
+            echo 'файл удален';
+            }
         }
-      }
     }
     
     if($row["road_en"]!=''){
         $patch ="../../..".$row["road_en"];
         if (file_exists($patch)) {
-          if(unlink($_SERVER['DOCUMENT_ROOT']."$row[road_en]")){
+            if(unlink($_SERVER['DOCUMENT_ROOT']."$row[road_en]")){
             echo 'файл удален';
-          }
+            }
         }
-      }
+    }
 
       $sql = "DELETE FROM `playbill` WHERE `ID_playbill`=".$ID_playbill;
+      mysqli_query($connect, $sql);	
+      echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+}
+
+if ($_GET['update'] == 'up_cover') {
+    $ID_conf = (int)$_GET['ID_konf'];
+    $ID_doc = (int)$_GET['ID_doc'];
+    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
+    $poisk = mysqli_query($connect, $query);
+    $row = mysqli_fetch_assoc($poisk);
+    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
+
+    if (!empty($_FILES['photo']['name'])) {
+      $query1 = "SELECT `cover` FROM `el_collection` WHERE `ID_documents` = $ID_doc";
+      $poiskk = mysqli_query($connect, $query1);
+      $row = mysqli_fetch_assoc($poiskk);
+      $patch = $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/$row[cover]";
+  
+      if (file_exists($patch)) {
+        if (unlink($patch)) {
+          echo 'файл удален';
+        }
+      }
+      $file_name = $_FILES['photo']['name'];
+      $file_tmp = $_FILES['photo']['tmp_name'];
+      $link = htmlspecialchars($link, ENT_QUOTES);
+      move_uploaded_file($file_tmp, $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/konf/$dateKonf/cover/$file_name");
+      $dir = "konf/$dateKonf/cover/$file_name";
+      $sql = "UPDATE `el_collection` SET `cover`= '$dir'  WHERE `ID_documents` = " . $ID_doc;
+      mysqli_query($connect, $sql);
+      echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+    }
+}
+
+if($_GET['update']=='up_collection'){
+    $ID_conf = (int)$_GET['ID_konf'];
+    $ID_doc = (int)$_GET['ID_doc'];
+    $sql = "SELECT  `Road_to_documents` FROM `el_collection` WHERE `ID_documents` = ".$ID_doc;
+    $poisk=mysqli_query($connect, $sql);	
+    $row = mysqli_fetch_assoc($poisk);
+    if($row["Road_to_documents"]!=''){
+      $patch ="../../..".$row["Road_to_documents"];
+      if (file_exists($patch)) {
+        if(unlink($_SERVER['DOCUMENT_ROOT']."$row[Road_to_documents]")){
+          echo 'файл удален';
+        }
+      }
+    }
+    
+    $ID_doc = (int)$_GET['ID_doc'];
+    $ID_conf = (int)$_GET['ID_konf'];
+    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
+    $poisk = mysqli_query($connect, $query);
+    $row = mysqli_fetch_assoc($poisk);
+    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
+
+    if(!empty($_FILES["collection"]["name"])){
+        $input_name = 'collection';
+        $dir = "./../../konf/$dateKonf/ellcollection/" ;
+        $allow = array();
+        $deny = array(
+                'phtml', 'php', 'php3', 'php4', 'php5', 'php6', 'php7', 'phps', 'cgi', 'pl', 'asp', 
+                'aspx', 'shtml', 'shtm', 'htaccess', 'htpasswd', 'ini', 'log', 'sh', 'js', 'html', 
+                'htm', 'css', 'sql', 'spl', 'scgi', 'fcgi', 'exe'
+        );
+        $path = __DIR__ . "$dir";
+        if (isset($_FILES[$input_name])) {
+            if (!is_dir($path)) {
+                mkdir($path, 0777, true);
+            }
+            if (!isset($_FILES[$input_name])) {
+                $error = 'Файлы не загружены.';
+            } else {
+                $files = array();
+                $diff = count($_FILES[$input_name]) - count($_FILES[$input_name], COUNT_RECURSIVE);
+                if ($diff == 0) {
+                    $files = array($_FILES[$input_name]);
+                } else {
+                    foreach($_FILES[$input_name] as $k => $l) {
+                        foreach($l as $i => $v) {
+                            $files[$i][$k] = $v;
+                        }
+                    }		
+                }	
+                foreach ($files as $file) {
+                    $error = $success = '';
+                    // Проверим на ошибки загрузки.
+                    if (!empty($file['error']) || empty($file['tmp_name'])) {
+                        $error = 'Не удалось загрузить файл.';
+                    } elseif ($file['tmp_name'] == 'none' || !is_uploaded_file($file['tmp_name'])) {
+                        $error = 'Не удалось загрузить файл.';
+                    } else {
+                        // Оставляем в имени файла только буквы, цифры и некоторые символы.
+                        $pattern = "[^A-Za-zА-Яа-яё0-9,~!@#% ^-_\$\?\(\)\{\}\[\]\.]";
+                        $name = mb_eregi_replace($pattern, '-', $file['name']);
+                        $name = translitText($name); 
+                        $name = mb_ereg_replace('[-]+', '-', $name);
+                        $parts = pathinfo($name);
+                    
+                        if (empty($name) || empty($parts['extension'])) {
+                            $error = 'Недопустимый тип файла';
+                        } elseif (!empty($allow) && !in_array(strtolower($parts['extension']), $allow)) {
+                            $error = 'Недопустимый тип файла';
+                        } elseif (!empty($deny) && in_array(strtolower($parts['extension']), $deny)) {
+                            $error = 'Недопустимый тип файла';
+                        } else {
+                            // Перемещаем файл в директорию.
+                            if (move_uploaded_file($file['tmp_name'], $path . $name)) {
+                                $dir = htmlspecialchars("/adminPanels/konf/$dateKonf/ellcollection/$name", ENT_QUOTES);
+                                $sql = "UPDATE `el_collection` SET `Road_to_documents`= '$dir' WHERE `ID_documents` =".$ID_doc;
+                                mysqli_query($connect, $sql);
+                                echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+if($_GET['update']=='del_col'){
+    $ID_conf = (int)$_GET['ID_konf'];
+    $ID_doc = (int)$_GET['ID_doc'];
+    $sql = "SELECT  `Road_to_documents`, `cover` FROM `el_collection` WHERE `ID_documents` = ".$ID_doc;
+    $poisk=mysqli_query($connect, $sql);	
+    $row = mysqli_fetch_assoc($poisk);
+    if($row["Road_to_documents"]!=''){
+        $patch ="../../..".$row["Road_to_documents"];
+        if (file_exists($patch)) {
+            if(unlink($_SERVER['DOCUMENT_ROOT']."$row[Road_to_documents]")){
+            echo 'файл удален';
+            }
+        }
+    }
+    
+    if($row["cover"]!=''){
+        $patch ="../../../adminPanels/".$row["cover"];
+        if (file_exists($patch)) {
+            if(unlink($_SERVER['DOCUMENT_ROOT']."/adminPanels/"."$row[cover]")){
+            echo 'файл удален';
+            }
+        }
+    }
+
+      $sql = "DELETE FROM `el_collection` WHERE `ID_documents`=".$ID_doc;
       mysqli_query($connect, $sql);	
       echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }

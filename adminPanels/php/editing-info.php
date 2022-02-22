@@ -201,27 +201,30 @@
                         </div>
                     </div>
                     <div class="collectionsMaterials">
+                    <form action="add_edit\general_add.php?add=add_collection&ID_konf=<?php echo $_GET["id_konf"]?>" method="post" enctype="multipart/form-data" role="form">
                         <div class="addCollections">
                             <h3>Cборники материалов</h3>
+                            
                             <div class="description">
-                                <label class="ruText">Описание <textarea></textarea></label>
-                                <label class="enText">Describtion <textarea></textarea></label>
+                                <label class="ruText">Название <textarea name="name_ru"></textarea></label>
+                                <label class="enText">Name <textarea name="name_en"></textarea></label>
                             </div>
                             <div class="cover">
                                 <label class="file">
                                     Обложка
-                                    <input type="file">
+                                    <input type="file" name="photo">
                                 </label>
                                 <label class="file">
                                     Файл
-                                    <input type="file">
+                                    <input type="file" name="collection">
                                 </label>
                             </div>
                             <div class="elibrary">
-                                <label>Ссылка elibrary <textarea></textarea></label>
+                                <label>Ссылка elibrary <textarea name="elibrary"></textarea></label>
                             </div>
                         </div>
                         <button type="submit" class="btn">Добавить сборник</button>
+                    </form>
                         <div class="collectionsMaterialsList">
                             <h3>Список сборников материалов</h3>
                             <?php $count = 1;
@@ -231,16 +234,21 @@
                                 echo
                                 '<div class="collectionsMaterialsItem">
                             <h3>Сборник' . ' ' . $count . '</h3>
+                            <form action="add_edit\general_edit.php?update=up_colname_ru&ID_konf=' . $_GET["id_konf"] . '&ID_doc=' . $row["ID_documents"] . '" method="post" enctype="multipart/form-data" >
                                 <div class="description editing_icon_right ">
                                     <div>
-                                        <label class="ruText">Название <textarea>' . $row["Name_documents_ru"] . '</textarea></label>
+                                        <label class="ruText">Название <textarea name="name_ru">' . $row["Name_documents_ru"] . '</textarea></label>
                                         <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                     </div>
-                                    <div>
-                                        <label class="enText">Name <textarea>' . $row["Name_documents_en"] . '</textarea></label>
+                                <div>
+                            </form>    
+                            <form action="add_edit\general_edit.php?update=up_colname_en&ID_konf=' . $_GET["id_konf"] . '&ID_doc=' . $row["ID_documents"] . '" method="post" enctype="multipart/form-data" >
+                                        
+                                        <label class="enText">Name <textarea name="name_en">' . $row["Name_documents_en"] . '</textarea></label>
                                         <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                     </div>
-                                    <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
+                            </form>
+                            <form class="imgEditing" action="add_edit\general_edit.php?update=up_cover&ID_konf=' . $_GET["id_konf"] . '&ID_doc=' . $row["ID_documents"] . '" method="post" enctype="multipart/form-data" >
                                         <h4>Фотография</h4>
                                         <div class="imgEditing__content">
                                             <div class="imgEditing__img">
@@ -250,27 +258,33 @@
                                                 <input type="file" name="photo">
                                                 <button type="submit">Загрузить новое фото</button>
                                             </div>
+
                                         </div>
                                     </form>
+                                    <form action="add_edit\general_edit.php?update=up_collink&ID_konf=' . $_GET["id_konf"] . '&ID_doc=' . $row["ID_documents"] . '" method="post" enctype="multipart/form-data" >
                                     <div class="elibrary">
-                                        <label>Ссылка elibrary <textarea>' . $row["link"] . '</textarea></label>
+                                        <label>Ссылка elibrary <textarea name="link">' . $row["link"] . '</textarea></label>
+                                        <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                     </div>
-                                    <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
+                                    </form>
+                                    <form class="imgEditing" action="add_edit\general_edit.php?update=up_collection&ID_konf=' . $_GET["id_konf"] . '&ID_doc=' . $row["ID_documents"] . '" method="post" enctype="multipart/form-data" >
                                         <h4>Файл</h4>
                                         <div class="imgEditing__content">
                                             <div class="imgEditing__img">
                                                 <a href="' . $row["Road_to_documents"] . '">Посмотреть файл</a>
                                             </div>
                                             <div class="imgEditing__input">
-                                                <input type="file">
+                                                <input type="file" name="collection">
                                                 <button type="submit">Загрузить новый файл</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
+                                <form action="add_edit\general_edit.php?update=del_col&ID_konf=' . $_GET["id_konf"] . '&ID_doc=' . $row["ID_documents"] . '" method="post" enctype="multipart/form-data" >
                                 <div class="btnDelet">
                                     <button type="submit" class="delete__btn">Удалить сборник материалов</button>
                                 </div>
+                                </form>
                             </div>
                             ';
                                 $count++;
