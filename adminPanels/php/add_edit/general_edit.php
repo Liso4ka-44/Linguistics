@@ -447,4 +447,70 @@ if($_GET['update']=='del_col'){
       echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
+if ($_GET['update'] == 'up_mainph') {
+    $ID_conf = (int)$_GET['ID_konf'];
+    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
+    $poiskk = mysqli_query($connect, $query);
+    $row1 = mysqli_fetch_assoc($poiskk);
+    $dateKonf = date("Y.m.d",strtotime($row1["date_from"]));
+    if (!empty($_FILES['mainph']['name'])) {
+    
+    $quer = "SELECT `main_photo` FROM `conferences` WHERE `ID_conf` = $ID_conf";
+    $poisk = mysqli_query($connect, $quer);
+    $row = mysqli_fetch_assoc($poisk);
+    $patch = $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/$row[main_photo]";
+  
+      if (file_exists($patch)) {
+        if (unlink($patch)) {
+          echo 'файл удален';
+        }
+      }
+      $file_name = $_FILES['mainph']['name'];
+      $file_tmp = $_FILES['mainph']['tmp_name'];
+      $link = htmlspecialchars($link, ENT_QUOTES);
+      move_uploaded_file($file_tmp, $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/konf/$dateKonf/centralphoto/$file_name");
+      $dir = "konf/$dateKonf/centralphoto/$file_name";
+      $sql = "UPDATE `conferences` SET `main_photo`= '$dir'  WHERE `ID_conf` = " . $ID_conf;
+      mysqli_query($connect, $sql);
+      echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+    }
+}
+
+if ($_GET['update'] == 'del_photo') {
+    $ID_conf = (int)$_GET['ID_konf'];
+    $id_ph = $_GET['ID_photo'];
+    $query = "SELECT `photo_conf` FROM `photo_conf` WHERE `ID_photo` = $id_ph";
+    $poisk = mysqli_query($connect, $query);
+    $row = mysqli_fetch_assoc($poisk);
+    $patch = $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/$row[photo_conf]";
+    if (file_exists($patch)) {
+      if (unlink($patch)) {
+      }
+    }
+    $result = mysqli_query($connect, "DELETE FROM `photo_conf` WHERE `ID_photo` = $id_ph");
+    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+}
+
+if ($_GET['update'] == 'del_video') {
+    $ID_conf = (int)$_GET['ID_konf'];
+    $id_v = $_GET['ID_video'];
+    $result = mysqli_query($connect, "DELETE FROM `video_conf` WHERE `ID_video_conf` = $id_v");
+    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+}
+
+if ($_GET['update'] == 'del_partner') {
+    $ID_conf = (int)$_GET['ID_konf'];
+    $id_p = $_GET['ID_partner'];
+    $query = "SELECT `logo` FROM `partners` WHERE `ID_partner` = $id_p";
+    $poisk = mysqli_query($connect, $query);
+    $row = mysqli_fetch_assoc($poisk);
+    $patch = $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/$row[logo]";
+    if (file_exists($patch)) {
+      if (unlink($patch)) {
+      }
+    }
+    $result = mysqli_query($connect, "DELETE FROM `partners` WHERE `ID_partner` = $id_p");
+    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+}
+
 ?>

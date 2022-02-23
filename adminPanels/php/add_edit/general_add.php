@@ -301,6 +301,67 @@ if($_GET["add"]=="add_collection"){
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
+if($_GET["add"]=="add_photo"){
+    if(!empty($_FILES['image']['name'])&&$_FILES['image']['name']!=''){
+        $ID_conf = (int)$_GET['ID_konf'];
+        $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
+        $poiskk = mysqli_query($connect, $query);
+        $row1 = mysqli_fetch_assoc($poiskk);
+        $dateKonf = date("Y.m.d",strtotime($row1["date_from"]));
+        $dir = "./../../konf/$dateKonf/foto/" ;
+        $path = __DIR__ . "$dir";
+            if (!is_dir($path)) {
+                mkdir($path, 0777, true);
+            }
+                foreach ($_FILES['image']['name'] as $key => $val ) {
+                    if($file_name = $_FILES['image']['name']["$key"]!=''){
+                        $file_name = $_FILES['image']['name']["$key"];
+                        $file_name = translitText($file_name);
+                        $file_tmp = $_FILES['image']['tmp_name']["$key"];
+                        move_uploaded_file($file_tmp, $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/konf/$dateKonf/foto/$file_name");
+                        $dir = "konf/$dateKonf/foto/$file_name";
+                        $sql = "INSERT INTO `photo_conf`(`photo_conf`, `ID_conf`) VALUES ('$dir',$ID_conf)";
+                        mysqli_query($connect, $sql);
+                    }
+                }
+    }
+    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+}
 
+if($_GET["add"]=="add_video"){
+    $ID_conf = (int)$_GET['ID_konf'];
+    if(!empty($_POST['url_video'] && $_POST['url_video']!="")){
+        $videoLink = explode('v=', $_POST['url_video'], 2);
+        $sql = "INSERT INTO `video_conf`( `video_conf`, `ID_conf`) VALUES ('$videoLink[1]',$ID_conf)";
+        mysqli_query($connect, $sql);
+    }
+    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+}
 
+if($_GET["add"]=="add_partner"){
+    if(!empty($_FILES['image']['name'])&&$_FILES['image']['name']!=''){
+        $ID_conf = (int)$_GET['ID_konf'];
+        $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
+        $poiskk = mysqli_query($connect, $query);
+        $row1 = mysqli_fetch_assoc($poiskk);
+        $dateKonf = date("Y.m.d",strtotime($row1["date_from"]));
+        $dir = "./../../konf/$dateKonf/partners/" ;
+        $path = __DIR__ . "$dir";
+            if (!is_dir($path)) {
+                mkdir($path, 0777, true);
+            }
+                foreach ($_FILES['image']['name'] as $key => $val ) {
+                    if($file_name = $_FILES['image']['name']["$key"]!=''){
+                        $file_name = $_FILES['image']['name']["$key"];
+                        $file_name = translitText($file_name);
+                        $file_tmp = $_FILES['image']['tmp_name']["$key"];
+                        move_uploaded_file($file_tmp, $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/konf/$dateKonf/partners/$file_name");
+                        $dir = "konf/$dateKonf/partners/$file_name";
+                        $sql = "INSERT INTO `partners`(`logo`, `ID_conf`) VALUES ('$dir',$ID_conf)";
+                        mysqli_query($connect, $sql);
+                    }
+                }
+    }
+    echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
+}
 ?>

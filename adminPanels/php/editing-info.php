@@ -295,7 +295,7 @@
                     <div class="media">
                         <h3>Главная фотография</h3>
                         <div class="mainPfoto">
-                            <form class="imgEditing" action="add_edit\orgcom_edit.php?update=up_photo&ID_per=' . $row['ID_per'] . '" method="post" enctype="multipart/form-data">
+                            <form class="imgEditing" action="add_edit\general_edit.php?update=up_mainph&ID_konf=<?php echo $_GET["id_konf"]?>" method="post" enctype="multipart/form-data" role="form">
                                 <h4>Фотография</h4>
                                 <?php
                                 $main_ph = mysqli_query($connect, "SELECT `main_photo` FROM `conferences` WHERE `ID_conf` = $_GET[id_konf]");
@@ -306,7 +306,7 @@
                                         <img src="' . '../' . $row["main_photo"] . '">
                                     </div>
                                     <div class="imgEditing__input">
-                                        <input type="file" name="photo">
+                                        <input type="file" name="mainph">
                                         <button type="submit" class="btn">Загрузить новое фото</button>
                                     </div>
                             </div>';
@@ -316,22 +316,26 @@
                         </div>
                         <div class="PhotoKonf">
                             <div class="addPhoto">
+                            <form class="imgEditing" action="add_edit\general_add.php?add=add_photo&ID_konf=<?php echo $_GET["id_konf"]?>" method="post" enctype="multipart/form-data" role="form">
                                 <h3>Фотографии конференции</h3>
                                 <div class="file_center">
-                                    <input type="file">
+                                    <input type="file" name="image[]" multiple>
                                 </div>
                                 <button type="submit" class="btn">Загрузить фотографию(ии)</button>
+                            </form>
                             </div>
                             <div class="PhotoKonf__list">
                                 <?php $count = 1;
-                                $photos = mysqli_query($connect, "SELECT `photo_conf` FROM `photo_conf` WHERE `ID_conf` = $_GET[id_konf]");
+                                $photos = mysqli_query($connect, "SELECT * FROM `photo_conf` WHERE `ID_conf` = $_GET[id_konf]");
                                 while (($row = mysqli_fetch_assoc($photos)) != false) {
 
                                     echo
                                     '<div class="PhotoKonf__item">
+                                    <form class="imgEditing" action="add_edit\general_edit.php?update=del_photo&ID_konf='.$_GET["id_konf"].'&ID_photo=' . $row["ID_photo"] . '" method="post" enctype="multipart/form-data" role="form">
                                     <div class="PhotoKonf__delet">
-                                        <img src="/adminPanels/img/icon/delete.png" alt="">
+                                    <button type="submit"><img src="/adminPanels/img/icon/delete.png" alt=""></button>
                                     </div>
+                                    </form>
                                     <div class="PhotoKonf__photo">
                                         <img src="' . '../' . $row["photo_conf"] . '" alt="">
                                     </div>
@@ -342,28 +346,31 @@
                             </div>
                         </div>
                         <div class="video">
+                        <form class="imgEditing" action="add_edit\general_add.php?add=add_video&ID_konf=<?php echo $_GET["id_konf"]?>" method="post" enctype="multipart/form-data" role="form">
                             <h3>Видео конференции</h3>
                             <div class="description editing_icon_right ">
                                 <div>
                                     <label>Ссылка на видео из ютуб
-                                        <textarea></textarea>
+                                        <textarea name="url_video"></textarea>
                                     </label>
                                     <button type="submit" class="btn">Добавить</button>
                                 </div>
                             </div>
+                        </form>    
                             <div class="videoList">
                                 <?php $count = 1;
-                                $video = mysqli_query($connect, "SELECT `video_conf` FROM `video_conf` WHERE `ID_conf` = $_GET[id_konf]");
+                                $video = mysqli_query($connect, "SELECT * FROM `video_conf` WHERE `ID_conf` = $_GET[id_konf]");
                                 while (($row = mysqli_fetch_assoc($video)) != false) {
 
                                     echo '<div class="video__item">
+                                    <form action="add_edit\general_edit.php?update=del_video&ID_konf=' . $_GET["id_konf"] . '&ID_video=' . $row["ID_video_conf"] . '" method="post" enctype="multipart/form-data" >
                                     <div class="video__delet">
-                                        <img src="/adminPanels/img/icon/delete.png" alt="">
-                                        <iframe src="https://www.youtube.com/embed/' . $row["video_conf"] . '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <button type="submit"><img src="/adminPanels/img/icon/delete.png" alt=""></button>
                                     </div>
                                     <div class="video__photo">
-                                        <img src="/adminPanels/konf/2018.03.21/foto/IMG_0862.jpg" alt="">
+                                    <iframe src="https://www.youtube.com/embed/' . $row["video_conf"] . '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
+                                    </form>
                                 </div>';
                                     $count++;
                                 }
@@ -373,24 +380,27 @@
                     </div>
                     <div class="partners">
                         <div class="addPartners">
+                        <form class="imgEditing" action="add_edit\general_add.php?add=add_partner&ID_konf=<?php echo $_GET["id_konf"]?>" method="post" enctype="multipart/form-data" role="form">
                             <h3>Партнеры конференции</h3>
-                            <input type="file">
+                            <input type="file" name="image[]" multiple>
                             <button type="submit" class="btn">Загрузить фотографию(ии)</button>
+                        </form>
                         </div>
                         <div class="partnersList">
                             <?php $count = 1;
-                            $partners = mysqli_query($connect, "SELECT `logo` FROM `partners` WHERE `ID_conf` = $_GET[id_konf]");
+                            $partners = mysqli_query($connect, "SELECT * FROM `partners` WHERE `ID_conf` = $_GET[id_konf]");
                             while (($row = mysqli_fetch_assoc($partners)) != false) {
 
                                 echo
-                                '
-                            <div class="partners__item">
+                            '<div class="partners__item">
+                            <form action="add_edit\general_edit.php?update=del_partner&ID_konf=' . $_GET["id_konf"] . '&ID_partner=' . $row["ID_partner"] . '" method="post" enctype="multipart/form-data" >
                                 <div class="partners__delet">
-                                    <img src="/adminPanels/img/icon/delete.png" alt="">
+                                <button type="submit"><img src="/adminPanels/img/icon/delete.png" alt=""></button>
                                 </div>
                                 <div class="partners__photo">
                                     <img src="' . '../' . $row["logo"] . '" alt="">
                                 </div>
+                            </form>
                             </div>';
                                 $count++;
                             }
