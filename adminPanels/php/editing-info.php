@@ -312,16 +312,15 @@
                                 <?php $count = 1;
                                 $photos = mysqli_query($connect, "SELECT `photo_conf` FROM `photo_conf` WHERE `ID_conf` = $_GET[id_konf]");
                                 while (($row = mysqli_fetch_assoc($photos)) != false) {
-
                                     echo
                                     '<div class="PhotoKonf__item">
-                                    <div class="PhotoKonf__delet">
-                                        <img src="/adminPanels/img/icon/delete.png" alt="">
-                                    </div>
-                                    <div class="PhotoKonf__photo">
-                                        <img src="' . '../' . $row["photo_conf"] . '" alt="">
-                                    </div>
-                        </div>';
+                                        <div class="PhotoKonf__delet">
+                                            <img src="/adminPanels/img/icon/delete.png" alt="">
+                                        </div>
+                                        <div class="PhotoKonf__photo">
+                                            <img src="' . '../' . $row["photo_conf"] . '" alt="">
+                                        </div>
+                                    </div>';
                                     $count++;
                                 }
                                 ?>
@@ -341,7 +340,6 @@
                                 <?php $count = 1;
                                 $video = mysqli_query($connect, "SELECT `video_conf` FROM `video_conf` WHERE `ID_conf` = $_GET[id_konf]");
                                 while (($row = mysqli_fetch_assoc($video)) != false) {
-
                                     echo '<div class="video__item">
                                     <div class="video__delet">
                                         <img src="/adminPanels/img/icon/delete.png" alt="">

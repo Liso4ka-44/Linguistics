@@ -11,6 +11,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/script.js" type="text/javascript"></script>
+    <script src="../js/add.js"></script>
     <title>Добавление</title>
 </head>
 
@@ -20,97 +21,61 @@
     ?>
     <main class="main">
         <div class="container">
-            <div class="main__body">
-                <div class="main__nav">
-                    <a href="">Сведения об анонсе</a>
-                    <a href="">Важные даты</a>
-                    <a href="">Программки</a>
+            <div class="add">
+                <div class="add__nav">
+                    <ul class="add__list">
+                        <li class="add__item add__item_active_darker" data-nav="1"> <a class="add__link" href="#">Сведения об анонсе</a> </li>
+                        <li class="add__item" data-nav="2"><a class="add__link" href="#">Важные даты</a></li>
+                        <li class="add__item" data-nav="3"><a class="add__link" href="#"> программки, информационные письма</a></li>
+                    </ul>
                 </div>
-                <div class="main__content">
-                    <div class="information__announcement">
+                <div class="add__content">
+                    <div class="lang">
+                        <a href="#">RU</a>
+                        <a href="#">EN</a>
+                    </div>
+                    <form action="#" method="post" class="form add__form__active" data-form="1">
                         <h2>Сведения об анонсе</h2>
-                        <div class="main__introductionAnnouncement">
-                            <div class="introductionRu">
-                                <h4 class="ruText">Вступление анонса</h4><textarea></textarea>
-                            </div>
-                            <div class="introductionEn">
-                                <h4 class="enText">Introduction</h4><textarea></textarea>
-                            </div>
+                        <div class="form__content">
+                            <label class="form__label">
+                                Вступление анонса
+                                <textarea></textarea>
+                            </label>
+                            <label class="form__label">
+                                Информация о конференции
+                                <textarea></textarea>
+                            </label>
+                            <button type="submit" class="btn">Сохранить</button>
                         </div>
-                    </div>
-                    <div class="editor__list">
-                        <div class="editor1">
-                            <h4 class="ruText">Информация о конференции</h4><textarea class="edit" id="editor"></textarea>
-                        </div>
-                        <div class="editor2">
-                            <h4 class="enText">Conference information</h4><textarea class="edit" id="editor1"></textarea>
-                        </div>
-                        <div class="editor3">
-                            <h4 class="ruText">Концепция конференции</h4><textarea class="edit" id="editor2"></textarea>
-                        </div>
-                        <div class="editor4">
-                            <h4 class="enText">Conference conception</h4><textarea class="edit" id="editor3"></textarea>
-                        </div>
-                    </div>
-                    <div class="KeysDate">
+                    </form>
+                    <form action="#" method="post" class="form" data-form="2">
                         <h2>Важные даты</h2>
-                        <div class="dateConf">
-                            <h3>Даты конференции</h3>
-                            <div class="beetwenDate">
-                                <label for="from">От </label>
-                                <input type="date" name="" id="from">
-                                <label for="to">До </label>
-                                <input type="date" name="" id="to">
-                            </div>
+                        <div class="form__content">
+                            <label class="form__label">
+                                От
+                                <input type="date">
+                            </label>
+                            <label class="form__label">
+                                До
+                                <input type="date">
+                            </label>
+                            <button type="submit" class="btn">Сохранить</button>
                         </div>
-                        <p class="warning">если дата не является промежутком,
-                            продублируйте её в обе формы
-                        </p>
-
-                        <div class="additionalDates">
-                            <h3>Дата 1</h3>
-                            <div class="additionalDate">
-                                <label for="from">От </label>
-                                <input type="date" name="" id="from">
-                                <label for="to">До </label>
-                                <input type="date" name="" id="to">
-                            </div>
-                            <div class="description">
-
-                                <label class="ruText">Описание
-                                    <textarea class="descriptionText" id="descriptionRu"></textarea>
-                                </label>
-                                <label class="enText">Describtion
-                                    <textarea class="descriptionText" id="descriptionEn"></textarea>
-                                </label>
-                            </div>
-                            <div class="addAdditionalDates">
-                                <a href="#">
-                                    <img src="../img/icon/add.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="programs">
+                    </form>
+                    <form action="#" method="post" class="form" data-form="3">
                         <h2>Программки,информационные письма</h2>
-                        <div class="program">
-                            <h3>Документ 1</h3>
-                            <input type="file" name="" id="">
-                            <label class="ruText">Название
-                                <textarea class="programText"></textarea>
+                        <div class="form__content">
+                            <label class="form__label">
+                                Файл
+                                <input type="file">
                             </label>
-                            <input type="file" name="" id="">
-                            <label class="enText">Name
-                                <textarea class="programText"></textarea>
+                            <label class="form__label">
+                                Название
+                                <textarea></textarea>
                             </label>
+                            <button type="submit" class="btn">Сохранить</button>
                         </div>
-                        <div class="addAdditionalDates">
-                            <a href="#">
-                                <img src="../img/icon/add.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <button type="submit" class="main__button">Добавить конференцию</button>
+                    </form>
                 </div>
             </div>
         </div>
