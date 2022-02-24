@@ -66,7 +66,7 @@
 									include "connect.php";
                                     $Date = mysqli_query($connect,"SELECT  conf.`ID_year`, dat.`date_from` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE()");
                                     $Date = mysqli_fetch_assoc($Date);
-									$year = mysqli_query($connect,"SELECT * FROM `years` WHERE `ID_year` <".$Date["ID_year"]);
+									$year = mysqli_query($connect,"SELECT * FROM `years` WHERE `ID_year` <=".$Date["ID_year"]);
 									while(($row = mysqli_fetch_assoc($year)) != false){
 										echo "<li class='nav__item'><a class='headerr__item' href='blog.php?year=".$row["ID_year"]."'>".$row["year"]."</a>";
 									}
