@@ -26,25 +26,25 @@ include "probnik/class.php";
 						<div class="next__conference">
 							<div class="next__conference__body">
 								<?php 
-									next__conference(); 
+									/*next__conference(); */
 								?>
 							</div>
 						</div>
-						<div class="application">
+						<!--<div class="application">
 							<div class="application_body">
 								<div class="application_icon">
 									<img src="/img/application/application_icon.png" alt="">
 								</div>
 								<div class="application_button">
 									<a href = " https://forms.gle/tMsnyhTz18S3xnt26" class = "application__participation">
-									<?php echo name('application_f')?>
+									<?php /*echo name('application_f')*/?>
 									</a>
 									<a href = "https://forms.gle/TG3TjqcY5uMXquP78" class = "application__publication">
-									<?php echo name('application_s')?>
+									<?php /*echo name('application_s')*/?>
 									</a>
 								</div>
 							</div>
-						</div>
+						</div>-->
 						<div class="text-mgimo-linguistics">
 							<div class="about-ico" >
 							<h2><?php echo name('title_conference')?></h2>

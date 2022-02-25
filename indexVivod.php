@@ -29,7 +29,7 @@
     function listLASTconf () {
         include "connect.php";
         //$year = mysqli_query($connect,"SELECT * FROM `years` WHERE `ID_year` <".$Date["ID_year"]);
-        $CONFBD = mysqli_query($connect, "SELECT conf.`ID_conf`, conf.`Name_conf_".$_SESSION["lang"]."`, conf.`ID_year`, conf.`main_photo`, dat.`date_from` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE conf.`ID_conf` != " .$_SESSION['ID_conf']." AND DATE(`date_from`) <= CURDATE() ORDER BY `ID_conf` DESC LIMIT 3");
+        $CONFBD = mysqli_query($connect, "SELECT conf.`ID_conf`, conf.`Name_conf_".$_SESSION["lang"]."`, conf.`ID_year`, conf.`main_photo`, dat.`date_from`, dat.`text_ru` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE conf.`ID_conf` <= " .$_SESSION['ID_conf']." AND `text_ru` LIKE 'Конференция%' AND DATE(`date_from`) <= CURDATE() ORDER BY `ID_conf` DESC LIMIT 3");
         //поправки
         while(($row = mysqli_fetch_assoc($CONFBD)) != false){
         $year = explode("-", $row['date_from']);
@@ -83,7 +83,8 @@
             echo "<script> echo (".$confYear.")</script>";
         }
        
-        $archiveBD = mysqli_query($connect,"SELECT conf.`ID_conf`, conf.`anons_name_".$_SESSION["lang"]."`, conf.`info_anons_".$_SESSION["lang"]."`, conf.`main_photo`, dat.`date_from` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE ID_year = ".$_SESSION["year"]);
+        $archiveBD = mysqli_query($connect,"SELECT conf.`ID_conf`, conf.`anons_name_".$_SESSION["lang"]."`, conf.`info_anons_".$_SESSION["lang"]."`, conf.`main_photo`, dat.`date_from`, dat.`text_ru` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE `text_ru` LIKE 'Конференция%' AND ID_year = ".$_SESSION["year"]);
+        //$date = "SELECT `ID_conf`, `date_from`, `date_to` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $_GET[id_konf]";
         while(($row = mysqli_fetch_assoc($archiveBD)) != false){
             // $string = mb_substr($row['info'],0,200,'UTF-8'); Сокращенный текст с анонса
            if($row['main_photo']==''){
