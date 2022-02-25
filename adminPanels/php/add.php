@@ -28,7 +28,7 @@
                 </div>
                 <div class="main__content">
                     <div class="information__announcement">
-                        <h2>Сведения об анонсе</h2>
+                        <h2 class="top__heading">Сведения об анонсе</h2>
                         <div class="main__introductionAnnouncement">
                             <div class="introductionRu">
                                 <h4 class="ruText">Вступление анонса</h4><textarea></textarea>
@@ -57,10 +57,16 @@
                         <div class="dateConf">
                             <h3>Даты конференции</h3>
                             <div class="beetwenDate">
-                                <label for="from">От </label>
-                                <input type="date" name="" id="from">
-                                <label for="to">До </label>
-                                <input type="date" name="" id="to">
+                                <label>
+                                    От
+                                    <input type="date">
+                                </label>
+
+                                <label>
+                                    До
+                                    <input type="date">
+                                </label>
+
                             </div>
                         </div>
                         <p class="warning">если дата не является промежутком,
@@ -69,14 +75,18 @@
 
                         <div class="additionalDates">
                             <h3>Дата 1</h3>
-                            <div class="additionalDate">
-                                <label for="from">От </label>
-                                <input type="date" name="" id="from">
-                                <label for="to">До </label>
-                                <input type="date" name="" id="to">
+                            <div class="beetwenDate">
+                                <label>
+                                    От
+                                    <input type="date">
+                                </label>
+
+                                <label>
+                                    До
+                                    <input type="date">
+                                </label>
                             </div>
                             <div class="description">
-
                                 <label class="ruText">Описание
                                     <textarea class="descriptionText" id="descriptionRu"></textarea>
                                 </label>
@@ -95,14 +105,24 @@
                         <h2>Программки,информационные письма</h2>
                         <div class="program">
                             <h3>Документ 1</h3>
-                            <input type="file" name="" id="">
-                            <label class="ruText">Название
-                                <textarea class="programText"></textarea>
-                            </label>
-                            <input type="file" name="" id="">
-                            <label class="enText">Name
-                                <textarea class="programText"></textarea>
-                            </label>
+                            <div class="description">
+                                <label class="ruText">Файл
+                                    <input type="file">
+                                </label>
+                                <label class="ruText">Название
+                                    <textarea class="programText"></textarea>
+                                </label>
+                            </div>
+                            <div class="description">
+                                <label class="enText">File
+                                    <input type="file" name="" id="">
+                                </label>
+                                <label class="enText">Name
+                                    <textarea class="programText"></textarea>
+                                </label>
+                            </div>
+
+
                         </div>
                         <div class="addAdditionalDates">
                             <a href="#">

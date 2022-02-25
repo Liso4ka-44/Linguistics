@@ -13,9 +13,6 @@
             display: block;
         }
         width: 600px;
-        h2 {
-            padding: 60px 0;
-        }
         label {
             text-align: start;
         }
@@ -31,6 +28,9 @@
                     width: 285px;
                     height: 32px;
                 }
+            }
+            .label_center {
+                justify-content: center;
             }
         }
         .datelist {

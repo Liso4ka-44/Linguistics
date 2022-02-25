@@ -79,10 +79,11 @@
                                         <input type="file">
                                     </label>
                                 </div>
-                                <label class="ruText">
+                                <label class="ruText info__spaeker">
                                     Информация о спикере
                                     <textarea></textarea>
                                 </label>
+                                <button type="submit" class="btn">Добавить спикера</button>
                             </div>
                             <div class="speack__list">
                                 <div class="speack__item">
@@ -134,7 +135,7 @@
                                         <textarea></textarea>
                                     </label>
                                 </div>
-                                <label class="ruText">
+                                <label class="ruText info__spaeker">
                                     Текст отзыва
                                     <textarea></textarea>
                                 </label>

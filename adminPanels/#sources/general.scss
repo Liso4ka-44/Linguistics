@@ -16,6 +16,13 @@ body {
     }
 }
 
+.main__nav {
+    a {
+        width: 100%;
+        padding: 2px;
+    }
+}
+
 .ruText {
     color: #394BE5;
 }
@@ -147,7 +154,11 @@ button {
     color: #FFFFFF;
     border-radius: 5px;
     background-color: #fff;
-    margin: 40px 0 0 0;
+    // margin: 40px 0 0 0;
+}
+
+.top__heading {
+    padding: 0 0 60px 0;
 }
 
 .btn {
@@ -158,9 +169,11 @@ button {
     line-height: 16px;
     padding: 7px 15px;
     background: #6A0D0D;
+    margin: 35px 0 0 0;
 }
 
 .btnDelet {
+    margin: 30px 0 0 0;
     padding: 30px 0 0 0;
     border-top: 1px solid #000;
     .delete__btn {
@@ -231,4 +244,11 @@ button {
 .file_center {
     width: 220px;
     margin: 0 auto;
+}
+
+.info__spaeker {
+    padding: 30px 0;
+    textarea {
+        width: 100%;
+    }
 }

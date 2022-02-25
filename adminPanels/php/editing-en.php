@@ -79,7 +79,7 @@
                                         <input type="file">
                                     </label>
                                 </div>
-                                <label class="enText">
+                                <label class="enText info__spaeker">
                                     Information about speaker
                                     <textarea id="editor"></textarea>
                                 </label>
@@ -107,7 +107,9 @@
                                     </form>
                                     <div class="editing_icon_right">
                                         <div>
-                                            <label class="enText">Information about speaker <textarea id="editor"></textarea></label>
+                                            <label class="enText">Information about speaker
+                                                <textarea id="editor"></textarea>
+                                            </label>
                                             <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                         </div>
                                         <div>
@@ -135,7 +137,7 @@
                                         <textarea></textarea>
                                     </label>
                                 </div>
-                                <label class="enText">
+                                <label class="enText info__spaeker">
                                     Текст отзыва
                                     <textarea></textarea>
                                 </label>

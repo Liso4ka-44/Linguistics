@@ -1,6 +1,9 @@
 .main__nav {
+    width: 30%;
     a {
         display: block;
+        width: 100%;
+        padding: 2px;
     }
 }
 
@@ -44,15 +47,16 @@
             height: 210px;
         }
     }
+    .beetwenDate {
+        display: flex;
+        width: 300px;
+        margin: 30px auto 25px;
+    }
     .KeysDate {
         width: 100%;
         .dateConf {
             width: 500px;
             margin: 0 auto;
-            .beetwenDate {
-                width: 300px;
-                margin: 30px auto 25px;
-            }
             p {
                 width: 100%;
                 font-style: italic;
@@ -77,7 +81,6 @@
         }
     }
     .programs {
-        padding: 62px 0 0 0;
         width: 600px;
         margin: 0 auto;
         .program {
@@ -96,5 +99,6 @@
         border-radius: 5px;
         padding: 7px 8px;
         border: none;
+        margin: 20px 0 0 0;
     }
 }
