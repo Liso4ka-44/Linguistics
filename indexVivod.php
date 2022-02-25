@@ -29,7 +29,7 @@
     function listLASTconf () {
         include "connect.php";
         //$year = mysqli_query($connect,"SELECT * FROM `years` WHERE `ID_year` <".$Date["ID_year"]);
-        $CONFBD = mysqli_query($connect, "SELECT conf.`ID_conf`, conf.`Name_conf_".$_SESSION["lang"]."`, conf.`ID_year`, conf.`main_photo`, dat.`date_from`, dat.`text_ru` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE conf.`ID_conf` <= " .$_SESSION['ID_conf']." AND `text_ru` LIKE 'Конференция%' AND DATE(`date_from`) <= CURDATE() ORDER BY `ID_conf` DESC LIMIT 3");
+        $CONFBD = mysqli_query($connect, "SELECT conf.`ID_conf`, conf.`Name_conf_".$_SESSION["lang"]."`, conf.`ID_year`, conf.`main_photo`, dat.`date_from`, dat.`text_ru` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE conf.`ID_conf` <= " .$_SESSION['ID_conf']." AND `text_ru` LIKE 'Конференция%' AND DATE(`date_from`) <= CURDATE() ORDER BY `ID_conf` ASC LIMIT 5");
         //поправки
         while(($row = mysqli_fetch_assoc($CONFBD)) != false){
         $year = explode("-", $row['date_from']);
