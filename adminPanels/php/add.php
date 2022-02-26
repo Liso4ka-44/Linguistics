@@ -11,6 +11,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/script.js" type="text/javascript"></script>
+    <script src="../js/add.js" type="text/javascript"></script>
     <title>Добавление</title>
 </head>
 
@@ -56,7 +57,7 @@
                         <h2>Важные даты</h2>
                         <div class="dateConf">
                             <h3>Даты конференции</h3>
-                            <div class="beetwenDate">
+                            <div class="date__editing label_center">
                                 <label>
                                     От
                                     <input type="date">
@@ -74,59 +75,69 @@
                         </p>
 
                         <div class="additionalDates">
-                            <h3>Дата 1</h3>
-                            <div class="beetwenDate">
-                                <label>
-                                    От
-                                    <input type="date">
-                                </label>
+                            <div class="additionalDates__item">
+                                <h3>Дата 1</h3>
+                                <div class="date__editing label_center">
+                                    <label>
+                                        От
+                                        <input type="date">
+                                    </label>
 
-                                <label>
-                                    До
-                                    <input type="date">
-                                </label>
-                            </div>
-                            <div class="description">
-                                <label class="ruText">Описание
-                                    <textarea class="descriptionText" id="descriptionRu"></textarea>
-                                </label>
-                                <label class="enText">Describtion
-                                    <textarea class="descriptionText" id="descriptionEn"></textarea>
-                                </label>
+                                    <label>
+                                        До
+                                        <input type="date">
+                                    </label>
+                                </div>
+                                <div class="description">
+                                    <label class="ruText">
+                                        Описание
+                                        <textarea class="descriptionText" id="descriptionRu"></textarea>
+                                    </label>
+                                    <label class="enText">
+                                        Describtion
+                                        <textarea class="descriptionText" id="descriptionEn"></textarea>
+                                    </label>
+                                </div>
                             </div>
                             <div class="addAdditionalDates">
-                                <a href="#">
+                                <a href="#" class="date__add">
                                     <img src="../img/icon/add.svg" alt="">
                                 </a>
                             </div>
+
+
                         </div>
                     </div>
                     <div class="programs">
                         <h2>Программки,информационные письма</h2>
                         <div class="program">
-                            <h3>Документ 1</h3>
-                            <div class="description">
-                                <label class="ruText">Файл
-                                    <input type="file">
-                                </label>
-                                <label class="ruText">Название
-                                    <textarea class="programText"></textarea>
-                                </label>
+                            <div class="programm__item">
+                                <h3>Документ 1</h3>
+                                <div class="description">
+                                    <label class="ruText">
+                                        Файл
+                                        <input type="file">
+                                    </label>
+                                    <label class="ruText">
+                                        Название
+                                        <textarea class="programText"></textarea>
+                                    </label>
+                                </div>
+                                <div class="description">
+                                    <label class="enText">
+                                        File
+                                        <input type="file">
+                                    </label>
+                                    <label class="enText">
+                                        Name
+                                        <textarea class="programText"></textarea>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="description">
-                                <label class="enText">File
-                                    <input type="file" name="" id="">
-                                </label>
-                                <label class="enText">Name
-                                    <textarea class="programText"></textarea>
-                                </label>
-                            </div>
-
-
                         </div>
                         <div class="addAdditionalDates">
-                            <a href="#">
-                                <img src="../img/icon/add.svg" alt="">
+                            <a href="#" class="programm__add">
+                                <img src="../img/icon/add.svg">
                             </a>
                         </div>
                     </div>
