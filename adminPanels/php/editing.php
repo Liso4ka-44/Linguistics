@@ -39,8 +39,8 @@
                             <div class="konf__lang">
                                 <p>Выберите язык редактирования:</p>
                                 <div>
-                                    <a href="/adminPanels/php/editing-ru.php?id_konf=' . $id . '" class="enText">RU</a>
-                                    <a href="/adminPanels/php/editing-en.php?id_konf=' . $id . '" class="ruText">EN</a>
+                                    <a href="/adminPanels/php/editing-ru.php?id_konf=' . $id . '" class="ruText">RU</a>
+                                    <a href="/adminPanels/php/editing-en.php?id_konf=' . $id . '" class="enText">EN</a>
                                 </div>
                             </div>
                             <div class="konf__action">
