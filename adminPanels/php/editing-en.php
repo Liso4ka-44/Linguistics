@@ -25,15 +25,28 @@
                     <a href="#">Отзывы</a>
                 </div>
                 <div class="main__content">
-                    <h3>Конференция 20.02.2020</h3>
+                <?php
+                    include('connect.php');
+                    $date = "SELECT `ID_conf`, `date_from`, `date_to` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $_GET[id_konf]";
+                    $poisk = mysqli_query($connect, $date);
+                    while (($row = mysqli_fetch_assoc($poisk)) != false) {
+                        $date_head = date("d.m.Y", strtotime($row['date_from']));
+                    }
+                ?>
+                    <h3>Конференция <?php echo $date_head ?></h3>
                     <div class="nameKonf">
+                    <?php
+                        $info = mysqli_query($connect, "SELECT * FROM `conferences` WHERE `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($info)) != false) {
+                            echo
+                            '
                         <div class="description editing_icon_right ">
                             <div>
-                                <label class="enText">Name <textarea></textarea></label>
+                                <label class="enText">Name <textarea "name_en">' . $row["Name_conf_en"] . '</textarea></label>
                                 <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
                             <div>
-                                <label class="enText">Conference conception <textarea id="editor5"></textarea></label>
+                                <label class="enText">Conference conception <textarea name="concep_en" id="editor5">' . $row["an_conception_en"] . '</textarea></label>
                                 <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
                         </div>
@@ -41,11 +54,11 @@
                             <h3>Анонс</h3>
                             <div class="description editing_icon_right ">
                                 <div>
-                                    <label class="enText">Introduction<textarea></textarea></label>
+                                    <label class="enText">Introduction<textarea name="introduction_en">' . $row["anons_name_en"] . '</textarea></label>
                                     <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                                 <div>
-                                    <label class="enText">Information about announcement <textarea id="editor"></textarea></label>
+                                    <label class="enText">Information about announcement <textarea name="infoan_en" id="editor">' . $row["info_anons_en"] . '</textarea></label>
                                     <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                             </div>
@@ -54,17 +67,18 @@
                             <h3>Информация о прошедшей конференции</h3>
                             <div class="description editing_icon_right">
                                 <div>
-                                    <label class="enText">Вступление <textarea id="editor"></textarea></label>
+                                    <label class="enText"><textarea name="info_en" id="editor">' . $row["info_en"] . '</textarea></label>
                                     <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                             </div>
                         </div>
+                        '
+                        ;}
+                    ?>
                         <div class="speack">
                             <div class="speack__add">
                                 <h3>Спикеры</h3>
-                                <p class="warning">если дата не является промежутком,
-                                    продублируйте её в обе формы
-                                </p>
+                                <p class="warning">если спикер был добавлен ранее на русском, он уже имеется в списке</p>
                                 <div class="description">
                                     <label class="enText">Name
                                         <textarea></textarea>
@@ -85,11 +99,15 @@
                                 </label>
                             </div>
                             <div class="speack__list">
-                                <div class="speack__item">
-                                    <h4>Спикер 1</h4>
+                            <?php $count = 1;
+                        $speakers = mysqli_query($connect, "SELECT * FROM `speakers` WHERE `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($speakers)) != false) {
+                            echo
+                            '<div class="speack__item">
+                                    <h4>Спикер' . ' ' . $count . '</h4>
                                     <div class="description editing_icon_right">
                                         <div>
-                                            <label class="enText">Name <textarea></textarea></label>
+                                            <label class="enText">Name <textarea "name_sp_en">' . $row["name_ru"] . '</textarea></label>
                                             <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                         </div>
                                     </div>
@@ -97,7 +115,7 @@
                                         <h4>Фотография</h4>
                                         <div class="imgEditing__content">
                                             <div class="imgEditing__img">
-                                                <img src="/adminPanels/orgcom/ikonnikova.jpg">
+                                            <img src="' . '../' . $row["photo"] . '">
                                             </div>
                                             <div class="imgEditing__input">
                                                 <input type="file" name="photo">
@@ -108,27 +126,28 @@
                                     <div class="editing_icon_right">
                                         <div>
                                             <label class="enText">Information about speaker
-                                                <textarea id="editor"></textarea>
+                                                <textarea id="editor" name="info_sp_en">' . $row["info_en"] . '</textarea>
                                             </label>
                                             <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                         </div>
                                         <div>
-                                            <label class="enText">Link <textarea></textarea></label>
+                                            <label class="enText">Link <textarea name="link_sp_en">' . $row["linkSP_en"] . '</textarea></label>
                                             <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                         </div>
                                     </div>
                                     <div class="btnDelet">
                                         <button type="submit" class="delete__btn">Удалить представителя</button>
                                     </div>
-                                </div>
+                                </div>';
+                            $count++;
+                        }
+                        ?>
                             </div>
                         </div>
                         <div class="reviews">
                             <div class="review__add">
                                 <h3>Отзывы</h3>
-                                <p class="warning">если дата не является промежутком,
-                                    продублируйте её в обе формы
-                                </p>
+                                <p class="warning">если отзыв был добавлен ранее на английском, он уже имеется в списке</p>
                                 <div class="description">
                                     <label class="enText">Name
                                         <textarea></textarea>
@@ -144,28 +163,34 @@
                                 <button type="submit" class="btn">Добавить отзыв</button>
                             </div>
                             <div class="review__list">
-                                <div class="review__item">
-                                    <h4>Отзыв 1</h4>
+                            <?php $count = 1;
+                        $feedback = mysqli_query($connect, "SELECT * FROM `feedback` WHERE `ID_conf` = $_GET[id_konf]");
+                        while (($row = mysqli_fetch_assoc($feedback)) != false) {
+                            echo
+                            '<div class="review__item">
+                                    <h4>Отзыв' . ' ' . $count . '</h4>
                                     <div class="editing_icon_right">
                                         <div>
-                                            <label class="enText">Name <textarea></textarea></label>
+                                            <label class="enText">Name <textarea name="feeabackn_en">' . $row["Name_feedback_en"] . '</textarea></label>
                                             <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                         </div>
                                         <div>
-                                            <label class="enText">Post <textarea></textarea></label>
+                                            <label class="enText">Post <textarea name="post_en">' . $row["post_en"] . '</textarea></label>
                                             <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                         </div>
                                         <div>
-                                            <label class="enText">Text of feedback <textarea></textarea></label>
+                                            <label class="enText">Text of feedback <textarea name="text_en">' . $row["feedback_en"] . '</textarea></label>
                                             <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                         </div>
                                     </div>
                                     <div class="btnDelet">
                                         <button type="submit" class="delete__btn">Удалить отзыв</button>
                                     </div>
-
-                                </div>
-
+                            </div>
+                            ';
+                            $count++;
+                        }
+                        ?>
                             </div>
                         </div>
                     </div>
