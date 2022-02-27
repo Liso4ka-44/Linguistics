@@ -39,15 +39,15 @@
                         $info = mysqli_query($connect, "SELECT * FROM `conferences` WHERE `ID_conf` = $_GET[id_konf]");
                         while (($row = mysqli_fetch_assoc($info)) != false) {
                             echo
-                            '
+                            '<form action="add_edit\en_edit.php?update=up_name_conf&ID_konf=' . $_GET["id_konf"] . '" method="post" enctype="multipart/form-data" >
                         <div class="description editing_icon_right ">
                             <div>
-                                <label class="enText">Name <textarea "name_en">' . $row["Name_conf_en"] . '</textarea></label>
-                                <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                <label class="enText">Name <textarea name ="name_en">' . $row["Name_conf_en"] . '</textarea></label>
+                                <button type="submit" name="name_conf"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
                             <div>
-                                <label class="enText">Conference conception <textarea name="concep_en" id="editor5">' . $row["an_conception_en"] . '</textarea></label>
-                                <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                <label class="enText">Conference conception <textarea name="concept_en" id="editor5">' . $row["an_conception_en"] . '</textarea></label>
+                                <button type="submit" name="concept"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
                         </div>
                         <div class="anons">
@@ -55,11 +55,11 @@
                             <div class="description editing_icon_right ">
                                 <div>
                                     <label class="enText">Introduction<textarea name="introduction_en">' . $row["anons_name_en"] . '</textarea></label>
-                                    <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                    <button type="submit" name="intro"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                                 <div>
                                     <label class="enText">Information about announcement <textarea name="infoan_en" id="editor">' . $row["info_anons_en"] . '</textarea></label>
-                                    <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                    <button type="submit" name="an_info"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                             </div>
                         </div>
@@ -68,11 +68,11 @@
                             <div class="description editing_icon_right">
                                 <div>
                                     <label class="enText"><textarea name="info_en" id="editor">' . $row["info_en"] . '</textarea></label>
-                                    <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                    <button type="submit" name="info"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                             </div>
                         </div>
-                        '
+                        </form>'
                         ;}
                     ?>
                         <div class="speack">

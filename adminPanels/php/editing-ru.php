@@ -39,15 +39,16 @@
                         $info = mysqli_query($connect, "SELECT * FROM `conferences` WHERE `ID_conf` = $_GET[id_konf]");
                         while (($row = mysqli_fetch_assoc($info)) != false) {
                             echo
-                            '
+                            '<form action="add_edit\ru_edit.php?update=up_name_conf&ID_konf=' . $_GET["id_konf"] . '" method="post" enctype="multipart/form-data" >
                         <div class="description editing_icon_right ">
                             <div>
                                 <label class="ruText">Название <textarea name="name_ru">' . $row["Name_conf_ru"] . '</textarea></label>
-                                <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                <button type="submit" name="name_conf"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
+                            
                             <div>
-                                <label class="ruText">Концепция конференции <textarea name="concep_ru">' . $row["an_conception_ru"] . '</textarea></label>
-                                <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                <label class="ruText">Концепция конференции <textarea name="concept_ru">' . $row["an_conception_ru"] . '</textarea></label>
+                                <button type="submit" name="concept"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
                         </div>
                         <div class="anons">
@@ -55,11 +56,11 @@
                             <div class="description editing_icon_right ">
                                 <div>
                                     <label class="ruText">Вступление <textarea name="introduction_ru">' . $row["anons_name_ru"] . '</textarea></label>
-                                    <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                    <button type="submit" name="intro"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                                 <div>
                                     <label class="ruText">Информация об анонсе <textarea name="infoan_ru">' . $row["info_anons_ru"] . '</textarea></label>
-                                    <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                    <button type="submit" name="an_info"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                             </div>
                         </div>
@@ -68,10 +69,11 @@
                             <div class="description editing_icon_right">
                                 <div>
                                     <label class="ruText"><textarea name="info_ru">' . $row["info_ru"] . '</textarea></label>
-                                    <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                    <button type="submit" name="info"><img src="../img/icon/update.svg" alt=""></button>
                                 </div>
                             </div>
-                        </div>'
+                        </div>
+                        </form>'
                         ;}
                     ?>
 
