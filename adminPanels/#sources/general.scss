@@ -16,10 +16,21 @@ body {
     }
 }
 
+div {
+    display: block;
+    text-align: center;
+}
+
 .main__nav {
-    a {
-        width: 100%;
-        padding: 2px;
+    .nav__body {
+        position: fixed;
+        .main__nav__item {
+            width: 100%;
+            padding: 2px;
+        }
+        .active_nav_red {
+            color: #AD0404;
+        }
     }
 }
 
@@ -29,11 +40,6 @@ body {
 
 .enText {
     color: #F54E4E;
-}
-
-div {
-    display: block;
-    text-align: center;
 }
 
 .main__content {

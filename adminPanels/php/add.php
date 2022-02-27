@@ -23,12 +23,14 @@
         <div class="container">
             <div class="main__body">
                 <div class="main__nav">
-                    <a href="">Сведения об анонсе</a>
-                    <a href="">Важные даты</a>
-                    <a href="">Программки</a>
+                    <div class="nav__body">
+                        <a href="#information__announcement" class="main__nav__item">Сведения об анонсе</a>
+                        <a href="#KeysDate">Важные даты</a>
+                        <a href="#programs">Программки</a>
+                    </div>
                 </div>
                 <div class="main__content">
-                    <div class="information__announcement">
+                    <div class="information__announcement" id="information__announcement">
                         <h2 class="top__heading">Сведения об анонсе</h2>
                         <div class="main__introductionAnnouncement">
                             <div class="introductionRu">
@@ -38,22 +40,22 @@
                                 <h4 class="enText">Introduction</h4><textarea></textarea>
                             </div>
                         </div>
+                        <div class="editor__list">
+                            <div class="editor1">
+                                <h4 class="ruText">Информация о конференции</h4><textarea class="edit" id="editor"></textarea>
+                            </div>
+                            <div class="editor2">
+                                <h4 class="enText">Conference information</h4><textarea class="edit" id="editor1"></textarea>
+                            </div>
+                            <div class="editor3">
+                                <h4 class="ruText">Концепция конференции</h4><textarea class="edit" id="editor2"></textarea>
+                            </div>
+                            <div class="editor4">
+                                <h4 class="enText">Conference conception</h4><textarea class="edit" id="editor3"></textarea>
+                            </div>
+                        </div>
                     </div>
-                    <div class="editor__list">
-                        <div class="editor1">
-                            <h4 class="ruText">Информация о конференции</h4><textarea class="edit" id="editor"></textarea>
-                        </div>
-                        <div class="editor2">
-                            <h4 class="enText">Conference information</h4><textarea class="edit" id="editor1"></textarea>
-                        </div>
-                        <div class="editor3">
-                            <h4 class="ruText">Концепция конференции</h4><textarea class="edit" id="editor2"></textarea>
-                        </div>
-                        <div class="editor4">
-                            <h4 class="enText">Conference conception</h4><textarea class="edit" id="editor3"></textarea>
-                        </div>
-                    </div>
-                    <div class="KeysDate">
+                    <div class="KeysDate" id="KeysDate">
                         <h2>Важные даты</h2>
                         <div class="dateConf">
                             <h3>Даты конференции</h3>
@@ -104,11 +106,9 @@
                                     <img src="../img/icon/add.svg" alt="">
                                 </a>
                             </div>
-
-
                         </div>
                     </div>
-                    <div class="programs">
+                    <div class="programs" id="programs">
                         <h2>Программки,информационные письма</h2>
                         <div class="program">
                             <div class="programm__item">
