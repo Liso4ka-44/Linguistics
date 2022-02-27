@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/script.js" type="text/javascript"></script>
     <title>Редактирование общей информации</title>
@@ -49,35 +50,34 @@
                                 <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                             </div>
                         </form>
-                    </div>
 
-                    <form action="add_edit\general_add.php?add=add_dates&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
-                        <div class="dateImportant">
-                            <h2>Важные даты</h2>
-                            <p class="warning">если дата не является промежутком,
-                                продублируйте её в обе формы
-                            </p>
+                        <form action="add_edit\general_add.php?add=add_dates&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
+                            <div class="dateImportant">
+                                <h2>Важные даты</h2>
+                                <p class="warning">если дата не является промежутком,
+                                    продублируйте её в обе формы
+                                </p>
 
-                            <div class="date__editing label_center">
-                                <label>От <input type="date" name="date_from"></label>
-                                <label>До <input type="date" name="date_to"></label>
+                                <div class="date__editing label_center">
+                                    <label>От <input type="date" name="date_from"></label>
+                                    <label>До <input type="date" name="date_to"></label>
+                                </div>
+                                <div class="description">
+                                    <label class="ruText">Описание <textarea name="text_ru"></textarea></label>
+                                    <label class="enText">Describtion <textarea name="text_en"></textarea></label>
+                                </div>
+                                <button type="submit" class="btn">Добавить дату</button>
                             </div>
-                            <div class="description">
-                                <label class="ruText">Описание <textarea name="text_ru"></textarea></label>
-                                <label class="enText">Describtion <textarea name="text_en"></textarea></label>
-                            </div>
-                            <button type="submit" class="btn">Добавить дату</button>
-                        </div>
-                    </form>
+                        </form>
 
-                    <div class="datelist">
-                        <?php $count = 1;
-                        $all_dates = mysqli_query($connect, "SELECT * FROM `dates` WHERE `text_ru` NOT LIKE 'Конференция%' AND `ID_conf` = $_GET[id_konf]");
-                        while (($row = mysqli_fetch_assoc($all_dates)) != false) {
-                            $f_date = date("Y-m-d", strtotime($row['date_from']));
-                            $s_date = date("Y-m-d", strtotime($row['date_to']));
-                            echo
-                            '
+                        <div class="datelist">
+                            <?php $count = 1;
+                            $all_dates = mysqli_query($connect, "SELECT * FROM `dates` WHERE `text_ru` NOT LIKE 'Конференция%' AND `ID_conf` = $_GET[id_konf]");
+                            while (($row = mysqli_fetch_assoc($all_dates)) != false) {
+                                $f_date = date("Y-m-d", strtotime($row['date_from']));
+                                $s_date = date("Y-m-d", strtotime($row['date_to']));
+                                echo
+                                '
                         <div class="dateitem">
                             <h2>Дата' . ' ' . $count . '</h2>
                             <form action="add_edit\general_edit.php?update=up_dates&ID_konf=' . $_GET["id_konf"] . '&ID_date=' . $row["ID_date"] . '" method="post" enctype="multipart/form-data" >
@@ -109,15 +109,15 @@
                             </div>
                             </form>
                         </div> ';
-                            $count++;
-                        }
-                        ?>
+                                $count++;
+                            }
+                            ?>
+                        </div>
+                        <div class="show__more">
+                            <a href="#" class="show__more__link" data-show="datelist">Показать ещё</a>
+                            <img src="../img/icon/down.svg" alt="" class="slide">
+                        </div>
                     </div>
-                    <a href="#" class="watch_more">
-                        Смотреть все даты
-                        <img src="../img/icon/down.svg" alt="" class="slide">
-                    </a>
-
                     <div class="eddit__info_programm">
                         <h2>Программки, информационные письма</h2>
                         <form action="add_edit\general_add.php?add=add_playbill&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
@@ -201,6 +201,10 @@
                                 $count++;
                             }
                             ?>
+                        </div>
+                        <div class="show__more">
+                            <a href="#" class="show__more__link" data-show="programm__list">Показать ещё</a>
+                            <img src="../img/icon/down.svg" alt="" class="slide">
                         </div>
                     </div>
                     <div class="collectionsMaterials">

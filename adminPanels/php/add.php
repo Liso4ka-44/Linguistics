@@ -24,7 +24,7 @@
             <div class="main__body">
                 <div class="main__nav">
                     <div class="nav__body">
-                        <a href="#information__announcement" class="main__nav__item">Сведения об анонсе</a>
+                        <a href="#information__announcement" class=" main__nav__item">Сведения об анонсе</a>
                         <a href="#KeysDate">Важные даты</a>
                         <a href="#programs">Программки</a>
                     </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="editor__list">
                             <div class="editor1">
-                                <h4 class="ruText">Информация о конференции</h4><textarea class="edit" id="editor"></textarea>
+                                <h4 class="ruText">Информация о конференции</h4><textarea class="edit" id="editor0"></textarea>
                             </div>
                             <div class="editor2">
                                 <h4 class="enText">Conference information</h4><textarea class="edit" id="editor1"></textarea>

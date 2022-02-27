@@ -17,7 +17,6 @@ body {
 }
 
 div {
-    display: block;
     text-align: center;
 }
 
@@ -102,6 +101,15 @@ label {
 .input:focus {
     outline: none;
     border-color: blue;
+}
+
+.ck {
+    .ck-editor {
+        display: block;
+    }
+    .ck-editor__main {
+        width: 477px;
+    }
 }
 
 input[type="file"] {
@@ -256,5 +264,41 @@ button {
     padding: 30px 0;
     textarea {
         width: 100%;
+    }
+}
+
+.editor {
+    width: 480px;
+    label {
+        div {
+            max-width: 480px;
+            display: block;
+            margin: 0;
+        }
+    }
+}
+
+.list {
+    height: 700px;
+    overflow: hidden;
+}
+
+.datelist {
+    height: 450px;
+    overflow: hidden;
+}
+
+.programm__list {
+    height: 655px;
+    overflow: hidden;
+}
+
+.list__all {
+    height: 100%;
+}
+
+.show__more {
+    .show__more__link {
+        color: #1293DC;
     }
 }
