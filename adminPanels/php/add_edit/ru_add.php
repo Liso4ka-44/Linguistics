@@ -24,14 +24,17 @@ function translitText($str)
 	);
 	return strtr($str, $tr);
 }
-$name_ru = $_POST["name_ru"];
-$name_en = $_POST["name_en"];
-$link_ru = $_POST["url_ru"];
-$link_en = $_POST["url_en"];
-$post_ru = $_POST["post_ru"];
-$post_en = $_POST["post_en"];
+$namesp = $_POST["namesp"];
+$linksp = $_POST["linksp"];
+$infosp = $_POST["infosp"];
+$ID_conf = (int)$_GET['ID_konf'];
+$query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
+    $poisk = mysqli_query($connect, $query);
+    $row = mysqli_fetch_assoc($poisk);
+    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
+
 if (!empty($_FILES['photo']['name'])) {
-	$dir = "./../orgcom/";
+	$dir = "./../../konf/$dateKonf/speakers/" ;
 	$path = __DIR__ . "$dir";
 	if (!is_dir($path)) {
 		mkdir($path, 0777, true);
@@ -51,10 +54,19 @@ if (!empty($_FILES['photo']['name'])) {
 	}
 	$link = htmlspecialchars($link, ENT_QUOTES);
 	if ($format != "") {
-		move_uploaded_file($file_tmp, $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/orgcom/$file_name");
-		$dir = "orgcom/$file_name";
-		$sql = "INSERT INTO `committee`( `name_per_ru`, `name_per_en`, `photo_per`, `link_per_ru`, `link_per_en`, `position_ru`, `position_en`) VALUES ('$name_ru', '$name_en', '$dir','$link_ru', '$link_en', '$post_ru', '$post_en')";
+		move_uploaded_file($file_tmp, $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/konf/$dateKonf/speakers/$file_name");
+		$dir = "konf/$dateKonf/speakers/$file_name";
+		$sql = "INSERT INTO `speakers`( `name_ru`, `photo`, `linkSP_ru`, `info_ru`, `ID_conf`) VALUES ('$namesp', '$dir','$linksp', '$infosp', '$ID_conf')";
 		mysqli_query($connect, $sql);
 	}
-	echo "<script> document.location.href='../orgcom.php';</script>";
+	echo "<script> document.location.href='../editing-ru.php?id_konf=$ID_conf';</script>";
+}
+
+if($_GET["add"]=="add_feed"){
+    $name = $_POST['name'];
+    $post = $_POST['post'];
+    $text = $_POST['text'];
+    $sql = "INSERT INTO `feedback`( `Name_feedback_ru`,`post_ru`, `feedback_ru`, `ID_conf`) VALUES ('$name', '$post', '$text', '$ID_conf')";
+    mysqli_query($connect, $sql);
+    echo "<script> document.location.href='../editing-ru.php?id_konf=$ID_conf';</script>";
 }

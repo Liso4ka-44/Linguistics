@@ -51,6 +51,89 @@ if ($_GET['update'] == 'up_name_conf') {
     echo "<script> document.location.href='../editing-en.php?id_konf=$ID_conf';</script>";
 }
 
+if ($_GET['update'] == 'up_namesp') {
+    $sql = "UPDATE `speakers` SET `name_en`= '" . $_POST["name_sp_en"] . "' WHERE `ID_speak` =".$ID_speak;
+    mysqli_query($connect, $sql);
+    echo "<script> document.location.href='../editing-en.php?id_konf=$ID_conf';</script>";
+}
+
+if ($_GET['update'] == 'up_sphoto') {
+    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
+    $poisk = mysqli_query($connect, $query);
+    $row = mysqli_fetch_assoc($poisk);
+    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
+
+    if (!empty($_FILES['photo']['name'])) {
+      $query1 = "SELECT `photo` FROM `speakers` WHERE `ID_speak` = $ID_speak";
+      $poiskk = mysqli_query($connect, $query1);
+      $row = mysqli_fetch_assoc($poiskk);
+      $patch = $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/$row[photo]";
+  
+      if (file_exists($patch)) {
+        if (unlink($patch)) {
+          echo 'файл удален';
+        }
+      }
+      $file_name = $_FILES['photo']['name'];
+      $file_tmp = $_FILES['photo']['tmp_name'];
+      $link = htmlspecialchars($link, ENT_QUOTES);
+      move_uploaded_file($file_tmp, $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/konf/$dateKonf/speakers/$file_name");
+      $dir = "konf/$dateKonf/speakers/$file_name";
+      $sql = "UPDATE `speakers` SET `photo`= '$dir'  WHERE `ID_speak` = " . $ID_speak;
+      mysqli_query($connect, $sql);
+      
+    }
+    echo "<script> document.location.href='../editing-en.php?id_konf=$ID_conf';</script>";
+}
+
+if ($_GET['update'] == 'up_speaker') {
+    if(isset($_POST["info"])) {
+        $sql = "UPDATE `speakers` SET `info_en`= '" . $_POST["info_sp_en"] . "' WHERE `ID_speak` =".$ID_speak;
+        mysqli_query($connect, $sql);
+    }
+
+    if(isset($_POST["link"])) {
+        $sql = "UPDATE `speakers` SET `linkSP_en`= '" . $_POST["link_sp_en"] . "' WHERE `ID_speak` =".$ID_speak;
+        mysqli_query($connect, $sql);
+    }
+
+    if(isset($_POST["delete"])) {
+        $query = "SELECT `photo` FROM `speakers` WHERE `ID_speak` = $ID_speak ";
+        $poisk = mysqli_query($connect, $query);
+        $row = mysqli_fetch_assoc($poisk);
+        $patch = $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/$row[photo]";
+            if (file_exists($patch)) {
+                if (unlink($patch)) {
+                    }
+                }
+    $result = mysqli_query($connect, "DELETE FROM `speakers` WHERE `ID_speak` = $ID_speak");
+    }
+    echo "<script> document.location.href='../editing-en.php?id_konf=$ID_conf';</script>";
+}
+
+if ($_GET['update'] == 'up_feed') {
+
+    if(isset($_POST["name_b"])) {
+        $sql = "UPDATE `feedback` SET `Name_feedback_en`= '" . $_POST["name"] . "' WHERE `ID_feedback` =".$ID_feedback;
+        mysqli_query($connect, $sql);
+    }
+
+    if(isset($_POST["post_b"])) {
+        $sql = "UPDATE `feedback` SET `post_en`= '" . $_POST["post"] . "' WHERE `ID_feedback` =".$ID_feedback;
+        mysqli_query($connect, $sql);
+    }
+
+    if(isset($_POST["text_b"])) {
+        $sql = "UPDATE `feedback` SET `feedback_en`= '" . $_POST["text"] . "' WHERE `ID_feedback` =".$ID_feedback;
+        mysqli_query($connect, $sql);
+    }
+
+    if(isset($_POST["delete"])) {
+    $result = mysqli_query($connect, "DELETE FROM `feedback` WHERE `ID_feedback` = $ID_feedback");
+    }
+
+    echo "<script> document.location.href='../editing-en.php?id_konf=$ID_conf';</script>";
+}
 
 
 ?>
