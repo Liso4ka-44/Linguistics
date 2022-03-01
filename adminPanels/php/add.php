@@ -42,7 +42,7 @@
                         </div>
                         <div class="editor__list">
                             <div class="editor1">
-                                <h4 class="ruText">Информация о конференции</h4><textarea class="edit" id="editor0"></textarea>
+                                <h4 class="ruText">Информация о конференции</h4><textarea class="edit " id="editor0"></textarea>
                             </div>
                             <div class="editor2">
                                 <h4 class="enText">Conference information</h4><textarea class="edit" id="editor1"></textarea>
