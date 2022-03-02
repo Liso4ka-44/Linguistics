@@ -35,7 +35,7 @@
                         <h2 class="top__heading">Сведения об анонсе</h2>
                         <div class="main__introductionAnnouncement">
                             <div class="introductionRu">
-                                <h4 class="ruText">Вступление анонса</h4><textarea name="intro_ru"></textarea>
+                                <h4 class="ruText">Вступление анонса</h4><textarea name="intro_ru" required="required" data-error="Заполните"></textarea>
                             </div>
                             <div class="introductionEn">
                                 <h4 class="enText">Introduction</h4><textarea name="intro_en"></textarea>
@@ -63,12 +63,12 @@
                             <div class="date__editing label_center">
                                 <label>
                                     От
-                                    <input type="date" name="date_from">
+                                    <input type="date" name="date_from" required="required" data-error="Заполните">
                                 </label>
 
                                 <label>
                                     До
-                                    <input type="date" name="date_to">
+                                    <input type="date" name="date_to" required="required" data-error="Заполните">
                                 </label>
 
                             </div>

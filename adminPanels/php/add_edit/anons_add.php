@@ -20,12 +20,8 @@ function translitText($str){
     return strtr($str,$tr);
 }
 
-if($_POST["date_conf"]!=''&&$_POST['Name_conf']!=''){
-        $query = "SELECT MAX(`ID_conf`) FROM `conferences`";
-	    $poisk = mysqli_query($connect, $query);
-	    $rezult = mysqli_fetch_assoc($poisk);
-	    $lastKonfID = (int) $rezult["MAX(`ID_conf`)"];
-        /*$ID_conf = (int)$_GET['ID_konf'];*/
+if($_POST["date_from"]!=''&&$_POST['intro_ru']!=''){
+       
         $name_ru = $_POST['name_ru'];
         $name_en = $_POST['name_en'];
         $intro_ru = $_POST['intro_ru'];
@@ -36,19 +32,44 @@ if($_POST["date_conf"]!=''&&$_POST['Name_conf']!=''){
         $concept_en = $_POST['concept_en'];
         $date_from = $_POST['date_from'];
         $date_to = $_POST['date_to'];
-        $dateKonf = date("Y.m.d",strtotime($_POST["date_conf"]));
+        $year = date("Y",strtotime($_POST["date_from"]));
+        $yearr = (int)$year;
+        $dateKonf = date("Y.m.d",strtotime($_POST["date_from"]));
 
-        $sql = "INSERT INTO `conferences`( `Name_conf_ru`, `Name_conf_en`, `anons_name_ru`, `anons_name_en`, `info_anons_ru`, `info_anons_en`, `an_conception_ru`, `an_conception_en`) VALUES ('$name_ru', '$name_en', '$intro_ru', '$intro_en', '$anons_ru', '$anons_en', '$concept_en', '$concept_en')";
+        $ifyear = "SELECT * FROM `years` WHERE `year`=$yearr";
+        $poiskk = mysqli_query($connect, $ifyear);
+        while (($row = mysqli_fetch_assoc($poiskk)) != false) {
+            if($row['year'] != ""){
+            $y = (int)$row['year'];
+            }
+        }
+        
+        if ($yearr != $y){
+        $years = "INSERT INTO `years`(`year`) VALUES ('$year')";
+        mysqli_query($connect, $years);
+        $quer = "SELECT MAX(`ID_year`) FROM `years`";
+	    $pois = mysqli_query($connect, $quer);
+	    $rezul = mysqli_fetch_assoc($pois);
+        $YearID = (int) $rezul["MAX(`ID_year`)"];
+        
+        }
+        else{
+        $querr = "SELECT * FROM `years` WHERE `year`=$y";
+	    $poiss = mysqli_query($connect, $querr);
+	    $rezull = mysqli_fetch_assoc($poiss);
+        $YearID = (int) $rezull["ID_year"];
+        }
+        $sql = "INSERT INTO `conferences`( `Name_conf_ru`, `Name_conf_en`, `anons_name_ru`, `anons_name_en`, `info_anons_ru`, `info_anons_en`, `an_conception_ru`, `an_conception_en`, `ID_year`) VALUES ('$name_ru', '$name_en', '$intro_ru', '$intro_en', '$anons_ru', '$anons_en', '$concept_en', '$concept_en', '$YearID')";
         mysqli_query($connect, $sql);
-        $date = "INSERT INTO `dates`( `date_from`,`date_to`, `text_ru`, `ID_conf`) VALUES ('$date_from', '$date_to', 'Конференция', '$lastKonfID')";
+        $query = "SELECT MAX(`ID_conf`) FROM `conferences`";
+	    $poisk = mysqli_query($connect, $query);
+	    $rezult = mysqli_fetch_assoc($poisk);
+        $lastKonfID = (int) $rezult["MAX(`ID_conf`)"];
+        $date = "INSERT INTO `dates`( `date_from`,`date_to`, `text_ru`, `ID_conf`) VALUES ('$date_from', '$date_to', 'Конференция $year', '$lastKonfID')";
         mysqli_query($connect, $date);
-        //здесь должна быть вставка years
-        /*$query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-        $poisk = mysqli_query($connect, $query);
-        $row = mysqli_fetch_assoc($poisk);
-        $dateKonf = date("Y.m.d",strtotime($row["date_from"]));*/
+        
         if(!empty($_FILES["playbill_ru"]["name"])){
-        $sql = "INSERT INTO `playbill`( `name_playbill_ru`, `name_playbill_en`) VALUES ('$name_ru', '$name_en')";
+        $sql = "INSERT INTO `playbill`( `name_playbill_ru`, `name_playbill_en`, `ID_conf`) VALUES ('$name_ru', '$name_en', '$lastKonfID')";
         mysqli_query($connect, $sql);
             $input_name = 'playbill_ru';
             $dir = "./../../konf/$dateKonf/playbill/" ;
@@ -105,7 +126,6 @@ if($_POST["date_conf"]!=''&&$_POST['Name_conf']!=''){
                                     $poiskk = mysqli_query($connect, $quer);
                                     $rezult = mysqli_fetch_assoc($poiskk);
                                     $id_pl = (int) $rezult["MAX(`ID_playbill`)"];
-    
                                     $dir = htmlspecialchars("/adminPanels/konf/$dateKonf/playbill/$name", ENT_QUOTES);
                                     $sql = "UPDATE `playbill` SET `road_ru`='".$dir."' WHERE `ID_playbill` =".$id_pl;
                                     mysqli_query($connect, $sql);
