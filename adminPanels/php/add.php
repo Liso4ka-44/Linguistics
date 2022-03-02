@@ -37,8 +37,19 @@
                             <div class="introductionRu">
                                 <h4 class="ruText">Вступление анонса</h4><textarea name="intro_ru" required="required" data-error="Заполните"></textarea>
                             </div>
-                            <div class="introductionEn">
-                                <h4 class="enText">Introduction</h4><textarea name="intro_en"></textarea>
+                            <div class="editor__list">
+                                <div class="editor1">
+                                    <h4 class="ruText">Информация о конференции</h4><textarea name="anons_info_ru" class="edit" id="editor0"></textarea>
+                                </div>
+                                <div class="editor2">
+                                    <h4 class="enText">Conference information</h4><textarea name="anons_info_en" class="edit" id="editor1"></textarea>
+                                </div>
+                                <div class="editor3">
+                                    <h4 class="ruText">Концепция конференции</h4><textarea name="concept_ru" class="edit" id="editor2"></textarea>
+                                </div>
+                                <div class="editor4">
+                                    <h4 class="enText">Conference conception</h4><textarea name="concept_en" class="edit" id="editor3"></textarea>
+                                </div>
                             </div>
                         </div>
                         <div class="editor__list">
@@ -71,13 +82,13 @@
                                     <input type="date" name="date_to" required="required" data-error="Заполните">
                                 </label>
 
+                                </div>
                             </div>
-                        </div>
-                        <p class="warning">если дата не является промежутком,
-                            продублируйте её в обе формы
-                        </p>
+                            <p class="warning">если дата не является промежутком,
+                                продублируйте её в обе формы
+                            </p>
 
-                        <!--<div class="additionalDates">
+                            <!--<div class="additionalDates">
                             <div class="additionalDates__item">
                                 <h3>Дата 1</h3>
                                 <div class="date__editing label_center">
@@ -108,42 +119,42 @@
                                 </a>
                             </div>
                         </div>-->
-                    </div>
-                    <div class="programs" id="programs">
-                        <h2>Программки,информационные письма</h2>
-                        <div class="program">
-                            <div class="programm__item">
-                                <h3>Документ 1</h3>
-                                <div class="description">
-                                    <label class="ruText">
-                                        Файл
-                                        <input type="file" name="playbill_ru">
-                                    </label>
-                                    <label class="ruText">
-                                        Название
-                                        <textarea name="name_ru" class="programText"></textarea>
-                                    </label>
-                                </div>
-                                <div class="description">
-                                    <label class="enText">
-                                        File
-                                        <input type="file" name="playbill_en">
-                                    </label>
-                                    <label class="enText">
-                                        Name
-                                        <textarea name="name_en" class="programText"></textarea>
-                                    </label>
+                        </div>
+                        <div class="programs" id="programs">
+                            <h2>Программки,информационные письма</h2>
+                            <div class="program">
+                                <div class="programm__item">
+                                    <h3>Документ 1</h3>
+                                    <div class="description">
+                                        <label class="ruText">
+                                            Файл
+                                            <input type="file" name="playbill_ru">
+                                        </label>
+                                        <label class="ruText">
+                                            Название
+                                            <textarea name="name_ru" class="programText"></textarea>
+                                        </label>
+                                    </div>
+                                    <div class="description">
+                                        <label class="enText">
+                                            File
+                                            <input type="file" name="playbill_en">
+                                        </label>
+                                        <label class="enText">
+                                            Name
+                                            <textarea name="name_en" class="programText"></textarea>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="addAdditionalDates">
+                                <a href="#" class="programm__add">
+                                    <img src="../img/icon/add.svg">
+                                </a>
+                            </div>
                         </div>
-                        <div class="addAdditionalDates">
-                            <a href="#" class="programm__add">
-                                <img src="../img/icon/add.svg">
-                            </a>
-                        </div>
-                    </div>
-                    <button type="submit" class="main__button">Добавить конференцию</button>
-                </form>
+                        <button type="submit" class="main__button">Добавить конференцию</button>
+                    </form>
                 </div>
             </div>
         </div>

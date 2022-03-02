@@ -1,3 +1,18 @@
+function creatEditor() {
+    let myEditor
+    for (var i = 0; i < 13; i++) {
+        ClassicEditor.create(document.querySelector('#editor' + i)).then(editor => {
+                myEditor = editor
+            }
+
+        ).catch(error => {
+                console.error(error);
+            }
+
+        );
+    }
+}
+
 $(document).ready(function() {
 
         // $('.header__link').click(function() {
@@ -5,18 +20,7 @@ $(document).ready(function() {
         //     let dateNav = $(this).attr("date-nav");
         //     $(`.header__link[date-nav="${dateNav}"]`).addClass("active");
         // });
-        let myEditor
-        for (var i = 0; i < 13; i++) {
-            ClassicEditor.create(document.querySelector('#editor' + i)).then(editor => {
-                    myEditor = editor
-                }
-
-            ).catch(error => {
-                    console.error(error);
-                }
-
-            );
-        }
+        creatEditor();
 
         $('.header__link').mouseenter(function() {
                 let left = $(this).offset().left - $('.header__list').offset().left,
