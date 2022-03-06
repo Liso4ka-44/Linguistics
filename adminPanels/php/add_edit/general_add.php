@@ -1,6 +1,12 @@
 <?php
 include "../connect.php";
 
+$ID_conf = (int)$_GET['ID_konf'];
+$query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
+$poisk = mysqli_query($connect, $query);
+$row = mysqli_fetch_assoc($poisk);
+$dateKonf = date("Y.m.d",strtotime($row["date_from"]));
+
 function translitText($str){
     $tr = array(
         "А"=>"A","Б"=>"B","В"=>"V","Г"=>"G",
@@ -22,7 +28,6 @@ function translitText($str){
 
 
 if($_GET["add"]=="add_dates"){
-    $ID_conf = (int)$_GET['ID_konf'];
     $date_from = $_POST['date_from'];
     $date_to = $_POST['date_to'];
     $text_ru = $_POST['text_ru'];
@@ -33,15 +38,8 @@ if($_GET["add"]=="add_dates"){
 }
 
 if($_GET["add"]=="add_playbill"){
-    
-    $ID_conf = (int)$_GET['ID_konf'];
     $name_ru = $_POST['name_ru'];
     $name_en = $_POST['name_en'];
-    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-    $poisk = mysqli_query($connect, $query);
-    $row = mysqli_fetch_assoc($poisk);
-    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
-
     $sql = "INSERT INTO `playbill`( `name_playbill_ru`, `name_playbill_en`, `ID_conf`) VALUES ('$name_ru', '$name_en', '$ID_conf')";
     mysqli_query($connect, $sql);
 
@@ -115,7 +113,6 @@ if($_GET["add"]=="add_playbill"){
     }
     
     if(!empty($_FILES["playbill_en"]["name"])){
-        
         $input_name = 'playbill_en';
         $dir = "./../../konf/$dateKonf/playbill/" ;
         $allow = array();
@@ -185,18 +182,12 @@ if($_GET["add"]=="add_playbill"){
 }
 
 if($_GET["add"]=="add_collection"){
-    $ID_conf = (int)$_GET['ID_konf'];
     $name_ru = $_POST['name_ru'];
     $name_en = $_POST['name_en'];
     $elibrary = $_POST['elibrary'];
 
     $sql = "INSERT INTO `el_collection`( `Name_documents_ru`, `Name_documents_en`, `link`, `ID_conf`) VALUES ('$name_ru', '$name_en', '$elibrary', '$ID_conf')";
     mysqli_query($connect, $sql);
-
-    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-    $poisk = mysqli_query($connect, $query);
-    $row = mysqli_fetch_assoc($poisk);
-    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
 
     if(!empty($_FILES["collection"]["name"])){
         $input_name = 'collection';
@@ -303,11 +294,6 @@ if($_GET["add"]=="add_collection"){
 
 if($_GET["add"]=="add_photo"){
     if(!empty($_FILES['image']['name'])&&$_FILES['image']['name']!=''){
-        $ID_conf = (int)$_GET['ID_konf'];
-        $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-        $poiskk = mysqli_query($connect, $query);
-        $row1 = mysqli_fetch_assoc($poiskk);
-        $dateKonf = date("Y.m.d",strtotime($row1["date_from"]));
         $dir = "./../../konf/$dateKonf/foto/" ;
         $path = __DIR__ . "$dir";
             if (!is_dir($path)) {
@@ -329,7 +315,6 @@ if($_GET["add"]=="add_photo"){
 }
 
 if($_GET["add"]=="add_video"){
-    $ID_conf = (int)$_GET['ID_konf'];
     if(!empty($_POST['url_video'] && $_POST['url_video']!="")){
         $videoLink = explode('v=', $_POST['url_video'], 2);
         $sql = "INSERT INTO `video_conf`( `video_conf`, `ID_conf`) VALUES ('$videoLink[1]',$ID_conf)";
@@ -340,11 +325,6 @@ if($_GET["add"]=="add_video"){
 
 if($_GET["add"]=="add_partner"){
     if(!empty($_FILES['image']['name'])&&$_FILES['image']['name']!=''){
-        $ID_conf = (int)$_GET['ID_konf'];
-        $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-        $poiskk = mysqli_query($connect, $query);
-        $row1 = mysqli_fetch_assoc($poiskk);
-        $dateKonf = date("Y.m.d",strtotime($row1["date_from"]));
         $dir = "./../../konf/$dateKonf/partners/" ;
         $path = __DIR__ . "$dir";
             if (!is_dir($path)) {

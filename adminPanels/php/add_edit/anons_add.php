@@ -204,6 +204,11 @@ if($_POST["date_from"]!=''&&$_POST['intro_ru']!=''){
                 }
             }
         }
+
+    $dir = "./../../konf/$dateKonf/centralphoto/" ;
+    $path = __DIR__ . "$dir";
+    mkdir($path, 0777, true);
+
         
     echo "<script> document.location.href='../editing.php';</script>";
 }

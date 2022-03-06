@@ -1,6 +1,15 @@
 <?php 
 include "../connect.php";
 
+$ID_conf = (int)$_GET['ID_konf'];
+$ID_playbill = (int)$_GET['ID_playbill'];
+$ID_date = (int)$_GET['ID_date'];
+$ID_doc = (int)$_GET['ID_doc'];
+$query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
+$poisk = mysqli_query($connect, $query);
+$row = mysqli_fetch_assoc($poisk);
+$dateKonf = date("Y.m.d",strtotime($row["date_from"]));
+
 function translitText($str){
     $tr = array(
         "А"=>"A","Б"=>"B","В"=>"V","Г"=>"G",
@@ -21,86 +30,66 @@ function translitText($str){
 }
 
 if ($_GET['update'] == 'up_konf_date') {
-    $ID_conf = (int)$_GET['ID_konf'];
     $sql = "UPDATE `dates` SET `date_from`= '" . $_POST["date_from"] . "', `date_to`= '" . $_POST["date_to"] . "' WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` =".$ID_conf;
     mysqli_query($connect, $sql);
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if ($_GET['update'] == 'up_dates') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_date = (int)$_GET['ID_date'];
+   
     $sql = "UPDATE `dates` SET `date_from`= '" . $_POST["date_from"] . "', `date_to`= '" . $_POST["date_to"] . "' WHERE `ID_date` =".$ID_date;
     mysqli_query($connect, $sql);
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if ($_GET['update'] == 'up_desc_ru') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_date = (int)$_GET['ID_date'];
     $sql = "UPDATE `dates` SET `text_ru`= '" . $_POST["text_ru"] . "' WHERE `ID_date` =".$ID_date;
     mysqli_query($connect, $sql);
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if ($_GET['update'] == 'up_desc_en') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_date = (int)$_GET['ID_date'];
     $sql = "UPDATE `dates` SET `text_en`= '" . $_POST["text_en"] . "' WHERE `ID_date` =".$ID_date;
     mysqli_query($connect, $sql);
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if ($_GET['update'] == 'del_date') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_date = (int)$_GET['ID_date'];
     $result = mysqli_query($connect, "DELETE FROM `dates` WHERE `ID_date` = $ID_date");
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if ($_GET['update'] == 'up_plname_ru') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_playbill = (int)$_GET['ID_playbill'];
     $sql = "UPDATE `playbill` SET `name_playbill_ru`= '" . $_POST["name_ru"] . "' WHERE `ID_playbill` =".$ID_playbill;
     mysqli_query($connect, $sql);
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if ($_GET['update'] == 'up_colname_ru') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_doc = (int)$_GET['ID_doc'];
     $sql = "UPDATE `el_collection` SET `Name_documents_ru`= '" . $_POST["name_ru"] . "' WHERE `ID_documents` =".$ID_doc;
     mysqli_query($connect, $sql);
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if ($_GET['update'] == 'up_colname_en') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_doc = (int)$_GET['ID_doc'];
     $sql = "UPDATE `el_collection` SET `Name_documents_en`= '" . $_POST["name_en"] . "' WHERE `ID_documents` =".$ID_doc;
     mysqli_query($connect, $sql);
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if ($_GET['update'] == 'up_collink') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_doc = (int)$_GET['ID_doc'];
     $sql = "UPDATE `el_collection` SET `link`= '" . $_POST["link"] . "' WHERE `ID_documents` =".$ID_doc;
     mysqli_query($connect, $sql);
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if ($_GET['update'] == 'up_plname_en') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_playbill = (int)$_GET['ID_playbill'];
     $sql = "UPDATE `playbill` SET `name_playbill_en`= '" . $_POST["name_en"] . "' WHERE `ID_playbill` =".$ID_playbill;
     mysqli_query($connect, $sql);
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if($_GET['update']=='up_file_ru'){
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_playbill = (int)$_GET['ID_playbill'];
     $sql = "SELECT  `road_ru` FROM `playbill` WHERE `ID_playbill` = ".$ID_playbill;
     $poisk=mysqli_query($connect, $sql);	
     $row = mysqli_fetch_assoc($poisk);
@@ -112,13 +101,6 @@ if($_GET['update']=='up_file_ru'){
         }
       }
     }
-    
-    $ID_playbill = (int)$_GET['ID_playbill'];
-    $ID_conf = (int)$_GET['ID_konf'];
-    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-    $poisk = mysqli_query($connect, $query);
-    $row = mysqli_fetch_assoc($poisk);
-    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
 
     if(!empty($_FILES["playbill_ru"]["name"])){
         $input_name = 'playbill_ru';
@@ -186,8 +168,6 @@ if($_GET['update']=='up_file_ru'){
 }
 
 if($_GET['update']=='up_file_en'){
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_playbill = (int)$_GET['ID_playbill'];
     $sql = "SELECT  `road_en` FROM `playbill` WHERE `ID_playbill` = ".$ID_playbill;
     $poisk=mysqli_query($connect, $sql);	
     $row = mysqli_fetch_assoc($poisk);
@@ -199,13 +179,6 @@ if($_GET['update']=='up_file_en'){
         }
       }
     }
-    
-    $ID_playbill = (int)$_GET['ID_playbill'];
-    $ID_conf = (int)$_GET['ID_konf'];
-    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-    $poisk = mysqli_query($connect, $query);
-    $row = mysqli_fetch_assoc($poisk);
-    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
 
     if(!empty($_FILES["playbill_en"]["name"])){
         $input_name = 'playbill_en';
@@ -273,8 +246,6 @@ if($_GET['update']=='up_file_en'){
 }
 
 if($_GET['update']=='del_playbill'){
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_playbill = (int)$_GET['ID_playbill'];
     $sql = "SELECT  `road_ru`, `road_en` FROM `playbill` WHERE `ID_playbill` = ".$ID_playbill;
     $poisk=mysqli_query($connect, $sql);	
     $row = mysqli_fetch_assoc($poisk);
@@ -302,12 +273,6 @@ if($_GET['update']=='del_playbill'){
 }
 
 if ($_GET['update'] == 'up_cover') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_doc = (int)$_GET['ID_doc'];
-    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-    $poisk = mysqli_query($connect, $query);
-    $row = mysqli_fetch_assoc($poisk);
-    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
 
     if (!empty($_FILES['photo']['name'])) {
       $query1 = "SELECT `cover` FROM `el_collection` WHERE `ID_documents` = $ID_doc";
@@ -332,8 +297,6 @@ if ($_GET['update'] == 'up_cover') {
 }
 
 if($_GET['update']=='up_collection'){
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_doc = (int)$_GET['ID_doc'];
     $sql = "SELECT  `Road_to_documents` FROM `el_collection` WHERE `ID_documents` = ".$ID_doc;
     $poisk=mysqli_query($connect, $sql);	
     $row = mysqli_fetch_assoc($poisk);
@@ -346,13 +309,6 @@ if($_GET['update']=='up_collection'){
       }
     }
     
-    $ID_doc = (int)$_GET['ID_doc'];
-    $ID_conf = (int)$_GET['ID_konf'];
-    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-    $poisk = mysqli_query($connect, $query);
-    $row = mysqli_fetch_assoc($poisk);
-    $dateKonf = date("Y.m.d",strtotime($row["date_from"]));
-
     if(!empty($_FILES["collection"]["name"])){
         $input_name = 'collection';
         $dir = "./../../konf/$dateKonf/ellcollection/" ;
@@ -419,8 +375,6 @@ if($_GET['update']=='up_collection'){
 }
 
 if($_GET['update']=='del_col'){
-    $ID_conf = (int)$_GET['ID_konf'];
-    $ID_doc = (int)$_GET['ID_doc'];
     $sql = "SELECT  `Road_to_documents`, `cover` FROM `el_collection` WHERE `ID_documents` = ".$ID_doc;
     $poisk=mysqli_query($connect, $sql);	
     $row = mysqli_fetch_assoc($poisk);
@@ -448,11 +402,7 @@ if($_GET['update']=='del_col'){
 }
 
 if ($_GET['update'] == 'up_mainph') {
-    $ID_conf = (int)$_GET['ID_konf'];
-    $query = "SELECT `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $ID_conf";
-    $poiskk = mysqli_query($connect, $query);
-    $row1 = mysqli_fetch_assoc($poiskk);
-    $dateKonf = date("Y.m.d",strtotime($row1["date_from"]));
+    
     if (!empty($_FILES['mainph']['name'])) {
     
     $quer = "SELECT `main_photo` FROM `conferences` WHERE `ID_conf` = $ID_conf";
@@ -460,11 +410,11 @@ if ($_GET['update'] == 'up_mainph') {
     $row = mysqli_fetch_assoc($poisk);
     $patch = $_SERVER['DOCUMENT_ROOT'] . "/adminPanels/$row[main_photo]";
   
-      if (file_exists($patch)) {
+      /*if (file_exists($patch)) {
         if (unlink($patch)) {
           echo 'файл удален';
         }
-      }
+      }*/
       $file_name = $_FILES['mainph']['name'];
       $file_tmp = $_FILES['mainph']['tmp_name'];
       $link = htmlspecialchars($link, ENT_QUOTES);
@@ -477,7 +427,6 @@ if ($_GET['update'] == 'up_mainph') {
 }
 
 if ($_GET['update'] == 'del_photo') {
-    $ID_conf = (int)$_GET['ID_konf'];
     $id_ph = $_GET['ID_photo'];
     $query = "SELECT `photo_conf` FROM `photo_conf` WHERE `ID_photo` = $id_ph";
     $poisk = mysqli_query($connect, $query);
@@ -492,14 +441,12 @@ if ($_GET['update'] == 'del_photo') {
 }
 
 if ($_GET['update'] == 'del_video') {
-    $ID_conf = (int)$_GET['ID_konf'];
     $id_v = $_GET['ID_video'];
     $result = mysqli_query($connect, "DELETE FROM `video_conf` WHERE `ID_video_conf` = $id_v");
     echo "<script> document.location.href='../editing-info.php?id_konf=$ID_conf';</script>";
 }
 
 if ($_GET['update'] == 'del_partner') {
-    $ID_conf = (int)$_GET['ID_konf'];
     $id_p = $_GET['ID_partner'];
     $query = "SELECT `logo` FROM `partners` WHERE `ID_partner` = $id_p";
     $poisk = mysqli_query($connect, $query);
