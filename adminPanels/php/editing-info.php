@@ -214,7 +214,7 @@
                     <div class="collectionsMaterials">
                         <form action="add_edit\general_add.php?add=add_collection&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
                             <div class="addCollections">
-                                <h3>Cборники материалов</h3>
+                                <h2>Cборники материалов</h2>
 
                                 <div class="description">
                                     <label class="ruText">Название <textarea name="name_ru"></textarea></label>
@@ -237,9 +237,12 @@
                             <button type="submit" class="btn">Добавить сборник</button>
                         </form>
                         <div class="collectionsMaterialsList">
-                            <h3>Список сборников материалов</h3>
+                            
                             <?php $count = 1;
                             $collections = mysqli_query($connect, "SELECT * FROM `el_collection` WHERE `ID_conf` = $_GET[id_konf]");
+                            if($collections != null){
+                                echo '<h3>Список сборников материалов</h3>';
+                            }
                             while (($row = mysqli_fetch_assoc($collections)) != false) {
 
                                 echo
