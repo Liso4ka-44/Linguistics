@@ -10,9 +10,6 @@
 .main__content {
     width: 100%;
     text-align: center;
-    // label {
-    //     display: block;
-    // }
     .addAdditionalDates {
         width: 600px;
         margin: 15px 0 0 0;
@@ -100,5 +97,8 @@
         padding: 7px 8px;
         border: none;
         margin: 20px 0 0 0;
+    }
+    .main__button:hover {
+        background: rgba(22, 134, 40, 0.7);
     }
 }

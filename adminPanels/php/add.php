@@ -30,9 +30,30 @@
                     </div>
                 </div>
                 <div class="main__content">
+                    <div class="KeysDate" id="KeysDate">
+                        <h2 class="top__heading">Дата конференции</h2>
+                        <div class="dateConf">
+                            <div class="date__editing label_center">
+                                <label>
+                                    От
+                                    <input type="date" name="date_from" required="required" data-error="Заполните">
+                                </label>
+
+                                <label>
+                                    До
+                                    <input type="date" name="date_to" required="required" data-error="Заполните">
+                                </label>
+
+                            </div>
+
+                        </div>
+                        <p class="warning">если дата не является промежутком,
+                            продублируйте её в обе формы
+                        </p>
+                    </div>
                     <form action="add_edit\anons_add.php" method="post" enctype="multipart/form-data" role="form">
                         <div class="information__announcement" id="information__announcement">
-                            <h2 class="top__heading">Сведения об анонсе</h2>
+                            <h2>Сведения об анонсе</h2>
                             <div class="main__introductionAnnouncement">
                                 <div class="introductionRu">
                                     <h4 class="ruText">Вступление анонса</h4><textarea name="intro_ru" required="required" data-error="Заполните"></textarea>
@@ -55,59 +76,6 @@
                                     <h4 class="enText">Conference conception</h4><textarea name="concept_en" class="edit" id="editor3"></textarea>
                                 </div>
                             </div>
-                        </div>
-                        <div class="KeysDate" id="KeysDate">
-                            <h2>Важные даты</h2>
-                            <div class="dateConf">
-                                <h3>Даты конференции</h3>
-                                <div class="date__editing label_center">
-                                    <label>
-                                        От
-                                        <input type="date" name="date_from" required="required" data-error="Заполните">
-                                    </label>
-
-                                    <label>
-                                        До
-                                        <input type="date" name="date_to" required="required" data-error="Заполните">
-                                    </label>
-
-                                </div>
-                            </div>
-                            <p class="warning">если дата не является промежутком,
-                                продублируйте её в обе формы
-                            </p>
-
-                            <!--<div class="additionalDates">
-                            <div class="additionalDates__item">
-                                <h3>Дата 1</h3>
-                                <div class="date__editing label_center">
-                                    <label>
-                                        От
-                                        <input type="date" name="date_from">
-                                    </label>
-
-                                    <label>
-                                        До
-                                        <input type="date" name="date_to">
-                                    </label>
-                                </div>
-                                <div class="description">
-                                    <label class="ruText">
-                                        Описание
-                                        <textarea class="descriptionText" id="descriptionRu" name="text_ru"></textarea>
-                                    </label>
-                                    <label class="enText">
-                                        Describtion
-                                        <textarea class="descriptionText" id="descriptionEn" name="text_en"></textarea>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="addAdditionalDates">
-                                <a href="#" class="date__add">
-                                    <img src="../img/icon/add.svg" alt="">
-                                </a>
-                            </div>
-                        </div>-->
                         </div>
                         <div class="programs" id="programs">
                             <h2>Программки,информационные письма</h2>

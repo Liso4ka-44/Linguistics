@@ -86,33 +86,33 @@
                         ?>
 
                         <div class="speack">
-                        <form action="add_edit\ru_add.php?add=add_speak&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
-                            <div class="speack__add">
-                                <h3>Спикеры</h3>
-                                <p class="warning">если спикер был добавлен ранее на английском, он уже имеется в списке</p>
-                                <div class="description">
-                                    <label class="ruText">ФИО
-                                        <textarea name="namesp"></textarea>
-                                    </label>
-                                    <label class="ruText">Ссылка
-                                        <textarea name="linksp"></textarea>
-                                    </label>
+                            <form action="add_edit\ru_add.php?add=add_speak&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
+                                <div class="speack__add">
+                                    <h3>Спикеры</h3>
+                                    <p class="warning">если спикер был добавлен ранее на английском, он уже имеется в списке</p>
+                                    <div class="description">
+                                        <label class="ruText">ФИО
+                                            <textarea name="namesp"></textarea>
+                                        </label>
+                                        <label class="ruText">Ссылка
+                                            <textarea name="linksp"></textarea>
+                                        </label>
+                                    </div>
+                                    <div class="file_center">
+                                        <label>
+                                            Фотография
+                                            <input type="file" name="photo">
+                                        </label>
+                                    </div>
+                                    <div class="editor">
+                                        <label class="ruText info__spaeker">
+                                            Информация о спикере
+                                            <textarea id="editor11" name="infosp"></textarea>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn" name="add">Добавить спикера</button>
                                 </div>
-                                <div class="file_center">
-                                    <label>
-                                        Фотография
-                                        <input type="file" name="photo">
-                                    </label>
-                                </div>
-                                <div class="editor">
-                                    <label class="ruText info__spaeker">
-                                        Информация о спикере
-                                        <textarea id="editor11" name="infosp"></textarea>
-                                    </label>
-                                </div>
-                                <button type="submit" class="btn" name="add">Добавить спикера</button>
-                            </div>
-                        </form>
+                            </form>
 
                             <div class="list">
                                 <?php
@@ -164,28 +164,29 @@
                             </div>
                             <div class="show__more">
                                 <a href="#" class="show__more__link" data-show="list">Показать ещё</a>
+                                <img src="../img/icon/down.svg" alt="" class="slide">
                             </div>
                         </div>
                         <div class="reviews">
-                        <form action="add_edit\ru_add.php?add=add_feed&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
-                            <div class="review__add">
-                                <h3>Отзывы</h3>
-                                <p class="warning">если отзыв был добавлен ранее на английском, он уже имеется в списке</p>
-                                <div class="description">
-                                    <label class="ruText">ФИО
-                                        <textarea name="name"></textarea>
+                            <form action="add_edit\ru_add.php?add=add_feed&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
+                                <div class="review__add">
+                                    <h3>Отзывы</h3>
+                                    <p class="warning">если отзыв был добавлен ранее на английском, он уже имеется в списке</p>
+                                    <div class="description">
+                                        <label class="ruText">ФИО
+                                            <textarea name="name"></textarea>
+                                        </label>
+                                        <label class="ruText">Должность
+                                            <textarea name="post"></textarea>
+                                        </label>
+                                    </div>
+                                    <label class="ruText info__spaeker">
+                                        Текст отзыва
+                                        <textarea name="text"></textarea>
                                     </label>
-                                    <label class="ruText">Должность
-                                        <textarea name="post"></textarea>
-                                    </label>
+                                    <button type="submit" class="btn">Добавить отзыв</button>
                                 </div>
-                                <label class="ruText info__spaeker">
-                                    Текст отзыва
-                                    <textarea name="text"></textarea>
-                                </label>
-                                <button type="submit" class="btn">Добавить отзыв</button>
-                            </div>
-                        </form>    
+                            </form>
                             <div class="review__list">
                                 <?php $count = 1;
                                 $feedback = mysqli_query($connect, "SELECT * FROM `feedback` WHERE `ID_conf` = $_GET[id_konf]");

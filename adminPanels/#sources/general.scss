@@ -100,7 +100,7 @@ label {
 
 .input:focus {
     outline: none;
-    border-color: blue;
+    border-color: rgba(28, 28, 114, 0.787);
 }
 
 .ck {
@@ -119,6 +119,19 @@ input[type="file"] {
     border-top: 2px solid rgb(0, 0, 0, 0.3);
     border-left: 2px solid rgb(0, 0, 0, 0.3);
     border-top-left-radius: 5px;
+}
+
+input[type="date"] {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 5px 15px 0 0;
+    background: url(../img/icon/date.png) no-repeat right;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    border-radius: 5px;
 }
 
 .container {
@@ -145,19 +158,6 @@ input[type="file"] {
     display: inline;
 }
 
-input[type="date"] {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    padding: 5px 15px 0 0;
-    background: url(../img/icon/date.png) no-repeat right;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
 textarea {
     resize: vertical;
     border-radius: 5px;
@@ -168,7 +168,6 @@ button {
     color: #FFFFFF;
     border-radius: 5px;
     background-color: #fff;
-    // margin: 40px 0 0 0;
 }
 
 .top__heading {
@@ -186,6 +185,10 @@ button {
     margin: 35px 0 0 0;
 }
 
+.btn:hover {
+    background: rgba(136, 7, 7, 0.7);
+}
+
 .btnDelet {
     margin: 30px 0 0 0;
     padding: 30px 0 0 0;
@@ -195,6 +198,9 @@ button {
         padding: 4px 6px;
         background: #AD0404;
         margin: 0 0 30px 0;
+    }
+    .delete__btn {
+        background: rgba(173, 4, 4, 0.7);
     }
 }
 
@@ -252,6 +258,9 @@ button {
             border-radius: 5px;
             padding: 6px 10px;
         }
+        button:hover {
+            background: rgba(0, 0, 0, 0.45);
+        }
     }
 }
 
@@ -279,17 +288,14 @@ button {
 }
 
 .list {
-    height: 700px;
     overflow: hidden;
 }
 
 .datelist {
-    height: 450px;
     overflow: hidden;
 }
 
 .programm__list {
-    height: 655px;
     overflow: hidden;
 }
 

@@ -82,108 +82,110 @@
                         }
                         ?>
                         <div class="speack">
-                        <form action="add_edit\en_add.php?add=add_speak&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
-                            <div class="speack__add">
-                                <h3>Спикеры</h3>
-                                <p class="warning">если спикер был добавлен ранее на русском, он уже имеется в списке</p>
-                                <div class="description">
-                                    <label class="enText">Name
-                                        <textarea name="namesp"></textarea>
-                                    </label>
-                                    <label class="enText">Link
-                                        <textarea name="linksp"></textarea>
-                                    </label>
+                            <form action="add_edit\en_add.php?add=add_speak&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
+                                <div class="speack__add">
+                                    <h3>Спикеры</h3>
+                                    <p class="warning">если спикер был добавлен ранее на русском, он уже имеется в списке</p>
+                                    <div class="description">
+                                        <label class="enText">Name
+                                            <textarea name="namesp"></textarea>
+                                        </label>
+                                        <label class="enText">Link
+                                            <textarea name="linksp"></textarea>
+                                        </label>
+                                    </div>
+                                    <div class="file_center">
+                                        <label>
+                                            Фотография
+                                            <input type="file" name="photo">
+                                        </label>
+                                    </div>
+                                    <div class="editor">
+                                        <label class="enText info__spaeker">
+                                            Information about speaker
+                                            <textarea id="editor7" name="infosp"></textarea>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn" name="add">Добавить спикера</button>
                                 </div>
-                                <div class="file_center">
-                                    <label>
-                                        Фотография
-                                        <input type="file" name="photo">
-                                    </label>
-                                </div>
-                                <div class="editor">
-                                    <label class="enText info__spaeker">
-                                        Information about speaker
-                                        <textarea id="editor7" name="infosp"></textarea>
-                                    </label>
-                                </div>
-                                <button type="submit" class="btn" name="add">Добавить спикера</button>
-                            </div>
                             </form>
-
-                            <div class="list">
-                                <?php $count = 1;
-                                $speakers = mysqli_query($connect, "SELECT * FROM `speakers` WHERE `ID_conf` = $_GET[id_konf]");
-                                while (($row = mysqli_fetch_assoc($speakers)) != false) {
-                                    echo
-                                    '<div class="speack__item">
-                                    <h4>Спикер' . ' ' . $count . '</h4>
-                                    <form action="add_edit\en_edit.php?update=up_namesp&ID_konf=' . $_GET["id_konf"] . '&ID_speak=' . $row["ID_speak"] . '" method="post" enctype="multipart/form-data" >
-                                    <div class="description editing_icon_right">
-                                        <div>
-                                            <label class="enText">Name <textarea "name_sp_en">' . $row["name_en"] . '</textarea></label>
-                                            <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
-                                        </div>
-                                    </div>
-                                    </form>
-                                    <form class="imgEditing" action="add_edit\ru_edit.php?update=up_sphoto&ID_konf=' . $_GET["id_konf"] . '&ID_speak=' . $row["ID_speak"] . '" method="post" enctype="multipart/form-data" >
-                                        <h4>Фотография</h4>
-                                        <div class="imgEditing__content">
-                                            <div class="imgEditing__img">
-                                            <img src="' . '../' . $row["photo"] . '">
+                            <div class="speack__all">
+                                <div class="list">
+                                    <?php $count = 1;
+                                    $speakers = mysqli_query($connect, "SELECT * FROM `speakers` WHERE `ID_conf` = $_GET[id_konf]");
+                                    while (($row = mysqli_fetch_assoc($speakers)) != false) {
+                                        echo
+                                        '<div class="speack__item">
+                                            <h4>Спикер' . ' ' . $count . '</h4>
+                                            <form action="add_edit\en_edit.php?update=up_namesp&ID_konf=' . $_GET["id_konf"] . '&ID_speak=' . $row["ID_speak"] . '" method="post" enctype="multipart/form-data" >
+                                            <div class="description editing_icon_right">
+                                                <div>
+                                                    <label class="enText">Name <textarea "name_sp_en">' . $row["name_en"] . '</textarea></label>
+                                                    <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                                </div>
                                             </div>
-                                            <div class="imgEditing__input">
-                                                <input type="file" name="photo">
-                                                <button type="submit">Загрузить новое фото</button>
+                                            </form>
+                                            <form class="imgEditing" action="add_edit\ru_edit.php?update=up_sphoto&ID_konf=' . $_GET["id_konf"] . '&ID_speak=' . $row["ID_speak"] . '" method="post" enctype="multipart/form-data" >
+                                                <h4>Фотография</h4>
+                                                <div class="imgEditing__content">
+                                                    <div class="imgEditing__img">
+                                                    <img src="' . '../' . $row["photo"] . '">
+                                                    </div>
+                                                    <div class="imgEditing__input">
+                                                        <input type="file" name="photo">
+                                                        <button type="submit">Загрузить новое фото</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <form class="imgEditing" action="add_edit\ru_edit.php?update=up_speaker&ID_konf=' . $_GET["id_konf"] . '&ID_speak=' . $row["ID_speak"] . '" method="post" enctype="multipart/form-data" >
+                                            <div class="editing_icon_right">
+                                                <div>
+                                                    <label class="enText">Information about speaker
+                                                        <textarea id="editor" name="info_sp_en">' . $row["info_en"] . '</textarea>
+                                                    </label>
+                                                    <button type="submit" name="info"><img src="../img/icon/update.svg" alt=""></button>
+                                                </div>
+                                                <div>
+                                                    <label class="enText">Link <textarea name="link_sp_en">' . $row["linkSP_en"] . '</textarea></label>
+                                                    <button type="submit" name="link"><img src="../img/icon/update.svg" alt=""></button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
-                                    <form class="imgEditing" action="add_edit\ru_edit.php?update=up_speaker&ID_konf=' . $_GET["id_konf"] . '&ID_speak=' . $row["ID_speak"] . '" method="post" enctype="multipart/form-data" >
-                                    <div class="editing_icon_right">
-                                        <div>
-                                            <label class="enText">Information about speaker
-                                                <textarea id="editor" name="info_sp_en">' . $row["info_en"] . '</textarea>
-                                            </label>
-                                            <button type="submit" name="info"><img src="../img/icon/update.svg" alt=""></button>
-                                        </div>
-                                        <div>
-                                            <label class="enText">Link <textarea name="link_sp_en">' . $row["linkSP_en"] . '</textarea></label>
-                                            <button type="submit" name="link"><img src="../img/icon/update.svg" alt=""></button>
-                                        </div>
-                                    </div>
-                                    <div class="btnDelet">
-                                        <button type="submit" name="delete" class="delete__btn">Удалить представителя</button>
-                                    </div>
-                                    </form>
-                                </div>';
-                                    $count++;
-                                }
-                                ?>
+                                            <div class="btnDelet">
+                                                <button type="submit" name="delete" class="delete__btn">Удалить представителя</button>
+                                            </div>
+                                            </form>
+                                        </div>';
+                                        $count++;
+                                    }
+                                    ?>
+                                </div>
+                                <div class="show__more">
+                                    <a href="#" class="show__more__link">Показать ещё</a>
+                                    <img src="../img/icon/down.svg" alt="" class="slide">
+                                </div>
+                            </div>
 
-                            </div>
-                            <div class="show__more">
-                                <a href="#" class="show__more__link">Показать ещё</a>
-                            </div>
                         </div>
                         <div class="reviews">
-                        <form action="add_edit\en_add.php?add=add_feed&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
-                            <div class="review__add">
-                                <h3>Отзывы</h3>
-                                <p class="warning">если отзыв был добавлен ранее на английском, он уже имеется в списке</p>
-                                <div class="description">
-                                    <label class="enText">Name
-                                        <textarea name="name"></textarea>
+                            <form action="add_edit\en_add.php?add=add_feed&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
+                                <div class="review__add">
+                                    <h3>Отзывы</h3>
+                                    <p class="warning">если отзыв был добавлен ранее на английском, он уже имеется в списке</p>
+                                    <div class="description">
+                                        <label class="enText">Name
+                                            <textarea name="name"></textarea>
+                                        </label>
+                                        <label class="enText">Post
+                                            <textarea name="post"></textarea>
+                                        </label>
+                                    </div>
+                                    <label class="enText info__spaeker">
+                                        Текст отзыва
+                                        <textarea name="text"></textarea>
                                     </label>
-                                    <label class="enText">Post
-                                        <textarea name="post"></textarea>
-                                    </label>
+                                    <button type="submit" class="btn">Добавить отзыв</button>
                                 </div>
-                                <label class="enText info__spaeker">
-                                    Текст отзыва
-                                    <textarea name="text"></textarea>
-                                </label>
-                                <button type="submit" class="btn">Добавить отзыв</button>
-                            </div>
-                        </form>    
+                            </form>
                             <div class="review__list">
                                 <?php $count = 1;
                                 $feedback = mysqli_query($connect, "SELECT * FROM `feedback` WHERE `ID_conf` = $_GET[id_konf]");
