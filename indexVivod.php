@@ -246,6 +246,7 @@
         foreach($arrayDateAnnouncement as $key => $value){
             $el_col_BD = mysqli_query($connect,"SELECT  `Name_documents_".$_SESSION["lang"]."`, `Road_to_documents`, `cover`, `link` FROM `el_collection` WHERE `ID_conf` = $arrayDateAnnouncement[$key]");
             $confBD = mysqli_query($connect,"SELECT * FROM `conferences` WHERE `ID_conf` = $arrayDateAnnouncement[$key] ");
+            //$CONFBD = mysqli_query($connect, "SELECT conf.`ID_conf`, conf.`Name_conf_".$_SESSION["lang"]."`, conf.`ID_year`, conf.`main_photo`, dat.`date_from`, dat.`text_ru` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE conf.`ID_conf` <= " .$_SESSION['ID_conf']." AND `text_ru` LIKE 'Конференция%' AND DATE(`date_from`) <= CURDATE() ORDER BY `ID_conf` ASC LIMIT 5");
             $row2 = mysqli_fetch_assoc($confBD);
             while(($row = mysqli_fetch_assoc($el_col_BD)) != false){
                 if($row["cover"] != ""){

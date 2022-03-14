@@ -160,9 +160,9 @@
                                     ?>
                                 </div>
                                 <div class="show__more">
-                                    <a href="#" class="show__more__link">Показать ещё</a>
-                                    <img src="../img/icon/down.svg" alt="" class="slide">
-                                </div>
+<a href="#" class="show__more__link" data-show="list">Показать ещё</a>
+<img src="../img/icon/down.svg" alt="" class="slide">
+</div>
                             </div>
 
                         </div>

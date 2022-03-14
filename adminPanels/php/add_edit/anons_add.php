@@ -59,7 +59,7 @@ if($_POST["date_from"]!=''&&$_POST['intro_ru']!=''){
 	    $rezull = mysqli_fetch_assoc($poiss);
         $YearID = (int) $rezull["ID_year"];
         }
-        $sql = "INSERT INTO `conferences`( `Name_conf_ru`, `Name_conf_en`, `anons_name_ru`, `anons_name_en`, `info_anons_ru`, `info_anons_en`, `an_conception_ru`, `an_conception_en`, `ID_year`) VALUES ('$name_ru', '$name_en', '$intro_ru', '$intro_en', '$anons_ru', '$anons_en', '$concept_en', '$concept_en', '$YearID')";
+        $sql = "INSERT INTO `conferences`(`anons_name_ru`, `anons_name_en`, `info_anons_ru`, `info_anons_en`, `an_conception_ru`, `an_conception_en`, `ID_year`) VALUES ('$intro_ru', '$intro_en', '$anons_ru', '$anons_en', '$concept_en', '$concept_en', '$YearID')";
         mysqli_query($connect, $sql);
         $query = "SELECT MAX(`ID_conf`) FROM `conferences`";
 	    $poisk = mysqli_query($connect, $query);
