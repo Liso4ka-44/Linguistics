@@ -446,8 +446,9 @@ function contaption__keyDate()
         }
     }
 
-
-    echo $contaption_keyDate;
+    if ($contaption_keyDate != "<h2>" . name('dates') . "</h2> <div class='keysDate'></div>") {
+        echo $contaption_keyDate;
+    }
 }
 
 function next__conference()
