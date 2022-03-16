@@ -109,13 +109,12 @@
                                     <button type="submit" class="btn" name="add">Добавить спикера</button>
                                 </div>
                             </form>
-                            <div class="speack__all">
-                                <div class="list">
-                                    <?php $count = 1;
-                                    $speakers = mysqli_query($connect, "SELECT * FROM `speakers` WHERE `ID_conf` = $_GET[id_konf]");
-                                    while (($row = mysqli_fetch_assoc($speakers)) != false) {
-                                        echo
-                                        '<div class="speack__item">
+                            <div class="list">
+                                <?php $count = 1;
+                                $speakers = mysqli_query($connect, "SELECT * FROM `speakers` WHERE `ID_conf` = $_GET[id_konf]");
+                                while (($row = mysqli_fetch_assoc($speakers)) != false) {
+                                    echo
+                                    '<div class="speack__item">
                                             <h4>Спикер' . ' ' . $count . '</h4>
                                             <form action="add_edit\en_edit.php?update=up_namesp&ID_konf=' . $_GET["id_konf"] . '&ID_speak=' . $row["ID_speak"] . '" method="post" enctype="multipart/form-data" >
                                             <div class="description editing_icon_right">
@@ -155,16 +154,14 @@
                                             </div>
                                             </form>
                                         </div>';
-                                        $count++;
-                                    }
-                                    ?>
-                                </div>
-                                <div class="show__more">
-                                    <a href="#" class="show__more__link">Показать ещё</a>
-                                    <img src="../img/icon/down.svg" alt="" class="slide">
-                                </div>
+                                    $count++;
+                                }
+                                ?>
                             </div>
-
+                            <div class="show__more">
+                                <a href="#" class="show__more__link" data-show="list">Показать ещё</a>
+                                <img src="../img/icon/down.svg" alt="" class="slide">
+                            </div>
                         </div>
                         <div class="reviews">
                             <form action="add_edit\en_add.php?add=add_feed&ID_konf=<?php echo $_GET["id_konf"] ?>" method="post" enctype="multipart/form-data" role="form">
