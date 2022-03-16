@@ -424,8 +424,6 @@ function contaption__keyDate()
     if ($_SESSION["lang"] == "ru") {
         mysqli_query($connect, "SET lc_time_names = ru_ru");
     }
-    $contaption_keyDate = "<h2>" . name('dates') . "</h2>
-        <div class='keysDate'>";
 
     $ifdate = "SELECT * FROM `dates` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%' ";
     $poiskk = mysqli_query($connect, $ifdate);
@@ -446,8 +444,9 @@ function contaption__keyDate()
         }
     }
 
-
-    echo $contaption_keyDate;
+    if ($contaption_keyDate != ''){
+    echo "<h2>" . name('dates') . "</h2>
+    <div class='keysDate'>".$contaption_keyDate;}
 }
 
 function next__conference()
