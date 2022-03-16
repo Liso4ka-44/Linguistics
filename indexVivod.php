@@ -73,6 +73,22 @@
         }
         echo $photo;
     }
+
+    function partners (){
+        include "connect.php";
+        $partners = mysqli_query($connect,"SELECT par.`ID_conf`, par.`logo`, dat.`text_ru`, dat.`date_from`  FROM `partners` par LEFT JOIN `dates` dat ON par.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%'");
+        echo "<h2>".name('partner')."</h2>";
+        while(($row = mysqli_fetch_assoc($partners)) != false){
+            $par.= 
+                    "<div class='contaption__conferencePartner__list'>
+                        <div class='contaption__conferencePartner'>
+                            <img src='/adminPanels/".$row['logo']."'>
+                        </div>
+                    </div>";
+        }
+        echo $par;
+    }
+
     function archive (){
         include "connect.php";
         
@@ -115,7 +131,7 @@
             } 
             $archive .="</div></div>
                         <div class='blog_details blog_details__anons'>
-                            <h3 class='text-left colorarh last__anons'> ".name('announcement_title_s')." ".$confYear."</h3>
+                            <h3 class='text-left colorarh last__anons'> ".name('announcement_title_s')./*" ".$confYear.*/"</h3>
                             <p class = 'name__konf'>".$row['anons_name_'.$_SESSION["lang"]]."</p>";
                             $info = $row['info_anons_'.$_SESSION["lang"]];
                             $plakonf=explode(PHP_EOL,$info);
@@ -245,8 +261,7 @@
         }
         foreach($arrayDateAnnouncement as $key => $value){
             $el_col_BD = mysqli_query($connect,"SELECT  `Name_documents_".$_SESSION["lang"]."`, `Road_to_documents`, `cover`, `link` FROM `el_collection` WHERE `ID_conf` = $arrayDateAnnouncement[$key]");
-            $confBD = mysqli_query($connect,"SELECT * FROM `conferences` WHERE `ID_conf` = $arrayDateAnnouncement[$key] ");
-            //$CONFBD = mysqli_query($connect, "SELECT conf.`ID_conf`, conf.`Name_conf_".$_SESSION["lang"]."`, conf.`ID_year`, conf.`main_photo`, dat.`date_from`, dat.`text_ru` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE conf.`ID_conf` <= " .$_SESSION['ID_conf']." AND `text_ru` LIKE 'Конференция%' AND DATE(`date_from`) <= CURDATE() ORDER BY `ID_conf` ASC LIMIT 5");
+            $confBD = mysqli_query($connect, "SELECT `ID_conf`, `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf`= $arrayDateAnnouncement[$key]");
             $row2 = mysqli_fetch_assoc($confBD);
             while(($row = mysqli_fetch_assoc($el_col_BD)) != false){
                 if($row["cover"] != ""){
@@ -257,17 +272,10 @@
                 }
                 
             }
-            if($row2["main_photo"]!=""){
-                $imgkonf = "/adminPanels/".$row2['main_photo'];
-            }
-            else{
-                $imgkonf = "/img/logo/logo2.png";
-            }
-
            
             $el_coll .="<article class='konf el__colection'>
                             <div class='spisok-konf'>
-                                <a href='blog-details.php?id=".$value."' class='spisok-konf'><h3>".name('conf')." ".date('Y',strtotime($row2['date']))."</h3></a>
+                                <a href='blog-details.php?id=".$value."' class='spisok-konf'><h3>".name('conf')." ".date('d.m.Y',strtotime($row2['date_from']))."</h3></a>
                             </div>
                             <div class = 'cover_konf'>
                             
@@ -311,12 +319,6 @@
                 $anons.="<div id='day$k' class='tab-pane $active' >";
                 $anonsconf = mysqli_query($connect,"SELECT conf.`ID_conf`, dat.`date_from`, conf.`anons_name_".$_SESSION["lang"]."`,  conf.`info_anons_".$_SESSION["lang"]."` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE `date_from` = '$arrayDateAnnouncement[$i]'");
                 while(($row = mysqli_fetch_assoc($anonsconf)) != false){ 
-                    /*if(!empty($row['announcement_foto_speaker'])&&$row['announcement_foto_speaker']!=''){
-                        $fotoanons="<img class='boederimg' src='".$row['announcement_foto_speaker']."' alt=''>";
-                    } 
-                    else{
-                        $fotoanons="";
-                    }*/
                     $in = $row['info_anons_'.$_SESSION["lang"]];
 
                     $anons.="<div class='blog_details jojo'><div class='no-gutters card__anons'>
@@ -355,17 +357,17 @@
                 $anons.='</div>';
             }
         }
-        else{
+        /*else{
             $anons = "<h1>".name('no_conf')."</h1>";
-        }
+        }*/
         echo $anons;
     }
     function contaption__title(){
         include "connect.php";
-        $contaption = mysqli_query($connect, "SELECT conf.`an_conception_ru`, conf.`an_conception_en`, yer.`year` FROM `conferences` conf LEFT JOIN `years` yer ON conf.`ID_year` = yer.`ID_year` WHERE `ID_conf` = ".$_SESSION["ID_conf"]);
+        $contaption = mysqli_query($connect, "SELECT conf.`an_conception_ru`, conf.`an_conception_en`, dat.`date_from` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%'");
         while(($row = mysqli_fetch_assoc($contaption)) != false){
-            $_SESSION["contaptionYear"] = $row["year"];
-            $contaptionTitle = "<h1>".name('conception')." ".$row["year"]."</h1>".$row['an_conception_'.$_SESSION["lang"]];
+            $_SESSION["contaptionYear"] = $row["date_from"];
+            $contaptionTitle = "<h1>".name('conception')." ".date("d.m.Y", strtotime($row['date_from']))."</h1>".$row['an_conception_'.$_SESSION["lang"]];
             $plak=explode(PHP_EOL,$in);
             foreach($plak as $key => $val){
             if($val!=''){
@@ -379,7 +381,7 @@
     function contaption__spaeks(){
         include "connect.php";
         $contaption_speak = "<h1 id = 'block1'>".name('speakers')."</h1><div class='contaption__spaeks__list' >";
-        $contaption_speaks = mysqli_query($connect, "SELECT `ID_speak`, `ID_conf`, `name_ru`, `name_en`, `photo`, `linkSP_ru`, `linkSP_en`, `info_ru`, `info_en` FROM `speakers` WHERE `ID_conf` = ".$_SESSION["ID_conf"]);
+        $contaption_speaks = mysqli_query($connect, "SELECT sp.`ID_speak`, sp.`ID_conf`, sp.`name_ru`, sp.`name_en`, sp.`photo`, sp.`linkSP_ru`, sp.`linkSP_en`, sp.`info_ru`, sp.`info_en` FROM `speakers` sp LEFT JOIN `dates` dat ON sp.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%'");
         while(($row = mysqli_fetch_assoc($contaption_speaks)) != false){
             $contaption_speak.= "<div class='contaption__spaek'>
             <a href='#spic' class = 'spik' id = '".$row["ID_speak"]."'>
@@ -411,6 +413,7 @@
         $contaption_keyDate = "<h2>".name('dates')."</h2>
         <div class='keysDate'>";
         $contaption_Date = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, 'До %d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates`  WHERE ID_conf = ".$_SESSION['ID_conf']." ORDER BY `date_from` ASC");
+        //$contaption_speaks = mysqli_query($connect, "SELECT sp.`ID_speak`, sp.`ID_conf`, sp.`name_ru`, sp.`name_en`, sp.`photo`, sp.`linkSP_ru`, sp.`linkSP_en`, sp.`info_ru`, sp.`info_en` FROM `speakers` sp LEFT JOIN `dates` dat ON sp.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%'");
         while(($row = mysqli_fetch_assoc($contaption_Date)) != false){
             $contaption_keyDate .= " <div class='keyDate'>";
             if($row["date_from"] == $row["date_to"]){
