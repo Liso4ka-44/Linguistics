@@ -367,11 +367,10 @@ function anonsDate()
 
             $anons .= '</div>';
         }
-    }
-    /*else{
-            $anons = "<h1>".name('no_conf')."</h1>";
-        }*/
+    } //anons-title
     echo $anons;
+    if ($anons == "<div class='tab-content'></div>") {
+    }
 }
 function contaption__title()
 {
@@ -405,7 +404,9 @@ function contaption__spaeks()
             </div>";
     }
     $contaption_speak .= "</div>";
-    echo $contaption_speak;
+    if ($contaption_speak != "<h1 id = 'block1'>" . name('speakers') . "</h1><div class='contaption__spaeks__list' ></div>") {
+        echo $contaption_speak;
+    }
 }
 // Забираем данные для модального окна спикеров
 include "connect.php";
@@ -424,8 +425,6 @@ function contaption__keyDate()
     if ($_SESSION["lang"] == "ru") {
         mysqli_query($connect, "SET lc_time_names = ru_ru");
     }
-    $contaption_keyDate = "<h2>" . name('dates') . "</h2>
-        <div class='keysDate'>";
 
     $ifdate = "SELECT * FROM `dates` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%' ";
     $poiskk = mysqli_query($connect, $ifdate);
@@ -446,8 +445,9 @@ function contaption__keyDate()
         }
     }
 
-    if ($contaption_keyDate != "<h2>" . name('dates') . "</h2> <div class='keysDate'></div>") {
-        echo $contaption_keyDate;
+    if ($contaption_keyDate != '') {
+        echo "<h2>" . name('dates') . "</h2>
+    <div class='keysDate'>" . $contaption_keyDate;
     }
 }
 
