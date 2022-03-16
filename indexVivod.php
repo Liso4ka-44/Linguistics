@@ -77,7 +77,7 @@
     function partners (){
         include "connect.php";
         $partners = mysqli_query($connect,"SELECT par.`ID_conf`, par.`logo`, dat.`text_ru`, dat.`date_from`  FROM `partners` par LEFT JOIN `dates` dat ON par.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%'");
-        echo "<h2>".name('partner')."</h2>";
+        
         while(($row = mysqli_fetch_assoc($partners)) != false){
             $par.= 
                     "<div class='contaption__conferencePartner__list'>
@@ -86,7 +86,9 @@
                         </div>
                     </div>";
         }
-        echo $par;
+        if ($par != ""){
+        echo "<h2>".name('partner')."</h2>".$par;
+        }
     }
 
     function archive (){
@@ -100,7 +102,6 @@
         }
        
         $archiveBD = mysqli_query($connect,"SELECT conf.`ID_conf`, conf.`anons_name_".$_SESSION["lang"]."`, conf.`info_anons_".$_SESSION["lang"]."`, conf.`main_photo`, dat.`date_from`, dat.`text_ru` FROM `conferences` conf LEFT JOIN `dates` dat ON conf.`ID_conf` = dat.`ID_conf` WHERE `text_ru` LIKE 'Конференция%' AND ID_year = ".$_SESSION["year"]);
-        //$date = "SELECT `ID_conf`, `date_from`, `date_to` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = $_GET[id_konf]";
         while(($row = mysqli_fetch_assoc($archiveBD)) != false){
             // $string = mb_substr($row['info'],0,200,'UTF-8'); Сокращенный текст с анонса
            if($row['main_photo']==''){
@@ -288,6 +289,7 @@
             }
         echo $el_coll;
     }
+    
     function anonsDate (){
         include "connect.php";
         $arrayDateAnnouncement=array();
@@ -412,8 +414,16 @@
         }
         $contaption_keyDate = "<h2>".name('dates')."</h2>
         <div class='keysDate'>";
-        $contaption_Date = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, 'До %d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates`  WHERE ID_conf = ".$_SESSION['ID_conf']." ORDER BY `date_from` ASC");
-        //$contaption_speaks = mysqli_query($connect, "SELECT sp.`ID_speak`, sp.`ID_conf`, sp.`name_ru`, sp.`name_en`, sp.`photo`, sp.`linkSP_ru`, sp.`linkSP_en`, sp.`info_ru`, sp.`info_en` FROM `speakers` sp LEFT JOIN `dates` dat ON sp.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%'");
+
+        $ifdate = "SELECT * FROM `dates` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%' ";
+        $poiskk = mysqli_query($connect, $ifdate);
+        while (($row = mysqli_fetch_assoc($poiskk)) != false) {
+            if($row['date_from'] != ""){
+            $contaption_Date = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, 'До %d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates`  WHERE ID_conf = ".$_SESSION['ID_conf']." ORDER BY `date_from` ASC");
+            }
+            
+        }
+        
         while(($row = mysqli_fetch_assoc($contaption_Date)) != false){
             $contaption_keyDate .= " <div class='keyDate'>";
             if($row["date_from"] == $row["date_to"]){
@@ -427,6 +437,7 @@
         }
         $contaption_keyDate .= "</div>";
         echo $contaption_keyDate;
+       
     }
 
     function next__conference(){
