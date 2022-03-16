@@ -136,7 +136,7 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                            <form class="imgEditing" action="add_edit\ru_edit.php?update=up_speaker&ID_konf=' . $_GET["id_konf"] . '&ID_speak=' . $row["ID_speak"] . '" method="post" enctype="multipart/form-data" >
+                                            <form class="imgEditing" action="add_edit\en_edit.php?update=up_speaker&ID_konf=' . $_GET["id_konf"] . '&ID_speak=' . $row["ID_speak"] . '" method="post" enctype="multipart/form-data" >
                                             <div class="editing_icon_right">
                                                 <div>
                                                     <label class="enText">Information about speaker

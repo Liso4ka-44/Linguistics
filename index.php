@@ -100,18 +100,9 @@ include "probnik/class.php";
 							?>
 						</div>
 						<div class="contaption__conferencePartners">
-							<h2><?php echo name('partner')?></h2>
-							<div class="contaption__conferencePartner__list">
-								<div class="contaption__conferencePartner">
-									<img src="/img/partners/2022.02.17/logo-1.png">
-								</div>
-								<div class="contaption__conferencePartner">
-									<img src="/img/partners/2022.02.17/logo-2.png">
-								</div>
-								<div class="contaption__conferencePartner">
-									<img src="/img/partners/2022.02.17/logo-3.png">
-								</div>
-							</div>
+						<?php
+								partners();
+							?>
 						</div>
 					</div>
 					<div id="spic" class="popup spic">

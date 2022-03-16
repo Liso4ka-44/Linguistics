@@ -30,6 +30,7 @@
                     </div>
                 </div>
                 <div class="main__content">
+                <form action="add_edit\anons_add.php" method="post" enctype="multipart/form-data" role="form">
                     <div class="KeysDate" id="KeysDate">
                         <h2 class="top__heading">Дата конференции</h2>
                         <div class="dateConf">
@@ -51,7 +52,7 @@
                             продублируйте её в обе формы
                         </p>
                     </div>
-                    <form action="add_edit\anons_add.php" method="post" enctype="multipart/form-data" role="form">
+                    
                         <div class="information__announcement" id="information__announcement">
                             <h2>Сведения об анонсе</h2>
                             <div class="main__introductionAnnouncement">
