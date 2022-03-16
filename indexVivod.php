@@ -78,17 +78,19 @@ function lastPHOTO()
 function partners()
 {
     include "connect.php";
+    $par = "<div class='contaption__conferencePartner__list'>";
     $partners = mysqli_query($connect, "SELECT par.`ID_conf`, par.`logo`, dat.`text_ru`, dat.`date_from`  FROM `partners` par LEFT JOIN `dates` dat ON par.`ID_conf` = dat.`ID_conf` WHERE DATE(`date_from`) >= CURDATE() and `text_ru` LIKE 'Конференция%'");
 
     while (($row = mysqli_fetch_assoc($partners)) != false) {
         $par .=
-            "<div class='contaption__conferencePartner__list'>
+            "
                         <div class='contaption__conferencePartner'>
                             <img src='/adminPanels/" . $row['logo'] . "'>
                         </div>
-                    </div>";
+                    ";
     }
-    if ($par != "") {
+    $par .= "</div>";
+    if ($par != "<div class='contaption__conferencePartner__list'></div>") {
         echo "<h2>" . name('partner') . "</h2>" . $par;
     }
 }
