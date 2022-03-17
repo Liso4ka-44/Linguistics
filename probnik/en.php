@@ -58,6 +58,6 @@
         'contact' => 'Contact us',
         'partner' => 'Conference Partners',
         'nextconf' => 'Next Conference:',
-        'date' => 'February 17-18, 2022',
+        'date' => 'April 17, 2022',
     );
 ?>

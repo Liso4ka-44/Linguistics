@@ -27,25 +27,28 @@ include "indexVivod.php";
 					<div class="next__conference">
 						<div class="next__conference__body">
 							<?php
-							/*next__conference(); */
+							/*next__conference();*/
 							?>
+							<div class='next__conference__content'>
+        <h2 class = 'next__conference__title'><?php echo name('nextconf') ?></h2>
+        <h2 class = 'next__conference__date'><?php echo name('date') ?></h2></div>
 						</div>
 					</div>
-					<!--<div class="application">
+					<div class="application">
 							<div class="application_body">
 								<div class="application_icon">
 									<img src="/img/application/application_icon.png" alt="">
 								</div>
 								<div class="application_button">
 									<a href = " https://forms.gle/tMsnyhTz18S3xnt26" class = "application__participation">
-									<?php /*echo name('application_f')*/ ?>
+									<?php echo name('application_f') ?>
 									</a>
 									<a href = "https://forms.gle/TG3TjqcY5uMXquP78" class = "application__publication">
-									<?php /*echo name('application_s')*/ ?>
+									<?php echo name('application_s') ?>
 									</a>
 								</div>
 							</div>
-						</div>-->
+						</div>
 					<div class="text-mgimo-linguistics">
 						<div class="about-ico">
 							<h2><?php echo name('title_conference') ?></h2>
@@ -59,24 +62,11 @@ include "indexVivod.php";
 			</div>
 		</section>
 
-		<section class="anons mb-5 pb-5" id="newconf">
-			<div class="container">
-				<div class="anons-title">
-					<h1><?php echo name('announcement_title_f') ?></h1>
-					<h1><?php echo name('announcement_title_s') ?></h1>
-					<img src="img/home/section-style.png" alt="">
-				</div>
-				<div class="row ">
-					<div class="col-xl-10 offset-xl-1 ">
-						<div class="scheduleTab">
-							<?php
-							anonsDate();
-							?>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		
+		<?php
+		anonsDate();
+		?>
+						
 		<section class="contaption__anons">
 			<div class="container">
 				<div class="contaption__anons__body">
@@ -90,10 +80,6 @@ include "indexVivod.php";
 						<?php
 						contaption__spaeks();
 						?>
-						<a href="#" id="cont"></a>
-						<div class="contaption__link">
-							<a class="button" href="#" id="contaption__link"><?php echo name('more') ?></a>
-						</div>
 					</div>
 					<div class="contaption__keyDate">
 						<?php

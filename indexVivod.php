@@ -367,9 +367,20 @@ function anonsDate()
 
             $anons .= '</div>';
         }
-    } //anons-title
-    echo $anons;
-    if ($anons == "<div class='tab-content'></div>") {
+    } 
+    if ($anons != '')
+    {
+    echo "<section class='anons mb-5 pb-5' id='newconf'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-xl-10 offset-xl-1 '>
+                <div class='scheduleTab'><div class='anons-title'><h1>".name('announcement_title_f')."</h1>
+    <h1>".name('announcement_title_s')."</h1>
+    <img src='img/home/section-style.png'></div>".$anons."</div>
+                </div>
+            </div>
+        </div>
+    </section>";
     }
 }
 function contaption__title()
@@ -405,7 +416,10 @@ function contaption__spaeks()
     }
     $contaption_speak .= "</div>";
     if ($contaption_speak != "<h1 id = 'block1'>" . name('speakers') . "</h1><div class='contaption__spaeks__list' ></div>") {
-        echo $contaption_speak;
+        echo $contaption_speak."<a href='#' id='cont'></a>
+        <div class='contaption__link'>
+            <a class='button' href='#' id='contaption__link'>".name('more')."</a>
+        </div>";
     }
 }
 // Забираем данные для модального окна спикеров
