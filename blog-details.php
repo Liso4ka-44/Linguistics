@@ -84,8 +84,31 @@
 			<?php photoconf ();?>
 		</div>
 	</section>
-	
 
+
+	<?php
+		require_once "php/render_template.php";
+		session_start();
+		if( isset($_SESSION['user']) ) {
+			$feedback = renderTemplate( "templates/feedback.php", [
+				'conf_id' => $_SESSION["id_konf_blog_detalic"],
+				'user_id' => $_SESSION['user'],
+				'form_text_lang' => name('form_text_lang'),
+	    		'form_text_post' => name('form_text_post'),
+	    		'form_text_rating' => name('form_text_rating'),
+	    		'form_text_feedback' => name('form_text_feedback'),
+		        'form_text_leave_feedback' => name('form_text_leave_feedback'),
+			]);
+
+			print($feedback);
+		} else {
+			print("
+				<div style='text-align: center; padding-top: 10px;'>
+					<a href='sign_in.php'>".name('message_need_to_sign_in_link')."</a><span> ".name('message_need_to_sign_in_text')."</span>
+				</div>
+			");
+		}
+	?>
 		</main>
 		<footer>
 			<?php

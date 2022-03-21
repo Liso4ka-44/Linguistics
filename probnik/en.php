@@ -58,6 +58,15 @@
         'contact' => 'Contact us',
         'partner' => 'Conference Partners',
         'nextconf' => 'Next Conference:',
-        'date' => 'April 17, 2022',
+        'date' => 'February 17-18, 2022',
+
+        'form_text_lang' => 'Language:',
+        'form_text_post' => 'Position:',
+        'form_text_rating' => 'Rating:',
+        'form_text_feedback' => 'Feedback text:',
+        'form_text_leave_feedback' => 'Leave a feedback',
+
+        'message_need_to_sign_in_link' => 'Sign in',
+        'message_need_to_sign_in_text' => 'to leave a feedback',
     );
 ?>

@@ -1,0 +1,5 @@
+.feedback__rating span {
+	color: yellow; 
+	font-size: 1.5em;
+	float: right;
+}

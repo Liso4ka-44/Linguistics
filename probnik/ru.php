@@ -68,6 +68,15 @@
         'contact' => 'Связаться',
         'partner' => 'Информационные партнёры конференции',
         'nextconf' => 'Ближайшая конференция состоится',
-        'date' => '17 апреля 2022 года',
+        'date' => '17-18 февраля 2022 года',
+
+        'form_text_lang' => 'Язык:',
+        'form_text_post' => 'Пост:',
+        'form_text_rating' => 'Оценка:',
+        'form_text_feedback' => 'Отзыв',
+        'form_text_leave_feedback' => 'Оставить отзыв',
+
+        'message_need_to_sign_in_link' => 'Войдите',
+        'message_need_to_sign_in_text' => 'чтобы оставить отзыв',
     );
 ?>

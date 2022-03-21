@@ -1,0 +1,54 @@
+div.all_blocks {
+	padding-top: 50px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+div.red_fields {
+	width: 70%;
+	margin: 0 auto;
+}
+
+/* Стили полей редактирования */
+
+input {
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.red_block {
+	text-align: center;
+	align-items: center;
+	align-content: center;
+}
+.red_fields h2 {
+	text-align: center;
+	font-size: 25px;
+}
+.red_fields div {
+	margin-bottom: 50px;
+}
+
+.sss div {
+	
+}
+
+hr {
+	margin-bottom: 30px;
+}
+
+.accept {
+	width: 1.5em;
+	cursor: pointer;
+}
+
+.file_name {
+	color: #39F;
+}
+
+/* Blocks */
+
+.data_red {
+	text-align: center;
+}
+

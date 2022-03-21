@@ -1,0 +1,124 @@
+* {
+	/*font: 1em "Fira Sans", sans-serif;*/
+}
+header {
+	margin: 0 auto;
+	background: linear-gradient( #38285320, #fff0 );
+}
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.lincks_block {
+}
+
+h1 {
+	font: 2em "Fira Sans", sans-serif;
+	color: #555;
+}
+h3 {
+	font: 1.2em "Fira Sans", sans-serif;
+	color: #555;	
+}
+
+ul.nav_l {
+	white-space: nowrap;
+}
+li.nav_l {
+	display: inline-block;
+	margin: 0px 20px;
+}
+a.nav_l {
+	color: black;
+	text-decoration: none;
+}
+div.exit_account {
+	cursor: pointer;
+}
+span.exit_account {
+	margin-right: 5px;
+}
+span.current_selection 
+{
+	color: grey;
+}
+.underscope {
+	background: linear-gradient( to right, #77f1, blue, #77f1 );
+	width: 20%;
+	height: 2px;
+	transition: .1s;
+	opacity: 0;
+}
+
+.add_button {
+	cursor: pointer;
+	background: blue;
+	border: none;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.delete_button {
+	cursor: pointer;
+	background: darkred;
+	border: none;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.new_file_button {
+	cursor: pointer;
+	background: #555;
+	border: none;
+	color: white;
+	padding: 5px;	
+	border-radius: 5px;
+}
+
+.submit_button {
+	background: url(../img/icon/on.svg);
+	background-size: 100%;
+	width: 30px;
+	height: 30px;
+	border: none;
+	cursor: pointer;
+	float: right;
+}
+
+.mid_separator {
+	width: 90%;
+	border-top: 4px dotted grey;
+	margin: 20px auto;
+}
+
+.small_separator {
+	width: 60%;
+	border-top: 2px solid lightgrey;
+	margin: 20px 20%;
+}
+
+.info_text {
+	display: inline-block;
+	font-style: italic;
+	color: #664;
+	background: #FEC;
+	padding: 5px;
+	border-radius: 10px;
+	margin: 5px auto;
+}
+
+.list_el {
+	background: linear-gradient(#F7F7F7, #EEE);
+	padding: 10px;
+	border-radius: 20px;
+}
+
+.text_ru {
+	color: blue;
+}
+.text_en {
+	color: red;
+}
