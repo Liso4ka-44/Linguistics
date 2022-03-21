@@ -1,6 +1,6 @@
-<?php 
-	require "header.php";
-	print($header);
+<?php
+require "header.php";
+print($header);
 ?>
 <style>
 	div.all_blocks {
@@ -8,18 +8,22 @@
 		width: 80%;
 		margin: 0 auto;
 	}
+
 	div.shortcuts {
-		float:  left;
+		float: left;
 	}
+
 	a.shortcuts {
 		color: black;
 		text-decoration: none;
 		transition: all .1s;
 		line-height: 2em;
 	}
+
 	a.shortcuts:hover {
 		color: red;
 	}
+
 	div.red_fields {
 		width: 70%;
 		margin: 0 auto;
@@ -37,28 +41,36 @@
 		align-items: center;
 		align-content: center;
 	}
+
 	.red_fields h2 {
 		text-align: center;
 		font-size: 25px;
 	}
+
 	.red_fields div {
 		margin-bottom: 50px;
 	}
+
 	.text_ru {
 		color: blue;
 	}
+
 	.text_en {
 		color: red;
 	}
+
 	.importamt_dates {
 		text-align: center
 	}
+
 	.info {
 		font-style: italic;
 	}
+
 	.fullwblock {
 		text-align: left;
 	}
+
 	.fullwblock input {
 		width: 100%;
 	}
@@ -88,14 +100,11 @@
 		width: 100%;
 	}
 
-	.sss div {
-		
-	}
+	.sss div {}
 
 	hr {
 		margin-bottom: 30px;
 	}
-
 </style>
 
 <div class="all_blocks">
@@ -272,16 +281,16 @@
 <script>
 	const anchors = document.querySelectorAll('a[href*="#"]')
 	anchors.forEach((anchor) => {
-	  anchor.addEventListener('click', function (e) {
-	    e.preventDefault()
-	    
-	    const blockID = anchor.getAttribute('href').substr(1)
-	    
-	    document.getElementById(blockID).scrollIntoView({
-	      behavior: 'smooth',
-	      block: 'start'
-	    })
-	  })
+		anchor.addEventListener('click', function(e) {
+			e.preventDefault()
+
+			const blockID = anchor.getAttribute('href').substr(1)
+
+			document.getElementById(blockID).scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			})
+		})
 	})
 
 
@@ -290,14 +299,15 @@
 	function show_ok_message() {
 		msg.style.bottom = "0px";
 	}
+
 	function hide_ok_message() {
 		msg.style.bottom = "-100px";
 	}
+
 	function run_sh_cycle(starttime, time) {
 		window.setTimeout(show_ok_message, starttime);
 		window.setTimeout(hide_ok_message, time);
 	}
 
 	run_sh_cycle(500, 5000);
-
 </script>
