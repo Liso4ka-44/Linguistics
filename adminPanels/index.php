@@ -17,10 +17,10 @@ include "php/connect.php";
 <body class="back">
     <div class="authorization">
         <div class="authorization__body">
-            <h1>Язык. Культура. Перевод</h1>
-            <h2>Панель администратора</h2>
+            <h1 class="authorization__title">Язык. Культура. Перевод</h1>
+            <h2 class="authorization__subtitle">Панель администратора</h2>
             <form method="post" class="authorization__form">
-                <h3>Авторизация</h3>
+                <h3 class="form__title">Авторизация</h3>
                 <div class="error">
                     <div class="error__text">
                         <p>Данные были введены некорректно.</p>

@@ -16,27 +16,30 @@
     width: 453px;
     &__body {
         padding: 50px 50px 100px 50px;
-        h1 {
+        .authorization__title {
             font-family: Oswald;
             font-style: normal;
             font-weight: 500;
-            font-size: 35px;
+            font-size: 33px;
             line-height: 52px;
         }
-        h2 {
+        .authorization__subtitle {
             font-family: Roboto;
             font-style: normal;
             font-weight: 500;
             font-size: 25px;
             line-height: 29px;
-            margin: 0 0 95px 0;
+            margin: 20px 0 95px 0;
+            color: #fff;
+            padding: 0;
         }
         .authorization__form {
             display: block;
             background: #F4F4F4;
             border: 1px solid rgba(0, 0, 0, 0.3);
             border-radius: 10px;
-            h3 {
+            .form__title {
+                padding: 5px 20px !important;
                 transform: translateY(-50%);
                 font-family: Roboto;
                 font-style: normal;
@@ -47,6 +50,7 @@
                 border-radius: 7px;
                 width: 164px;
                 margin: 0 auto;
+                color: #fff;
             }
             .error {
                 display: none;
@@ -104,7 +108,7 @@
                 background-size: cover;
             }
             .check__input:checked+.check__box {
-                background-image: url(/img/icon/on.svg);
+                background-image: url(/adminPanels/img/icon/on.svg);
                 border: none;
             }
         }
