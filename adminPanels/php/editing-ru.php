@@ -21,9 +21,11 @@
         <div class="container">
             <div class="main__body">
                 <div class="main__nav">
-                    <a href="#">Конференция</a>
-                    <a href="#">Спикеры</a>
-                    <a href="#">Отзывы</a>
+                    <div class="nav__body">
+                        <a href="#">Конференция</a>
+                        <a href="#">Спикеры</a>
+                        <a href="#">Отзывы</a>
+                    </div>
                 </div>
                 <div class="main__content">
 

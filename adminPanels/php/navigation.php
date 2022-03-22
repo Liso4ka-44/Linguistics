@@ -11,7 +11,7 @@ if (isset($_POST["exit"])) {
         <div class="header__body">
             <div class="header__nav">
                 <ul class="header__list">
-                    <li class="header__item"><a href="/adminPanels/php/add.php" date-nav="1" class="header__link active">Добавление</a></li>
+                    <li class="header__item"><a href="/adminPanels/php/add.php" date-nav="1" class="header__link">Добавление</a></li>
                     <li class="header__item"><a href="/adminPanels/php/editing.php" date-nav="2" class="header__link">Редактирование</a></li>
                     <li class="header__item"><a href="/adminPanels/php/orgcom.php" date-nav="3" class="header__link">Оргкомитет</a></li>
                     <li class="header__item"><a href="/adminPanels/php/newuser.php" date-nav="4" class="header__link">Добавление пользователей</a></li>
