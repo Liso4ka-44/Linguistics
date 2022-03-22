@@ -20,11 +20,13 @@
         <div class="container">
             <div class="main__body">
                 <div class="main__nav">
-                    <a href="#">Дата</a>
-                    <a href="#">Сборники материалов</a>
-                    <a href="#">Фотографии</a>
-                    <a href="#">Видео</a>
-                    <a href="#">Партнеры </a>
+                    <div class="nav__body">
+                        <a href="#">Дата</a>
+                        <a href="#">Сборники материалов</a>
+                        <a href="#">Фотографии</a>
+                        <a href="#">Видео</a>
+                        <a href="#">Партнеры </a>
+                    </div>
                 </div>
                 <div class="main__content">
                     <?php
@@ -255,12 +257,9 @@
                                         <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                     </div>
                                 <div>
-                            </form>    
-                            <form action="add_edit\general_edit.php?update=up_colname_en&ID_konf=' . $_GET["id_konf"] . '&ID_doc=' . $row["ID_documents"] . '" method="post" enctype="multipart/form-data" >
-                                        
-                                        <label class="enText">Name <textarea name="name_en">' . $row["Name_documents_en"] . '</textarea></label>
-                                        <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
-                                    </div>
+                                    <label class="enText">Name <textarea name="name_en">' . $row["Name_documents_en"] . '</textarea></label>
+                                    <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
+                                </div>
                             </form>
                             <form class="imgEditing" action="add_edit\general_edit.php?update=up_cover&ID_konf=' . $_GET["id_konf"] . '&ID_doc=' . $row["ID_documents"] . '" method="post" enctype="multipart/form-data" >
                                         <h4>Фотография</h4>
@@ -277,7 +276,7 @@
                                     </form>
                                     <form action="add_edit\general_edit.php?update=up_collink&ID_konf=' . $_GET["id_konf"] . '&ID_doc=' . $row["ID_documents"] . '" method="post" enctype="multipart/form-data" >
                                     <div class="elibrary">
-                                        <label>Ссылка elibrary <textarea name="link">' . $row["link"] . '</textarea></label>
+                                        <label>Ссылка elibrary <textarea name="link" class = "link_collection">' . $row["link"] . '</textarea></label>
                                         <button type="submit"><img src="../img/icon/update.svg" alt=""></button>
                                     </div>
                                     </form>
@@ -285,7 +284,7 @@
                                         <h4>Файл</h4>
                                         <div class="imgEditing__content">
                                             <div class="imgEditing__img">
-                                                <a href="' . $row["Road_to_documents"] . '">Посмотреть файл</a>
+                                                <a href="' . $row["Road_to_documents"] . '" class = "link_collection">Посмотреть файл</a>
                                             </div>
                                             <div class="imgEditing__input">
                                                 <input type="file" name="collection">
