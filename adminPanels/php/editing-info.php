@@ -166,7 +166,7 @@
                                             <h4>Файл</h4>
                                             <div class="imgEditing__content">
                                                 <div class="imgEditing__img">
-                                                    <a href="' . $row["road_ru"] . '">' . $row["name_playbill_ru"] . '</a>
+                                                    <a href="' . $row["road_ru"] . '" class = "link_collection">' . $row["name_playbill_ru"] . '</a>
                                                 </div>
                                                 <div class="imgEditing__input">
                                                     <input type="file" name="playbill_ru">
@@ -186,7 +186,7 @@
                                             <h4>Файл</h4>
                                             <div class="imgEditing__content">
                                                 <div class="imgEditing__img">
-                                                <a href="' . $row["road_en"] . '">' . $row["name_playbill_en"] . '</a>
+                                                <a href="' . $row["road_en"] . '" class = "link_collection">' . $row["name_playbill_en"] . '</a>
                                                 </div>
                                                 <div class="imgEditing__input">
                                                     <input type="file" name="playbill_en">
@@ -237,10 +237,10 @@
                             <button type="submit" class="btn">Добавить сборник</button>
                         </form>
                         <div class="collectionsMaterialsList">
-                            
+
                             <?php $count = 1;
                             $collections = mysqli_query($connect, "SELECT * FROM `el_collection` WHERE `ID_conf` = $_GET[id_konf]");
-                            if($collections != null){
+                            if ($collections != null) {
                                 echo '<h3>Список сборников материалов</h3>';
                             }
                             while (($row = mysqli_fetch_assoc($collections)) != false) {
