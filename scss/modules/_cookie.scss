@@ -1,0 +1,36 @@
+.cookie {
+    z-index: 100;
+    position: fixed;
+    left: 70%;
+    top: 70%;
+    max-width: 440px;
+    background: #ffffff url("/img/cookie/twemoji_cookie.png") no-repeat;
+    background-position: 25px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px 24px 15px 135px;
+    border-radius: 10px;
+    .cookie_form {
+        max-width: 280px;
+        .cookie_text {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+            color: #000000;
+            margin: 15px;
+        }
+        .cookie_btn {
+            background: rgba(234, 7, 99, 0.7);
+            border-radius: 5px;
+            color: #FFFFFF;
+            padding: 7px 72px;
+            border: none;
+        }
+        .cookie_btn:hover {
+            background: #E96FA0;
+        }
+        .cookie_btn:active {
+            background: rgba(184, 2, 74, 0.7);
+        }
+    }
+}

@@ -15,5 +15,7 @@
         $(".block__title").on('click', function() {
             $(".block__title").toggleClass('active_li').next().slideToggle(300);
         });
-
+        $(".cookie_btn").click(function() {
+            $(".cookie").css("display", "none");
+        });
     });
