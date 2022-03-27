@@ -2,11 +2,10 @@
 // Подключаем библиотеку PHPMailer
 use phpmailer\PHPMailer\PHPMailer;
 use phpmailer\PHPMailer\SMTP;
-use PHPMailer\src\Exception;
 
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
-require 'PHPMailer/src/Exception.php';
+
 // Создаем письмо
 $mail = new PHPMailer();
 $mail->CharSet = 'UTF-8';
@@ -22,7 +21,7 @@ $mail->Mailer = 'smtp';
 $mail->Host = 'ssl://smtp.yandex.ru';
 $mail->Port = 465;
 $mail->SMTPAuth = true;
-$mail->Username = 'Елизавета В.'; // ваш email - тот же что и в поле From:
+$mail->Username = $yourEmail; // ваш email - тот же что и в поле From:
 $mail->Password = $password; // ваш пароль;
 
 // формируем письмо
@@ -31,7 +30,7 @@ $mail->Password = $password; // ваш пароль;
 $mail->setFrom($yourEmail, $name);
 
 // кому - получатель письма
-$mail->addAddress($yourEmail, 'Елизавета Волохова'); // кому
+$mail->addAddress($yourEmail, 'Семён Трускало'); // кому
 
 $mail->Subject = 'Проверка'; // тема письма
 
