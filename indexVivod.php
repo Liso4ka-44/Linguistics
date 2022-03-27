@@ -285,7 +285,7 @@ function sbornick()
 
         $el_coll .= "<article class='konf el__colection'>
                             <div class='spisok-konf'>
-                                <a href='blog-details.php?id=" . $value . "' class='spisok-konf'><h3>" . name('conf') . " " . date('d.m.Y', strtotime($row2['date_from'])) . "</h3></a>
+                                <a href='blog-details.php?id=" . $value . "' class='spisok-konf'><h3>" . name('conf_el') . " " . date('d.m.Y', strtotime($row2['date_from'])) . "</h3></a>
                             </div>
                             <div class = 'cover_konf'>
                             
