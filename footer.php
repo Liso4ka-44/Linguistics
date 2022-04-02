@@ -3,12 +3,12 @@
 
 
 <div class = "social">
-    <a href="https://www.facebook.com/LinguisticsatMGIMO/" class="link__social">
+    <!--<a href="https://www.facebook.com/LinguisticsatMGIMO/" class="link__social">
         <img src="/img/footer/facebook.png" alt="facebook">
     </a>
     <a href="https://www.instagram.com/mgimo_linguistics/" class="link__social">
         <img src="/img/footer/instagram.png" alt="Instagram">
-    </a>
+    </a>-->
     <a href="https://t.me/mgimo_linguistics" class="link__social">
         <img src="/img/footer/telegram.png" alt="twitter">
     </a>

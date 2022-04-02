@@ -15,7 +15,6 @@ if (isset($_POST["exit"])) {
                     <li class="header__item"><a href="/adminPanels/php/editing.php" date-nav="2" class="header__link">Редактирование</a></li>
                     <li class="header__item"><a href="/adminPanels/php/orgcom.php" date-nav="3" class="header__link">Оргкомитет</a></li>
                     <li class="header__item"><a href="/adminPanels/php/newuser.php" date-nav="4" class="header__link">Добавление пользователей</a></li>
-                    <li class="header__item"><a href="/adminPanels/php/analytics.php" date-nav="5" class="header__link">Аналитика</a></li>
                     <hr>
                 </ul>
                 <form method="post" class="exit">
