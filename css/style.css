@@ -3017,23 +3017,23 @@ h4, .h4 {
   .cookie {
     left: 50%;
     top: 60%;
+    width: 260px;
+    padding: 10px 10px 10px 72px;
+    background: #ffffff url("/img/cookie/twemoji_cookie(1).png") no-repeat;
+    background-position: 10px;
   }
   .cookie .cookie_form .cookie_btn {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 94.2%;
+    color: #FFFFFF;
     padding: 7px 30px;
   }
   .cookie .cookie_form .cookie_text {
+    font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-  }
-}
-@media (max-width: 490px) {
-  .cookie {
-    left: 40%;
-    top: 50%;
-  }
-  .cookie .cookie_form .cookie_btn {
-    padding: 7px 150px;
-    font-size: 12px;
-    line-height: 14px;
+    color: #000000;
   }
 }
