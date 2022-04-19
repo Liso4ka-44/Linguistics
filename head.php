@@ -13,8 +13,9 @@
 	<link rel="stylesheet" href="/css/style.css" type="text/css">
 	<link rel="stylesheet" href="/css/application.css" type="text/css">
 	<link rel="stylesheet" href="/css/header.css" type="text/css">
-	<link rel = "stylesheet" href = "/css/modal_window.css" type="text/css">
+	<link rel="stylesheet" href="/css/modal_window.css" type="text/css">
 	<link rel="stylesheet" href="/css/mystyle.css" type="text/css">
+	<link rel="stylesheet" href="/css/mystylee.css" type="text/css">
 	<link rel="stylesheet" href="/css/rating.css" type="text/css">
 	<script src="/vendors/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="/js/modal.js" type="text/javascript"></script>
@@ -28,7 +29,7 @@
 	<script src="/js/script.js" type="text/javascript"></script>
 	<script src="/js/anons.js" type="text/javascript"></script>
 	<script src="/js/lang.js" type="text/javascript"></script>
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap" rel="stylesheet" type="text/css"> 
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap" rel="stylesheet" type="text/css">
 </head>
