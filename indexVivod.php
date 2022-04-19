@@ -433,31 +433,35 @@
         echo $contaption_keyDate;
     }
 
-    function next__conference(){
-        include "connect.php";
-        if($_SESSION["lang"] == "ru"){
-            mysqli_query($connect, "SET lc_time_names = ru_ru");
-        }
-        $next__conference = "<div class='next__conference__content'>
-        <h2 class = 'next__conference__title'>".name('nextconf')."</h2>
-        <h2 class = 'next__conference__date'>";
-        //поправки
-        $nextContaptionDate = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) AS 'date_two_en', DATE_FORMAT(`date_to`, '%d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf` = ".$_SESSION['ID_conf']);
-        $nextContaptionDate = mysqli_fetch_assoc($nextContaptionDate);
-            if($nextContaptionDate["date_from"] == $nextContaptionDate["date_to"]){
-                echo $_SESSION["ID_conf"];
-                $next__conference.= $nextContaptionDate["date_".$_SESSION["lang"]];
-            }
-            else if($nextContaptionDate["date_from"] != $nextContaptionDate["date_to"]){
-                $next__conference.= $nextContaptionDate["date_two_".$_SESSION["lang"]];
-            }
-            else{
-                $next__conference = ""; 
-            }
-        $next__conference.= "</h2>
-        </div>";
-        echo $next__conference;
+    function next__conference()
+{
+    include "connect.php";
+    if ($_SESSION["lang"] == "ru") {
+        mysqli_query($connect, "SET lc_time_names = ru_ru");
     }
+    $next__conference = "<div class='next__conference__content'>
+        <h2 class = 'next__conference__title'>" . name('nextconf') . "</h2>
+        <h2 class = 'next__conference__date'>";
+ 
+    $nextContaptionDate = mysqli_query($connect, "SELECT *, DATE_FORMAT(`date_to`, '%M %d, %Y') AS 'date_en', 
+    CONCAT(DATE_FORMAT(`date_from`, '%M %d - '), DATE_FORMAT(`date_to`, '%d,'), DATE_FORMAT(`date_from`, ' %Y')) 
+    AS 'date_two_en', DATE_FORMAT(`date_to`, '%d %M %Y г.') AS 'date_ru', CONCAT(DATE_FORMAT(`date_from`, '%d - '), 
+    DATE_FORMAT(`date_to`, '%d %M'), DATE_FORMAT(`date_from`, ' %Y г.')) AS 'date_two_ru' FROM `dates` WHERE `text_ru` 
+    LIKE 'Конференция%' AND `date_from` >= CURDATE()");
+    
+    $nextContaptionDate = mysqli_fetch_assoc($nextContaptionDate);
+    if ($nextContaptionDate["date_from"] == $nextContaptionDate["date_to"]) {
+        echo $_SESSION["ID_conf"];
+        $next__conference .= $nextContaptionDate["date_" . $_SESSION["lang"]];
+    } else if ($nextContaptionDate["date_from"] != $nextContaptionDate["date_to"]) {
+        $next__conference .= $nextContaptionDate["date_two_" . $_SESSION["lang"]];
+    } else {
+        $next__conference = "";
+    }
+    $next__conference .= "</h2>
+        </div>";
+    echo $next__conference;
+}
 
     function bread (){
         include "connect.php";

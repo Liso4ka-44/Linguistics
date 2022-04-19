@@ -50,7 +50,7 @@
 	$dates = array_reverse($dates);
 
 
-	$visit_count_params = "['Дата', 'Колличество просмотров']";
+	$visit_count_params = "['Дата', 'Количество просмотров']";
 
 
 	foreach ($dates as $date) {

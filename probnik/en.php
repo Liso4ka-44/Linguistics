@@ -36,7 +36,7 @@
         'address_text' => '143007 Moscovskaya Oblast, Odintsovsky District, Odintsovo, Novo-Sportivnaya Street, 3 (room 516)',
         'phone' => 'Phone',
         'phone_text' => '+7 495 661 71 98',
-        'footer' => 'Odintsovo branch of MGIMO © 2021',
+        'footer' => 'Odintsovo branch of MGIMO © 2022',
         'el_collection' => 'Conference proceedings',
         'conf' => 'Conference',
         'download' => 'Download',

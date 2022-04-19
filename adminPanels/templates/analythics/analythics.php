@@ -47,7 +47,7 @@
 		<tr>
 			<th>Имя конференции</th>
 			<th>Средняя оценка</th>
-			<th>Колличество оценок</th>
+			<th>Количество оценок</th>
 			<th>Просмотры конференции</th>
 		</tr>
 		<?=$an_rows?>
@@ -74,8 +74,8 @@
 	   	 	<?=$mid_rate_params?>
 	    ]);
 
-	    var options_visit = {'title':'Диаграмма колличества просмотров'};
-	    var options_rates = {'title':'Диаграмма колличества оценок'};
+	    var options_visit = {'title':'Диаграмма количества просмотров'};
+	    var options_rates = {'title':'Диаграмма количества оценок'};
 	    var options_mid_rate = {'title':'Диаграмма средняя оценка'};
 
 	    var chart1 = new google.visualization.ColumnChart(document.getElementById('visits_count'));

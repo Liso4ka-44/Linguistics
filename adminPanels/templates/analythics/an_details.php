@@ -10,7 +10,7 @@
 <div class='all_an_content'>
 	<form class="settings_form" method="GET" action="analythics_cur_conf.php">
 		<input type="hidden" name="ID" value="<?=$_GET['ID']?>">
-		<span>Колличество точек</span><input required type="number" name="count" min='0'>
+		<span>Количество точек</span><input required type="number" name="count" min='0'>
 		<span>Расстояние между днями</span><input required type="number" name="distance" min="1">
 		<input type="submit" name="" value="Отобразить">
 	</form>
@@ -24,7 +24,7 @@
 	     	<?=$visit_count_params?>
 	    ]);
 
-	    var options_visit = {'title':'Диаграмма колличества просмотров'};
+	    var options_visit = {'title':'Диаграмма количества просмотров'};
 
 	    var chart1 = new google.visualization.LineChart(document.getElementById('visits_count'));
 

@@ -1,6 +1,6 @@
 <?php
 	// Функция полключения к БД. Возвращает ссылку на базу данных
-	function connectToDB($server="localhost", $user="root", $password="", $dbname="mgimonew"){
+	function connectToDB($server="localhost", $user="root", $password="", $dbname="vkr"){
 		$db_link = mysqli_connect($server, $user, $password, $dbname);
 		if($db_link == false)
 			throw new Exception("Error connection databse", 1);
