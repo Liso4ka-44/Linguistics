@@ -90,7 +90,7 @@
                           $docus = mysqli_query($connect,"SELECT `email`,`Name`,`Surname` FROM `requestusers` WHERE `IdRequestUsers` = $row[IdRequestUsers] ");
                           $doc = mysqli_fetch_assoc($docus);
                           $status = (int) $row['Status'] ;
-                          $statusRequest = mysqli_query($connect,"SELECT `Title` FROM `statusRequest` WHERE `№` = $status ");
+                          $statusRequest = mysqli_query($connect,"SELECT `Title` FROM `statusrequest` WHERE `№` = $status ");
                           $status = mysqli_fetch_assoc($statusRequest);
                           switch ($status["Title"]) {
                             case 'Отклонена' :
@@ -177,7 +177,6 @@
                 </div>
               </div>
             </div>
-            
             <?php endwhile;?>
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -214,7 +213,6 @@
   <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
   <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
   <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script> 
-  <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/jquery-jvectormap.js"></script>>
   <script src="../assets/js/plugins/nouislider.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>

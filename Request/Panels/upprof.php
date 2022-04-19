@@ -3,6 +3,11 @@
     if( $_SESSION['aut'] == true && !empty($_SESSION['id'])){
         if($_GET['rd']=='ft'){
             if($_FILES['NewFoto']['name']!=""){
+                if($_SESSION['social']== true){
+                    $pathDirSoc = $_SESSION['socialName'];
+                    $sociald = (int) $_SESSION['socialId'];
+                    $socialdir = "/users/$pathDirSoc/$sociald/foto/";
+                }
                 $poiskLogina = mysqli_query($connect,"SELECT `Login`,`Photo` FROM `requestusers` WHERE `IdRequestUsers` = $_SESSION[id]");
                 $rowLogina = mysqli_fetch_assoc($poiskLogina); 
                 $login = $rowLogina['Login'];
@@ -13,7 +18,11 @@
                         }
                     }
                 }
-                $dir = "/users/$login/foto/";
+                if($_SESSION['social']!= true){
+                    $dir = "/users/$login/foto/";
+                } else{
+                    $dir = $socialdir;
+                }
                 $files = array();
                 $allow = array(
                     'jpg', 'png', 'svg', 'jpeg'
@@ -25,8 +34,13 @@
                     'htm', 'css', 'sql', 'spl', 'scgi', 'fcgi', 'exe'
                 );
                 $input_name = 'NewFoto';
+                
                 function fileName ($extension){
-                    $dir = "/users/$login/foto/";
+                    if($_SESSION['social']!= true){
+                        $dir = "/users/$login/foto/";
+                       } else{
+                           $dir = $socialdir;
+                       }
                     do {
                         $name = md5(microtime() . rand(0, 9999));
                         $chars = '.'; 
@@ -62,9 +76,29 @@
                             $error = 'Недопустимый тип файла';
                         } elseif (!empty($allow) && in_array(strtolower($parts['extension']), $allow)) {
                             $finishFile = fileName($parts['extension']);
-                            $dir = "/users/$login/foto/";
+                            if(      $_SESSION['social']== true){
+                                $pathDirSoc = $_SESSION['socialName'];
+                                $sociald = (int) $_SESSION['socialId'];
+                                $socialdir = "/users/$pathDirSoc/$sociald/foto/";
+                                $dir = $socialdir;
+                                }
                             if (move_uploaded_file($file['tmp_name'], __DIR__ .$dir.$finishFile.".".$parts['extension'])) {
-                                $ardicleDir = "$dir"."$finishFile".".$parts[extension]";
+                                if($_SESSION['social']== true){
+                                    if(      $_SESSION['social']== true){
+                                        $pathDirSoc = $_SESSION['socialName'];
+                                        $sociald = (int) $_SESSION['socialId'];
+                                        $socialdir = "/users/$pathDirSoc/$sociald/foto/";
+                                        }
+                                    $pathDirSoc = $_SESSION['socialName'];
+                                    $sociald = (int) $_SESSION['socialId'];
+                                    $socialdir = "users/$pathDirSoc/$sociald/foto/";
+                                }
+                                if($_SESSION['social']!= true){
+                                    $dir = "users/$login/foto/";
+                                } else{
+                                       $dir = $socialdir;
+                                }
+                                $ardicleDir = "users/$dir"."$finishFile".".$parts[extension]";
                                 $query = 
                                 "UPDATE `requestusers` 
                                     SET 

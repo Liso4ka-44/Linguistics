@@ -1,9 +1,11 @@
 <?php
-    session_start();  
+    session_start(); 
+
     include "connect.php"; 
     $number = (int) $_GET['numberReq'];
     $Request = mysqli_query($connect,"SELECT `Article`, `IdRequestUsers` FROM `request` WHERE `№` = $number");
     $request = mysqli_fetch_assoc($Request); 
+
     if($request['IdRequestUsers'] == $_SESSION['id'] || $_SESSION['status'] =='admin'){
         $nameRequest=htmlspecialchars($_POST["NewnameRequest"], ENT_QUOTES);
         $Time= $_POST['NewtimeStart']."-".$_POST['NewtimeEnd'];
@@ -14,14 +16,22 @@
             if(!empty($request['Article']) && $request['Article']!=''){
                 if (file_exists(__DIR__.$request['Article'])) {
                     if(unlink($_SERVER['DOCUMENT_ROOT']."/Request/Panels$request[Article]")){
-                        echo 'файл удален';
                     }
                 }
             }
             $poiskLogina = mysqli_query($connect,"SELECT `Login` FROM `requestusers` WHERE `IdRequestUsers` = $_SESSION[id]");
             $rowLogina = mysqli_fetch_assoc($poiskLogina); 
             $login = $rowLogina['Login'];
-            $dir = "/users/$login/requestdoc/";
+            if($_SESSION['social']== true){
+            $pathDirSoc = $_SESSION['socialName'];
+            $sociald = (int) $_SESSION['socialId'];
+            $socialdir = "/users/$pathDirSoc/$sociald/requestdoc/";
+            }
+            if($_SESSION['social']!= true){
+                $dir = "/users/$login/requestdoc/";
+            } else{
+                $dir = $socialdir;
+            }
             $files = array();
             $allow = array();
             $deny = array(
@@ -50,7 +60,6 @@
                     }
                 }		
             }	
-          
             foreach ($files as $file) {
                 $error = $success = '';
                 if (!empty($file['error']) || empty($file['tmp_name'])) {
@@ -68,7 +77,11 @@
                         $error = 'Недопустимый тип файла';
                     } else {
                         $finishFile = fileName($parts['extension']);
-                        $dir = "/users/$login/requestdoc/";
+                        if($_SESSION['social']!= true){
+                            $dir = "/users/$login/requestdoc/";
+                        } else{
+                            $dir = $socialdir;
+                        }
                         if (move_uploaded_file($file['tmp_name'], __DIR__ .$dir.$finishFile.".".$parts['extension'])) {
                             $ardicleDir = "$dir"."$finishFile".".$parts[extension]";
                         } 
@@ -77,13 +90,13 @@
             }
         } 
         $RequestUsers = mysqli_query($connect,"UPDATE `request` SET `Title`='$nameRequest', `Time`='$Time', `Date`='$Date' , `Thesis`='$Thesis' , `Article` ='$ardicleDir' WHERE `request`.`№` = $number");
-        ob_end_clean();
         if($_SESSION['status']=='admin'){
             $list='list';
         }
         else{
             $list='listus';
         }
+        ob_end_clean();
         header("Location: $list.php");
     }
 ?>

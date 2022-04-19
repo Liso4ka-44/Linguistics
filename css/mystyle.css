@@ -1,25 +1,3 @@
-/* Оболочка хлебных крошек */
-
-
-/*.wrapper {
-    max-width: 1140px;
-    margin: 0 auto;
-}
-
-.wrapper a {
-    font-family: "Roboto", sant-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 111.7%;
-    text-align: center;
-    color: #411887;
-    margin: 5px 10px 10px 0;
-    padding: 0 20px 0 0;
-    background: url("../img/bread_crumbs/Polygon1.png") right center no-repeat;
-}*/
-
-
 /*Баннер*/
 
 body {
@@ -40,19 +18,6 @@ body {
     color: black;
     font-weight: bold;
 }
-
-
-/* @media (min-width: 768px) {
-    .main-banner {
-        padding: 100px 0;
-    }
-}
-
-@media (min-width: 1200px) {
-    .main-banner {
-        padding: 170px 0;
-    }
-} */
 
 .main-banner h1 {
     color: #fff;
@@ -1533,6 +1498,7 @@ label {
     }
     .spisok-konf__img img {
         width: 100%;
+        object-fit: cover;
     }
     .blog_details {
         width: 70%;

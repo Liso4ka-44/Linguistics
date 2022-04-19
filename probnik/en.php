@@ -36,7 +36,7 @@
         'address_text' => '143007 Moscovskaya Oblast, Odintsovsky District, Odintsovo, Novo-Sportivnaya Street, 3 (room 516)',
         'phone' => 'Phone',
         'phone_text' => '+7 495 661 71 98',
-        'footer' => 'Odintsovo branch of MGIMO © 2021',
+        'footer' => 'Odintsovo branch of MGIMO © 2022',
         'el_collection' => 'Conference proceedings',
         'conf' => 'Conference',
         'download' => 'Download',
@@ -58,15 +58,6 @@
         'contact' => 'Contact us',
         'partner' => 'Conference Partners',
         'nextconf' => 'Next Conference:',
-        'date' => 'February 17-18, 2022',
-
-        'form_text_lang' => 'Language:',
-        'form_text_post' => 'Position:',
-        'form_text_rating' => 'Rating:',
-        'form_text_feedback' => 'Feedback text:',
-        'form_text_leave_feedback' => 'Leave a feedback',
-
-        'message_need_to_sign_in_link' => 'Sign in',
-        'message_need_to_sign_in_text' => 'to leave a feedback',
+        'date' => 'February 16, 2023',
     );
 ?>

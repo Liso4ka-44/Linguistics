@@ -1,0 +1,104 @@
+.main__nav {
+    width: 30%;
+    a {
+        display: block;
+        width: 100%;
+        padding: 2px;
+    }
+}
+
+.main__content {
+    width: 100%;
+    text-align: center;
+    // label {
+    //     display: block;
+    // }
+    .addAdditionalDates {
+        width: 600px;
+        margin: 15px 0 0 0;
+        border-top: 1px solid #000000;
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    .information__announcement {
+        .main__introductionAnnouncement {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            textarea {
+                border: 1px solid rgba(0, 0, 0, 0.8);
+                box-sizing: border-box;
+                border-radius: 5px;
+                width: 285px;
+                margin: 10px 0 0 0;
+            }
+        }
+    }
+    .editor__list {
+        margin: 0 auto;
+        width: 480px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        .edit {
+            width: 100%;
+            height: 210px;
+        }
+    }
+    .beetwenDate {
+        display: flex;
+        width: 300px;
+        margin: 30px auto 25px;
+    }
+    .KeysDate {
+        width: 100%;
+        .dateConf {
+            width: 500px;
+            margin: 0 auto;
+            p {
+                width: 100%;
+                font-style: italic;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 14px;
+                color: #505050;
+                background-image: url("/img/icon/warning.png");
+                background-position: left;
+                background-repeat: no-repeat;
+                background-size: 17px;
+                padding: 0 0 0 20px;
+            }
+        }
+        .additionalDates {
+            width: 600px;
+            margin: 0 auto;
+            .additionalDate {
+                width: 290px;
+                margin: 0 auto 10px;
+            }
+        }
+    }
+    .programs {
+        width: 600px;
+        margin: 0 auto;
+        .program {
+            width: 600px;
+            margin: 0 auto;
+        }
+    }
+    .main__button {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #FFFFFF;
+        background: #168628;
+        border-radius: 5px;
+        padding: 7px 8px;
+        border: none;
+        margin: 20px 0 0 0;
+    }
+}

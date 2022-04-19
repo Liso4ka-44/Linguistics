@@ -27,8 +27,12 @@ include "indexVivod.php";
 					<div class="next__conference">
 						<div class="next__conference__body">
 							<?php
-							/*next__conference(); */
+							/*next__conference();*/
 							?>
+							<div class='next__conference__content'>
+								<h2 class='next__conference__title'><?php echo name('nextconf') ?></h2>
+								<h2 class='next__conference__date'><?php echo name('date') ?></h2>
+							</div>
 						</div>
 					</div>
 					<!--<div class="application">
@@ -59,24 +63,24 @@ include "indexVivod.php";
 			</div>
 		</section>
 
-		<section class="anons mb-5 pb-5" id="newconf">
-			<div class="container">
-				<div class="anons-title">
-					<h1><?php echo name('announcement_title_f') ?></h1>
-					<h1><?php echo name('announcement_title_s') ?></h1>
-					<img src="img/home/section-style.png" alt="">
+		<!--<section class="anons mb-5 pb-5"  id = "newconf">
+			<div class="container">-->
+		<!--<div class="anons-title" >
+					<h1><?php /*echo name('announcement_title_f')*/ ?></h1>
+				<h1><?php /*echo name('announcement_title_s')*/ ?></h1>
+				<img src="img/home/section-style.png" alt="">
+				</div>-->
+		<!--<div class="row ">
+				<div class="col-xl-10 offset-xl-1 ">
+					<div class="scheduleTab">-->
+		<?php
+		//anonsDate(); 
+		?>
+		<!--</div>
 				</div>
-				<div class="row ">
-					<div class="col-xl-10 offset-xl-1 ">
-						<div class="scheduleTab">
-							<?php
-							anonsDate();
-							?>
-						</div>
-					</div>
 				</div>
 			</div>
-		</section>
+			</section>-->
 		<section class="contaption__anons">
 			<div class="container">
 				<div class="contaption__anons__body">
@@ -235,12 +239,6 @@ include "indexVivod.php";
 					echo "<iframe class='navig' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1124.7402058766709!2d37.276506772104455!3d55.68063499655889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a6e50a4b7d1%3A0x473923d9854e9fa9!2z0J7QtNC40L3RhtC-0LLRgdC60LjQuSDRhNC40LvQuNCw0Lsg0JzQk9CY0JzQniDQnNCY0JQg0KDQvtGB0YHQuNC4!5e0!3m2!1sru!2sru!4v1621584194016!5m2!1s" . $_SESSION["lang"] . "!2sru' loading='lazy'></iframe>";
 					?>
 				</div>
-			</div>
-		</section>
-		<section class="cookie">
-			<div class="cookie_form">
-				<p class="cookie_text">Этот сайт использует файлы cookie для хранения данных. Продолжая использовать сайт, вы даете свое согласие на работу с этими файлами.</p>
-				<button type="button" class="cookie_btn">Принять и закрыть</button>
 			</div>
 		</section>
 	</main>

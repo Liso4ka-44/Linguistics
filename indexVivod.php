@@ -142,16 +142,8 @@
         while(($row = mysqli_fetch_assoc($feedBD)) != false){
             if($row['feedback_'.$_SESSION["lang"]]!=''&&$row['Name_feedback_'.$_SESSION["lang"]]!=''){
                 $feedback.="<div class='feedback'>
-                <h4>".$row['Name_feedback_'.$_SESSION["lang"]]."</h4>";
-                
-                $feedback .= "<div class='feedback__rating'><span>";
-                for( $i = 0; $i < $row['rating']; ++$i ) {
-                    $feedback .= "★";
-                }
-                $feedback .= "</span></div>";
-
-                $feedback .= "<h5>".$row['post_'.$_SESSION["lang"]]."</h5>";
-
+                <h4>".$row['Name_feedback_'.$_SESSION["lang"]]."</h4>"."<h5>".$row['post_'.$_SESSION["lang"]]."</h5>";
+            
                 $in = $row['feedback_'.$_SESSION["lang"]];
                 $plak=explode(PHP_EOL,$in);
                 foreach($plak as $key => $val){
@@ -191,8 +183,11 @@
         while(($row = mysqli_fetch_assoc($photoBD)) != false){
             if($row['video_conf']!=''){
                 $video.="
-                <iframe class='videokonf' src='https://www.youtube.com/embed/".$row['video_conf']."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
-            }
+                
+                    <iframe class='videokonf' src='https://rutube.ru/embed/".$row['video_conf']."' frameborder='0'
+                        webkitAllowFullScreen mozallowfullscreen allowfullscreen scrolling='no'>
+                    </iframe>";
+                }
         }
         if($video!="<div class='last-photo-konf-title blo-padd'><h2 class='primary-text'>".name('video')."</h2><img src='img/home/section-style.png' ></div><div class='row no-gutters '><div class='foto'>"){
             echo $video."</div></div>";
@@ -242,51 +237,43 @@
         }
         echo $speaker.='</div></div>';
     }
-    function sbornick(){
-        include "connect.php";
-        $arrayDateAnnouncement=array();
-        $idconf = mysqli_query($connect,"SELECT `ID_conf` FROM `el_collection`");
-        while(($row = mysqli_fetch_assoc($idconf)) != false){
-            if(!in_array($row['ID_conf'], $arrayDateAnnouncement)){
-                $arrayDateAnnouncement[]=$row['ID_conf'];
+    function sbornick()
+{
+    include "connect.php";
+    $arrayDateAnnouncement = array();
+    $idconf = mysqli_query($connect, "SELECT `ID_conf` FROM `el_collection`");
+    while (($row = mysqli_fetch_assoc($idconf)) != false) {
+        if (!in_array($row['ID_conf'], $arrayDateAnnouncement)) {
+            $arrayDateAnnouncement[] = $row['ID_conf'];
+        }
+    }
+    foreach ($arrayDateAnnouncement as $key => $value) {
+        $el_col_BD = mysqli_query($connect, "SELECT  `Name_documents_" . $_SESSION["lang"] . "`, `Road_to_documents`, `cover`, `link` FROM `el_collection` WHERE `ID_conf` = $arrayDateAnnouncement[$key]");
+        $confBD = mysqli_query($connect, "SELECT `ID_conf`, `date_from` FROM `dates` WHERE `text_ru` LIKE 'Конференция%' AND `ID_conf`= $arrayDateAnnouncement[$key]");
+        $row2 = mysqli_fetch_assoc($confBD);
+        while (($row = mysqli_fetch_assoc($el_col_BD)) != false) {
+            if ($row["cover"] != "") {
+                $string .= "<img src = '/adminPanels/" . "" . $row["cover"] . "' alt = 'foto'> <h6>" . $row['Name_documents_' . $_SESSION["lang"]] . " </h6><a href='" . $row['Road_to_documents'] . "'>" . name('download_el') . "</a><br></h6><a href='" . $row['link'] . "'>" . name('read_el') . "</a><br>";
+            } else {
+                $string .= "<img src = '" . $row["cover"] . "' alt = 'foto'> <h6>" . $row['Name_documents_' . $_SESSION["lang"]] . " </h6><a href='" . $row['Road_to_documents'] . "'>" . name('download_el') . "</a><br></h6><a href='" . $row['link'] . "'>" . name('read_el') . "</a><br>";
             }
         }
-        foreach($arrayDateAnnouncement as $key => $value){
-            $el_col_BD = mysqli_query($connect,"SELECT  `Name_documents_".$_SESSION["lang"]."`, `Road_to_documents`, `cover`, `link` FROM `el_collection` WHERE `ID_conf` = $arrayDateAnnouncement[$key]");
-            $confBD = mysqli_query($connect,"SELECT * FROM `conferences` WHERE `ID_conf` = $arrayDateAnnouncement[$key] ");
-            $row2 = mysqli_fetch_assoc($confBD);
-            while(($row = mysqli_fetch_assoc($el_col_BD)) != false){
-                if($row["cover"] != ""){
-                    $string .= "<img src = '/adminPanels/"."".$row["cover"]."' alt = 'foto'> <h6>".$row['Name_documents_'.$_SESSION["lang"]]." </h6><a href='".$row['Road_to_documents']."'>".name('download_el')."</a><br></h6><a href='".$row['link']."'>".name('read_el')."</a><br>";
-                }
-                else{
-                    $string .= "<img src = '".$row["cover"]."' alt = 'foto'> <h6>".$row['Name_documents_'.$_SESSION["lang"]]." </h6><a href='".$row['Road_to_documents']."'>".name('download_el')."</a><br></h6><a href='".$row['link']."'>".name('read_el')."</a><br>";
-                }
-                
-            }
-            if($row2["main_photo"]!=""){
-                $imgkonf = "/adminPanels/".$row2['main_photo'];
-            }
-            else{
-                $imgkonf = "/img/logo/logo2.png";
-            }
 
-           
-            $el_coll .="<article class='konf el__colection'>
+        $el_coll .= "<article class='konf el__colection'>
                             <div class='spisok-konf'>
-                                <a href='blog-details.php?id=".$value."' class='spisok-konf'><h3>".name('conf')." ".date('Y',strtotime($row2['date']))."</h3></a>
+                                <a href='blog-details.php?id=" . $value . "' class='spisok-konf'><h3>" . name('conf') . " " . date('Y', strtotime($row2['date_from'])) . "</h3></a>
                             </div>
                             <div class = 'cover_konf'>
                             
                             </div>
                             <div class='blog_details el_col'>
-                                <div class='cover'>".$string."</div><a class='d-inline-block' href='blog-details.php?id=".$value."'></a>
+                                <div class='cover'>" . $string . "</div><a class='d-inline-block' href='blog-details.php?id=" . $value . "'></a>
                             </div>
                             </article>";
-            $string='';
-            }
-        echo $el_coll;
+        $string = '';
     }
+    echo $el_coll;
+}
     function anonsDate (){
         include "connect.php";
         $arrayDateAnnouncement=array();
@@ -362,10 +349,10 @@
                 $anons.='</div>';
             }
         }
-        else{
+        /*else{
             $anons = "<h1>".name('no_conf')."</h1>";
         }
-        echo $anons;
+        echo $anons;*/
     }
     function contaption__title(){
         include "connect.php";
@@ -511,6 +498,3 @@
         echo "<a href = '".$crumbs['Адрес'][$i]."'>". $crumbs['Путь'][$i]."</a>";
         }  
     }
-    
-    
-?>

@@ -9,7 +9,6 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 <body>
   <div class="wrapper ">
@@ -83,12 +82,19 @@
                       </tfoot>
                       <tbody>
                       <?php
-                        $listRequest = mysqli_query($connect,"SELECT * FROM `request` WHERE `IdRequestUsers` = $_SESSION[id]");
+                        if($_SESSION['social'] == true){
+                        $socialName = $_SESSION['socialName'];
+                        $sql = "SELECT * FROM `request` WHERE `IdRequestUsers` = $_SESSION[id] AND `socialName` = '$socialName'";
+                        }
+                        else{
+                          $sql ="SELECT * FROM `request` WHERE `IdRequestUsers` = $_SESSION[id]";
+                        }
+                        $listRequest = mysqli_query($connect,$sql);
                         while(($row = mysqli_fetch_assoc($listRequest)) != false) :
                           $docus = mysqli_query($connect,"SELECT `email`,`Name`,`Surname` FROM `requestusers` WHERE `IdRequestUsers` = $row[IdRequestUsers] ");
                           $doc = mysqli_fetch_assoc($docus);
                           $status = (int) $row['Status'] ;
-                          $statusRequest = mysqli_query($connect,"SELECT `Title` FROM `statusRequest` WHERE `№` = $status ");
+                          $statusRequest = mysqli_query($connect,"SELECT `Title` FROM `statusrequest` WHERE `№` = $status ");
                           $status = mysqli_fetch_assoc($statusRequest);
                           switch ($status["Title"]) {
                             case 'Отклонена' :

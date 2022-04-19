@@ -125,6 +125,7 @@
             </div> 
           </div>
           </div> 
+          <?php if(empty($_SESSION['social'])):?>
           <div class="col-md-8">
             <form method="post" id="myForm" action="upprof.php?rd=ps">
               <div class="card">
@@ -158,6 +159,7 @@
             </form>
             </div> 
           </div>
+          <?php endif?>
         </div>
       </div>
     </div>
@@ -175,7 +177,6 @@
   <script src="../assets/js/plugins/jquery.dataTables.min.js"></script>
   <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
   <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/jquery-jvectormap.js"></script>
   <script src="../assets/js/plugins/nouislider.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>

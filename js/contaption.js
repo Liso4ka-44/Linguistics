@@ -3,10 +3,11 @@ $(document).ready(function() {
 
 
     $('#contaption__link').click(function() {
-
+        // event.preventDefault();
         $('.contaption__spaeks__list').toggleClass("contaption__spaeks__list__full");
         if ($(".contaption__spaeks__list").hasClass("contaption__spaeks__list__full")) {
-            let elementClick = $('#cont').attr("href", "#contaption__link");
+            $('#contaption__link').attr("href", "#contaption__link");
+            let elementClick = $(this).attr("href");
             let destination = $(elementClick).offset().top - 800;
             $('html, body').animate({ scrollTop: destination }, 1500);
             return false;
@@ -25,7 +26,7 @@ $(document).ready(function() {
         if (elementClick2[1] != undefined) {
             let destination2 = $("#" + elementClick2[1]).offset().top - 110;
             $('html, body').animate({ scrollTop: destination2 }, 1500);
-        } else if (link == "index.php" && window.location.href == "http://localhost/index.php") {
+        } else if (link == "index.php" && window.location.href == "https://linguistics.mgimo.ru/index.php") {
             let destination2 = $('body').offset().top - 110;
             $('html, body').animate({ scrollTop: destination2 }, 1500);
         } else {

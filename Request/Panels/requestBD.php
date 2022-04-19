@@ -19,8 +19,17 @@
             'htm', 'css', 'sql', 'spl', 'scgi', 'fcgi', 'exe'
         );
         $input_name = 'articleFile';
+        if(      $_SESSION['social']== true){
+        $pathDirSoc = $_SESSION['socialName'];
+        $sociald = (int) $_SESSION['socialId'];
+        $socialdir = "/users/$pathDirSoc/$sociald/requestdoc/";
+        }
         function fileName ($extension){
+            if(      $_SESSION['social']!= true){
             $dir = "/users/$login/requestdoc/";
+            } else{
+                $dir = $socialdir;
+            }
             do {
                 $name = md5(microtime() . rand(0, 9999));
                 $chars = '.'; 
@@ -56,16 +65,22 @@
                     $error = 'Недопустимый тип файла';
                 } else {
                     $finishFile = fileName($parts['extension']);
-                    $dir = "/users/$login/requestdoc/";
+                    if(      $_SESSION['social']!= true){
+                        $dir = "/users/$login/requestdoc/";
+                    } else{
+                            $dir = $socialdir;
+                    }
                     if (move_uploaded_file($file['tmp_name'], __DIR__ .$dir.$finishFile.".".$parts['extension'])) {
                         $ardicleDir = "$dir"."$finishFile".".$parts[extension]";
-                        var_dump($ardicleDir);
                     } 
                 }
             }
         }
     } 
-    $query = "INSERT INTO `request` (`IdRequestUsers`, `Title`, `Time`, `Date`, `Thesis`, `Article`, `Status`) VALUES ('$_SESSION[id]','$nameAddRequest','$Time','$Date','$Thesis','$ardicleDir','2')";
+    if($_SESSION['social'] == true){
+        $socialName = $_SESSION['socialName'];
+    }
+    $query = "INSERT INTO `request` (`IdRequestUsers`, `Title`, `Time`, `Date`, `Thesis`, `Article`,`socialName`, `Status`) VALUES ('$_SESSION[id]','$nameAddRequest','$Time','$Date','$Thesis','$ardicleDir','$socialName','2')";
     mysqli_query($connect, $query);
     ob_end_clean();
     if($_SESSION['status']=='admin'){
@@ -74,6 +89,7 @@
         else{
         $list='listus';
         }
-      header("Location: $list.php");
+    ob_end_clean();
+    header("Location: $list.php");
  
 ?>

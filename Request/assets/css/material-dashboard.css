@@ -20447,4 +20447,11 @@ select.selectpicker {
   .sidebar .navbar-form {
     display: none !important; } }
 
-/*# sourceMappingURL=material-dashboard.css.map */
+
+  .social{
+    height:40px;
+    width:40px;
+  }
+  .social:hover {
+    opacity: 0.7;
+  }
