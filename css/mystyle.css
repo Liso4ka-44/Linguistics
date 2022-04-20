@@ -21,6 +21,10 @@
 
 /*Баннер*/
 
+#conf_t {
+    color: #FFFFFF;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     min-height: 100%;
