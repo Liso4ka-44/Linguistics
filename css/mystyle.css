@@ -5,7 +5,6 @@
     max-width: 1140px;
     margin: 0 auto;
 }
-
 .wrapper a {
     font-family: "Roboto", sant-serif;
     font-style: normal;
@@ -47,7 +46,6 @@ body {
         padding: 100px 0;
     }
 }
-
 @media (min-width: 1200px) {
     .main-banner {
         padding: 170px 0;
@@ -511,7 +509,6 @@ body {
 /* .content__anons::-webkit-scrollbar {
     width: 2px;
 }
-
 .content__anons::-webkit-scrollbar-thumb {
     background-color: rgba(240, 67, 119);
     border-radius: 100px;
@@ -749,7 +746,6 @@ footer p {
 .section-konf {
     margin: 50px 0;
 }
-
 @media (min-width: 992px) {
     .section-konf {
         margin: 100px 0;
@@ -760,35 +756,27 @@ footer p {
 /* .konf {
     background-color: white;
 }
-
 .konf:hover {
     color: #fff
 }
-
 .konf:hover .blog_details {
     background: #3b1d82;
 }
-
 .konf:hover .spisok-konf a {
     background: #ea0763;
 }
-
 .konf:hover .blog_details p {
     color: #fff;
 }
-
 .konf:hover .blog_details h6 {
     color: #fff;
 }
-
 .spisok-konf:hover h2 {
     color: #fff
 }
-
 .konf:hover .konf-date {
     background-color: #3b1d82;
 }
-
 .konf:hover h2 {
     color: black;
 } */
@@ -850,6 +838,10 @@ footer p {
 .blog-mar {
     margin-top: 70px;
     margin-bottom: 20px;
+}
+
+.blog-mar h2 {
+    color: #3b1d82;
 }
 
 
